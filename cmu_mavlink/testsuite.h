@@ -280,12 +280,13 @@ static void mavlink_test_cascaded_cmd(uint8_t system_id, uint8_t component_id, m
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_cascaded_cmd_t packet_in = {
-        93372036854775807ULL,73.0,{ 101.0, 102.0, 103.0, 104.0 },{ 213.0, 214.0, 215.0 },{ 297.0, 298.0, 299.0 },161
+        93372036854775807ULL,73.0,101.0,{ 129.0, 130.0, 131.0, 132.0 },{ 241.0, 242.0, 243.0 },{ 325.0, 326.0, 327.0 },173
     };
     mavlink_cascaded_cmd_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
         packet1.time_usec = packet_in.time_usec;
         packet1.thrust = packet_in.thrust;
+        packet1.current_yaw = packet_in.current_yaw;
         packet1.target_system = packet_in.target_system;
         
         mav_array_memcpy(packet1.q, packet_in.q, sizeof(float)*4);
@@ -304,12 +305,12 @@ static void mavlink_test_cascaded_cmd(uint8_t system_id, uint8_t component_id, m
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_cascaded_cmd_pack(system_id, component_id, &msg , packet1.time_usec , packet1.target_system , packet1.thrust , packet1.q , packet1.ang_vel , packet1.ang_acc );
+    mavlink_msg_cascaded_cmd_pack(system_id, component_id, &msg , packet1.time_usec , packet1.target_system , packet1.thrust , packet1.current_yaw , packet1.q , packet1.ang_vel , packet1.ang_acc );
     mavlink_msg_cascaded_cmd_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_cascaded_cmd_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.time_usec , packet1.target_system , packet1.thrust , packet1.q , packet1.ang_vel , packet1.ang_acc );
+    mavlink_msg_cascaded_cmd_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.time_usec , packet1.target_system , packet1.thrust , packet1.current_yaw , packet1.q , packet1.ang_vel , packet1.ang_acc );
     mavlink_msg_cascaded_cmd_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -322,7 +323,7 @@ static void mavlink_test_cascaded_cmd(uint8_t system_id, uint8_t component_id, m
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_cascaded_cmd_send(MAVLINK_COMM_1 , packet1.time_usec , packet1.target_system , packet1.thrust , packet1.q , packet1.ang_vel , packet1.ang_acc );
+    mavlink_msg_cascaded_cmd_send(MAVLINK_COMM_1 , packet1.time_usec , packet1.target_system , packet1.thrust , packet1.current_yaw , packet1.q , packet1.ang_vel , packet1.ang_acc );
     mavlink_msg_cascaded_cmd_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 }
