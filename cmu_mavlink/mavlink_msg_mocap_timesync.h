@@ -25,18 +25,18 @@ typedef struct __mavlink_mocap_timesync_t {
     215, \
     "MOCAP_TIMESYNC", \
     3, \
-    {  { "tc1", NULL, MAVLINK_TYPE_INT64_T, 0, 0, offsetof(mavlink_mocap_timesync_t, tc1) }, \
+    {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_mocap_timesync_t, target_system) }, \
+         { "tc1", NULL, MAVLINK_TYPE_INT64_T, 0, 0, offsetof(mavlink_mocap_timesync_t, tc1) }, \
          { "ts1", NULL, MAVLINK_TYPE_INT64_T, 0, 8, offsetof(mavlink_mocap_timesync_t, ts1) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_mocap_timesync_t, target_system) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_MOCAP_TIMESYNC { \
     "MOCAP_TIMESYNC", \
     3, \
-    {  { "tc1", NULL, MAVLINK_TYPE_INT64_T, 0, 0, offsetof(mavlink_mocap_timesync_t, tc1) }, \
+    {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_mocap_timesync_t, target_system) }, \
+         { "tc1", NULL, MAVLINK_TYPE_INT64_T, 0, 0, offsetof(mavlink_mocap_timesync_t, tc1) }, \
          { "ts1", NULL, MAVLINK_TYPE_INT64_T, 0, 8, offsetof(mavlink_mocap_timesync_t, ts1) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_mocap_timesync_t, target_system) }, \
          } \
 }
 #endif

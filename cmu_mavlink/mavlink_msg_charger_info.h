@@ -29,10 +29,10 @@ typedef struct __mavlink_charger_info_t {
     "CHARGER_INFO", \
     6, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_charger_info_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_charger_info_t, target_system) }, \
          { "voltage", NULL, MAVLINK_TYPE_INT32_T, 0, 8, offsetof(mavlink_charger_info_t, voltage) }, \
          { "ups_current", NULL, MAVLINK_TYPE_INT32_T, 0, 12, offsetof(mavlink_charger_info_t, ups_current) }, \
          { "hss_current", NULL, MAVLINK_TYPE_INT32_T, 0, 16, offsetof(mavlink_charger_info_t, hss_current) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_charger_info_t, target_system) }, \
          { "gpio_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 21, offsetof(mavlink_charger_info_t, gpio_status) }, \
          } \
 }
@@ -41,10 +41,10 @@ typedef struct __mavlink_charger_info_t {
     "CHARGER_INFO", \
     6, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_charger_info_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_charger_info_t, target_system) }, \
          { "voltage", NULL, MAVLINK_TYPE_INT32_T, 0, 8, offsetof(mavlink_charger_info_t, voltage) }, \
          { "ups_current", NULL, MAVLINK_TYPE_INT32_T, 0, 12, offsetof(mavlink_charger_info_t, ups_current) }, \
          { "hss_current", NULL, MAVLINK_TYPE_INT32_T, 0, 16, offsetof(mavlink_charger_info_t, hss_current) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_charger_info_t, target_system) }, \
          { "gpio_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 21, offsetof(mavlink_charger_info_t, gpio_status) }, \
          } \
 }

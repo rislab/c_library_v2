@@ -28,9 +28,9 @@ typedef struct __mavlink_cascaded_cmd_gains_t {
     "CASCADED_CMD_GAINS", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_cascaded_cmd_gains_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_cascaded_cmd_gains_t, target_system) }, \
          { "kR", NULL, MAVLINK_TYPE_FLOAT, 3, 8, offsetof(mavlink_cascaded_cmd_gains_t, kR) }, \
          { "kOm", NULL, MAVLINK_TYPE_FLOAT, 3, 20, offsetof(mavlink_cascaded_cmd_gains_t, kOm) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_cascaded_cmd_gains_t, target_system) }, \
          } \
 }
 #else
@@ -38,9 +38,9 @@ typedef struct __mavlink_cascaded_cmd_gains_t {
     "CASCADED_CMD_GAINS", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_cascaded_cmd_gains_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_cascaded_cmd_gains_t, target_system) }, \
          { "kR", NULL, MAVLINK_TYPE_FLOAT, 3, 8, offsetof(mavlink_cascaded_cmd_gains_t, kR) }, \
          { "kOm", NULL, MAVLINK_TYPE_FLOAT, 3, 20, offsetof(mavlink_cascaded_cmd_gains_t, kOm) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_cascaded_cmd_gains_t, target_system) }, \
          } \
 }
 #endif

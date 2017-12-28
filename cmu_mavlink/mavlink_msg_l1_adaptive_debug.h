@@ -34,12 +34,12 @@ typedef struct __mavlink_l1_adaptive_debug_t {
     "L1_ADAPTIVE_DEBUG", \
     7, \
     {  { "timestamp", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_l1_adaptive_debug_t, timestamp) }, \
+         { "seq_id", NULL, MAVLINK_TYPE_UINT16_T, 0, 68, offsetof(mavlink_l1_adaptive_debug_t, seq_id) }, \
          { "avl_hat", NULL, MAVLINK_TYPE_FLOAT, 3, 8, offsetof(mavlink_l1_adaptive_debug_t, avl_hat) }, \
          { "dst_hat", NULL, MAVLINK_TYPE_FLOAT, 3, 20, offsetof(mavlink_l1_adaptive_debug_t, dst_hat) }, \
          { "ang_vel", NULL, MAVLINK_TYPE_FLOAT, 3, 32, offsetof(mavlink_l1_adaptive_debug_t, ang_vel) }, \
          { "lpd", NULL, MAVLINK_TYPE_FLOAT, 3, 44, offsetof(mavlink_l1_adaptive_debug_t, lpd) }, \
          { "rates", NULL, MAVLINK_TYPE_FLOAT, 3, 56, offsetof(mavlink_l1_adaptive_debug_t, rates) }, \
-         { "seq_id", NULL, MAVLINK_TYPE_UINT16_T, 0, 68, offsetof(mavlink_l1_adaptive_debug_t, seq_id) }, \
          } \
 }
 #else
@@ -47,12 +47,12 @@ typedef struct __mavlink_l1_adaptive_debug_t {
     "L1_ADAPTIVE_DEBUG", \
     7, \
     {  { "timestamp", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_l1_adaptive_debug_t, timestamp) }, \
+         { "seq_id", NULL, MAVLINK_TYPE_UINT16_T, 0, 68, offsetof(mavlink_l1_adaptive_debug_t, seq_id) }, \
          { "avl_hat", NULL, MAVLINK_TYPE_FLOAT, 3, 8, offsetof(mavlink_l1_adaptive_debug_t, avl_hat) }, \
          { "dst_hat", NULL, MAVLINK_TYPE_FLOAT, 3, 20, offsetof(mavlink_l1_adaptive_debug_t, dst_hat) }, \
          { "ang_vel", NULL, MAVLINK_TYPE_FLOAT, 3, 32, offsetof(mavlink_l1_adaptive_debug_t, ang_vel) }, \
          { "lpd", NULL, MAVLINK_TYPE_FLOAT, 3, 44, offsetof(mavlink_l1_adaptive_debug_t, lpd) }, \
          { "rates", NULL, MAVLINK_TYPE_FLOAT, 3, 56, offsetof(mavlink_l1_adaptive_debug_t, rates) }, \
-         { "seq_id", NULL, MAVLINK_TYPE_UINT16_T, 0, 68, offsetof(mavlink_l1_adaptive_debug_t, seq_id) }, \
          } \
 }
 #endif

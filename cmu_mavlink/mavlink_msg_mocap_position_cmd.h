@@ -34,12 +34,12 @@ typedef struct __mavlink_mocap_position_cmd_t {
     "MOCAP_POSITION_CMD", \
     7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_position_cmd_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 38, offsetof(mavlink_mocap_position_cmd_t, target_system) }, \
          { "pos", NULL, MAVLINK_TYPE_INT16_T, 3, 8, offsetof(mavlink_mocap_position_cmd_t, pos) }, \
          { "vel", NULL, MAVLINK_TYPE_INT16_T, 3, 14, offsetof(mavlink_mocap_position_cmd_t, vel) }, \
          { "acc", NULL, MAVLINK_TYPE_INT16_T, 3, 20, offsetof(mavlink_mocap_position_cmd_t, acc) }, \
          { "jerk", NULL, MAVLINK_TYPE_INT16_T, 3, 26, offsetof(mavlink_mocap_position_cmd_t, jerk) }, \
          { "heading", NULL, MAVLINK_TYPE_INT16_T, 3, 32, offsetof(mavlink_mocap_position_cmd_t, heading) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 38, offsetof(mavlink_mocap_position_cmd_t, target_system) }, \
          } \
 }
 #else
@@ -47,12 +47,12 @@ typedef struct __mavlink_mocap_position_cmd_t {
     "MOCAP_POSITION_CMD", \
     7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_position_cmd_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 38, offsetof(mavlink_mocap_position_cmd_t, target_system) }, \
          { "pos", NULL, MAVLINK_TYPE_INT16_T, 3, 8, offsetof(mavlink_mocap_position_cmd_t, pos) }, \
          { "vel", NULL, MAVLINK_TYPE_INT16_T, 3, 14, offsetof(mavlink_mocap_position_cmd_t, vel) }, \
          { "acc", NULL, MAVLINK_TYPE_INT16_T, 3, 20, offsetof(mavlink_mocap_position_cmd_t, acc) }, \
          { "jerk", NULL, MAVLINK_TYPE_INT16_T, 3, 26, offsetof(mavlink_mocap_position_cmd_t, jerk) }, \
          { "heading", NULL, MAVLINK_TYPE_INT16_T, 3, 32, offsetof(mavlink_mocap_position_cmd_t, heading) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 38, offsetof(mavlink_mocap_position_cmd_t, target_system) }, \
          } \
 }
 #endif

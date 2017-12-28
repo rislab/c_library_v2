@@ -36,8 +36,6 @@ typedef struct __mavlink_image_triggered_imu_t {
     "IMAGE_TRIGGERED_IMU", \
     13, \
     {  { "timestamp", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_image_triggered_imu_t, timestamp) }, \
-         { "trigger_t", NULL, MAVLINK_TYPE_UINT64_T, 0, 8, offsetof(mavlink_image_triggered_imu_t, trigger_t) }, \
-         { "trigger_seq", NULL, MAVLINK_TYPE_UINT64_T, 0, 16, offsetof(mavlink_image_triggered_imu_t, trigger_seq) }, \
          { "xacc", NULL, MAVLINK_TYPE_FLOAT, 0, 24, offsetof(mavlink_image_triggered_imu_t, xacc) }, \
          { "yacc", NULL, MAVLINK_TYPE_FLOAT, 0, 28, offsetof(mavlink_image_triggered_imu_t, yacc) }, \
          { "zacc", NULL, MAVLINK_TYPE_FLOAT, 0, 32, offsetof(mavlink_image_triggered_imu_t, zacc) }, \
@@ -47,6 +45,8 @@ typedef struct __mavlink_image_triggered_imu_t {
          { "xmag", NULL, MAVLINK_TYPE_FLOAT, 0, 48, offsetof(mavlink_image_triggered_imu_t, xmag) }, \
          { "ymag", NULL, MAVLINK_TYPE_FLOAT, 0, 52, offsetof(mavlink_image_triggered_imu_t, ymag) }, \
          { "zmag", NULL, MAVLINK_TYPE_FLOAT, 0, 56, offsetof(mavlink_image_triggered_imu_t, zmag) }, \
+         { "trigger_t", NULL, MAVLINK_TYPE_UINT64_T, 0, 8, offsetof(mavlink_image_triggered_imu_t, trigger_t) }, \
+         { "trigger_seq", NULL, MAVLINK_TYPE_UINT64_T, 0, 16, offsetof(mavlink_image_triggered_imu_t, trigger_seq) }, \
          { "trigger_id", NULL, MAVLINK_TYPE_UINT8_T, 0, 60, offsetof(mavlink_image_triggered_imu_t, trigger_id) }, \
          } \
 }
@@ -55,8 +55,6 @@ typedef struct __mavlink_image_triggered_imu_t {
     "IMAGE_TRIGGERED_IMU", \
     13, \
     {  { "timestamp", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_image_triggered_imu_t, timestamp) }, \
-         { "trigger_t", NULL, MAVLINK_TYPE_UINT64_T, 0, 8, offsetof(mavlink_image_triggered_imu_t, trigger_t) }, \
-         { "trigger_seq", NULL, MAVLINK_TYPE_UINT64_T, 0, 16, offsetof(mavlink_image_triggered_imu_t, trigger_seq) }, \
          { "xacc", NULL, MAVLINK_TYPE_FLOAT, 0, 24, offsetof(mavlink_image_triggered_imu_t, xacc) }, \
          { "yacc", NULL, MAVLINK_TYPE_FLOAT, 0, 28, offsetof(mavlink_image_triggered_imu_t, yacc) }, \
          { "zacc", NULL, MAVLINK_TYPE_FLOAT, 0, 32, offsetof(mavlink_image_triggered_imu_t, zacc) }, \
@@ -66,6 +64,8 @@ typedef struct __mavlink_image_triggered_imu_t {
          { "xmag", NULL, MAVLINK_TYPE_FLOAT, 0, 48, offsetof(mavlink_image_triggered_imu_t, xmag) }, \
          { "ymag", NULL, MAVLINK_TYPE_FLOAT, 0, 52, offsetof(mavlink_image_triggered_imu_t, ymag) }, \
          { "zmag", NULL, MAVLINK_TYPE_FLOAT, 0, 56, offsetof(mavlink_image_triggered_imu_t, zmag) }, \
+         { "trigger_t", NULL, MAVLINK_TYPE_UINT64_T, 0, 8, offsetof(mavlink_image_triggered_imu_t, trigger_t) }, \
+         { "trigger_seq", NULL, MAVLINK_TYPE_UINT64_T, 0, 16, offsetof(mavlink_image_triggered_imu_t, trigger_seq) }, \
          { "trigger_id", NULL, MAVLINK_TYPE_UINT8_T, 0, 60, offsetof(mavlink_image_triggered_imu_t, trigger_id) }, \
          } \
 }

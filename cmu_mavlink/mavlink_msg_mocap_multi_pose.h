@@ -28,9 +28,9 @@ typedef struct __mavlink_mocap_multi_pose_t {
     "MOCAP_MULTI_POSE", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_multi_pose_t, time_usec) }, \
-         { "pose", NULL, MAVLINK_TYPE_INT16_T, 20, 8, offsetof(mavlink_mocap_multi_pose_t, pose) }, \
          { "npose", NULL, MAVLINK_TYPE_UINT8_T, 0, 48, offsetof(mavlink_mocap_multi_pose_t, npose) }, \
          { "ids", NULL, MAVLINK_TYPE_UINT8_T, 5, 49, offsetof(mavlink_mocap_multi_pose_t, ids) }, \
+         { "pose", NULL, MAVLINK_TYPE_INT16_T, 20, 8, offsetof(mavlink_mocap_multi_pose_t, pose) }, \
          } \
 }
 #else
@@ -38,9 +38,9 @@ typedef struct __mavlink_mocap_multi_pose_t {
     "MOCAP_MULTI_POSE", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_multi_pose_t, time_usec) }, \
-         { "pose", NULL, MAVLINK_TYPE_INT16_T, 20, 8, offsetof(mavlink_mocap_multi_pose_t, pose) }, \
          { "npose", NULL, MAVLINK_TYPE_UINT8_T, 0, 48, offsetof(mavlink_mocap_multi_pose_t, npose) }, \
          { "ids", NULL, MAVLINK_TYPE_UINT8_T, 5, 49, offsetof(mavlink_mocap_multi_pose_t, ids) }, \
+         { "pose", NULL, MAVLINK_TYPE_INT16_T, 20, 8, offsetof(mavlink_mocap_multi_pose_t, pose) }, \
          } \
 }
 #endif

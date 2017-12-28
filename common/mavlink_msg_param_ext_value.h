@@ -9,7 +9,7 @@ typedef struct __mavlink_param_ext_value_t {
  uint16_t param_index; /*< Index of this parameter*/
  char param_id[16]; /*< Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string*/
  char param_value[128]; /*< Parameter value*/
- uint8_t param_type; /*< Parameter type: see the MAV_PARAM_TYPE enum for supported data types.*/
+ uint8_t param_type; /*< Parameter type: see the MAV_PARAM_EXT_TYPE enum for supported data types.*/
 }) mavlink_param_ext_value_t;
 
 #define MAVLINK_MSG_ID_PARAM_EXT_VALUE_LEN 149
@@ -28,22 +28,22 @@ typedef struct __mavlink_param_ext_value_t {
     322, \
     "PARAM_EXT_VALUE", \
     5, \
-    {  { "param_count", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_param_ext_value_t, param_count) }, \
-         { "param_index", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_param_ext_value_t, param_index) }, \
-         { "param_id", NULL, MAVLINK_TYPE_CHAR, 16, 4, offsetof(mavlink_param_ext_value_t, param_id) }, \
+    {  { "param_id", NULL, MAVLINK_TYPE_CHAR, 16, 4, offsetof(mavlink_param_ext_value_t, param_id) }, \
          { "param_value", NULL, MAVLINK_TYPE_CHAR, 128, 20, offsetof(mavlink_param_ext_value_t, param_value) }, \
          { "param_type", NULL, MAVLINK_TYPE_UINT8_T, 0, 148, offsetof(mavlink_param_ext_value_t, param_type) }, \
+         { "param_count", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_param_ext_value_t, param_count) }, \
+         { "param_index", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_param_ext_value_t, param_index) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_PARAM_EXT_VALUE { \
     "PARAM_EXT_VALUE", \
     5, \
-    {  { "param_count", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_param_ext_value_t, param_count) }, \
-         { "param_index", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_param_ext_value_t, param_index) }, \
-         { "param_id", NULL, MAVLINK_TYPE_CHAR, 16, 4, offsetof(mavlink_param_ext_value_t, param_id) }, \
+    {  { "param_id", NULL, MAVLINK_TYPE_CHAR, 16, 4, offsetof(mavlink_param_ext_value_t, param_id) }, \
          { "param_value", NULL, MAVLINK_TYPE_CHAR, 128, 20, offsetof(mavlink_param_ext_value_t, param_value) }, \
          { "param_type", NULL, MAVLINK_TYPE_UINT8_T, 0, 148, offsetof(mavlink_param_ext_value_t, param_type) }, \
+         { "param_count", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_param_ext_value_t, param_count) }, \
+         { "param_index", NULL, MAVLINK_TYPE_UINT16_T, 0, 2, offsetof(mavlink_param_ext_value_t, param_index) }, \
          } \
 }
 #endif
@@ -56,7 +56,7 @@ typedef struct __mavlink_param_ext_value_t {
  *
  * @param param_id Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
  * @param param_value Parameter value
- * @param param_type Parameter type: see the MAV_PARAM_TYPE enum for supported data types.
+ * @param param_type Parameter type: see the MAV_PARAM_EXT_TYPE enum for supported data types.
  * @param param_count Total number of parameters
  * @param param_index Index of this parameter
  * @return length of the message in bytes (excluding serial stream start sign)
@@ -94,7 +94,7 @@ static inline uint16_t mavlink_msg_param_ext_value_pack(uint8_t system_id, uint8
  * @param msg The MAVLink message to compress the data into
  * @param param_id Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
  * @param param_value Parameter value
- * @param param_type Parameter type: see the MAV_PARAM_TYPE enum for supported data types.
+ * @param param_type Parameter type: see the MAV_PARAM_EXT_TYPE enum for supported data types.
  * @param param_count Total number of parameters
  * @param param_index Index of this parameter
  * @return length of the message in bytes (excluding serial stream start sign)
@@ -158,7 +158,7 @@ static inline uint16_t mavlink_msg_param_ext_value_encode_chan(uint8_t system_id
  *
  * @param param_id Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes storage if the ID is stored as string
  * @param param_value Parameter value
- * @param param_type Parameter type: see the MAV_PARAM_TYPE enum for supported data types.
+ * @param param_type Parameter type: see the MAV_PARAM_EXT_TYPE enum for supported data types.
  * @param param_count Total number of parameters
  * @param param_index Index of this parameter
  */
@@ -257,7 +257,7 @@ static inline uint16_t mavlink_msg_param_ext_value_get_param_value(const mavlink
 /**
  * @brief Get field param_type from param_ext_value message
  *
- * @return Parameter type: see the MAV_PARAM_TYPE enum for supported data types.
+ * @return Parameter type: see the MAV_PARAM_EXT_TYPE enum for supported data types.
  */
 static inline uint8_t mavlink_msg_param_ext_value_get_param_type(const mavlink_message_t* msg)
 {

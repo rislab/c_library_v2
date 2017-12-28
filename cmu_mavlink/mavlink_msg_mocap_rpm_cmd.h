@@ -27,9 +27,9 @@ typedef struct __mavlink_mocap_rpm_cmd_t {
     "MOCAP_RPM_CMD", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_rpm_cmd_t, time_usec) }, \
-         { "input", NULL, MAVLINK_TYPE_UINT16_T, 8, 8, offsetof(mavlink_mocap_rpm_cmd_t, input) }, \
          { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 24, offsetof(mavlink_mocap_rpm_cmd_t, target_system) }, \
          { "ninputs", NULL, MAVLINK_TYPE_UINT8_T, 0, 25, offsetof(mavlink_mocap_rpm_cmd_t, ninputs) }, \
+         { "input", NULL, MAVLINK_TYPE_UINT16_T, 8, 8, offsetof(mavlink_mocap_rpm_cmd_t, input) }, \
          } \
 }
 #else
@@ -37,9 +37,9 @@ typedef struct __mavlink_mocap_rpm_cmd_t {
     "MOCAP_RPM_CMD", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_rpm_cmd_t, time_usec) }, \
-         { "input", NULL, MAVLINK_TYPE_UINT16_T, 8, 8, offsetof(mavlink_mocap_rpm_cmd_t, input) }, \
          { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 24, offsetof(mavlink_mocap_rpm_cmd_t, target_system) }, \
          { "ninputs", NULL, MAVLINK_TYPE_UINT8_T, 0, 25, offsetof(mavlink_mocap_rpm_cmd_t, ninputs) }, \
+         { "input", NULL, MAVLINK_TYPE_UINT16_T, 8, 8, offsetof(mavlink_mocap_rpm_cmd_t, input) }, \
          } \
 }
 #endif
