@@ -139,5 +139,11 @@
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="int16_t[4]" name="pose">Robot pose (x, y, z, heading) in m/10^3 or rad/10^4</field>
     </message>
+    <message id="223" name="PWM_FINAL_INPUT">
+      <description>PWM Final input sent to the ESCs</description>
+      <field type="uint64_t" name="timestamp">Timestamp of the message in used</field>
+      <field type="uint16_t" name="seq_id">Sequence id of data</field>
+      <field type="float[8]" name="pwm_final">Final PWMs to the ESCs </field>
+    </message>
   </messages>
 </mavlink>
