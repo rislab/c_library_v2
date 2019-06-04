@@ -5,14 +5,14 @@
 
 MAVPACKED(
 typedef struct __mavlink_odom_mocap_t {
- uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- float q[4]; /*< Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)*/
- float x; /*< X position in meters (NED)*/
- float y; /*< Y position in meters (NED)*/
- float z; /*< Z position in meters (NED)*/
- float vx; /*< X velocity in m/s (NED)*/
- float vy; /*< Y velocity in m/s (NED)*/
- float vz; /*< Z velocity in m/s (NED)*/
+ uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
+ float q[4]; /*<  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)*/
+ float x; /*<  X position in meters (NED)*/
+ float y; /*<  Y position in meters (NED)*/
+ float z; /*<  Z position in meters (NED)*/
+ float vx; /*<  X velocity in m/s (NED)*/
+ float vy; /*<  Y velocity in m/s (NED)*/
+ float vz; /*<  Z velocity in m/s (NED)*/
 }) mavlink_odom_mocap_t;
 
 #define MAVLINK_MSG_ID_ODOM_MOCAP_LEN 48
@@ -62,14 +62,14 @@ typedef struct __mavlink_odom_mocap_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param q Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
- * @param x X position in meters (NED)
- * @param y Y position in meters (NED)
- * @param z Z position in meters (NED)
- * @param vx X velocity in m/s (NED)
- * @param vy Y velocity in m/s (NED)
- * @param vz Z velocity in m/s (NED)
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param q  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+ * @param x  X position in meters (NED)
+ * @param y  Y position in meters (NED)
+ * @param z  Z position in meters (NED)
+ * @param vx  X velocity in m/s (NED)
+ * @param vy  Y velocity in m/s (NED)
+ * @param vz  Z velocity in m/s (NED)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_odom_mocap_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -109,14 +109,14 @@ static inline uint16_t mavlink_msg_odom_mocap_pack(uint8_t system_id, uint8_t co
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param q Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
- * @param x X position in meters (NED)
- * @param y Y position in meters (NED)
- * @param z Z position in meters (NED)
- * @param vx X velocity in m/s (NED)
- * @param vy Y velocity in m/s (NED)
- * @param vz Z velocity in m/s (NED)
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param q  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+ * @param x  X position in meters (NED)
+ * @param y  Y position in meters (NED)
+ * @param z  Z position in meters (NED)
+ * @param vx  X velocity in m/s (NED)
+ * @param vy  Y velocity in m/s (NED)
+ * @param vz  Z velocity in m/s (NED)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_odom_mocap_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -182,14 +182,14 @@ static inline uint16_t mavlink_msg_odom_mocap_encode_chan(uint8_t system_id, uin
  * @brief Send a odom_mocap message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param q Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
- * @param x X position in meters (NED)
- * @param y Y position in meters (NED)
- * @param z Z position in meters (NED)
- * @param vx X velocity in m/s (NED)
- * @param vy Y velocity in m/s (NED)
- * @param vz Z velocity in m/s (NED)
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param q  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+ * @param x  X position in meters (NED)
+ * @param y  Y position in meters (NED)
+ * @param z  Z position in meters (NED)
+ * @param vx  X velocity in m/s (NED)
+ * @param vy  Y velocity in m/s (NED)
+ * @param vz  Z velocity in m/s (NED)
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -278,7 +278,7 @@ static inline void mavlink_msg_odom_mocap_send_buf(mavlink_message_t *msgbuf, ma
 /**
  * @brief Get field time_usec from odom_mocap message
  *
- * @return Timestamp (micros since boot or Unix epoch)
+ * @return  Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_odom_mocap_get_time_usec(const mavlink_message_t* msg)
 {
@@ -288,7 +288,7 @@ static inline uint64_t mavlink_msg_odom_mocap_get_time_usec(const mavlink_messag
 /**
  * @brief Get field q from odom_mocap message
  *
- * @return Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+ * @return  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
  */
 static inline uint16_t mavlink_msg_odom_mocap_get_q(const mavlink_message_t* msg, float *q)
 {
@@ -298,7 +298,7 @@ static inline uint16_t mavlink_msg_odom_mocap_get_q(const mavlink_message_t* msg
 /**
  * @brief Get field x from odom_mocap message
  *
- * @return X position in meters (NED)
+ * @return  X position in meters (NED)
  */
 static inline float mavlink_msg_odom_mocap_get_x(const mavlink_message_t* msg)
 {
@@ -308,7 +308,7 @@ static inline float mavlink_msg_odom_mocap_get_x(const mavlink_message_t* msg)
 /**
  * @brief Get field y from odom_mocap message
  *
- * @return Y position in meters (NED)
+ * @return  Y position in meters (NED)
  */
 static inline float mavlink_msg_odom_mocap_get_y(const mavlink_message_t* msg)
 {
@@ -318,7 +318,7 @@ static inline float mavlink_msg_odom_mocap_get_y(const mavlink_message_t* msg)
 /**
  * @brief Get field z from odom_mocap message
  *
- * @return Z position in meters (NED)
+ * @return  Z position in meters (NED)
  */
 static inline float mavlink_msg_odom_mocap_get_z(const mavlink_message_t* msg)
 {
@@ -328,7 +328,7 @@ static inline float mavlink_msg_odom_mocap_get_z(const mavlink_message_t* msg)
 /**
  * @brief Get field vx from odom_mocap message
  *
- * @return X velocity in m/s (NED)
+ * @return  X velocity in m/s (NED)
  */
 static inline float mavlink_msg_odom_mocap_get_vx(const mavlink_message_t* msg)
 {
@@ -338,7 +338,7 @@ static inline float mavlink_msg_odom_mocap_get_vx(const mavlink_message_t* msg)
 /**
  * @brief Get field vy from odom_mocap message
  *
- * @return Y velocity in m/s (NED)
+ * @return  Y velocity in m/s (NED)
  */
 static inline float mavlink_msg_odom_mocap_get_vy(const mavlink_message_t* msg)
 {
@@ -348,7 +348,7 @@ static inline float mavlink_msg_odom_mocap_get_vy(const mavlink_message_t* msg)
 /**
  * @brief Get field vz from odom_mocap message
  *
- * @return Z velocity in m/s (NED)
+ * @return  Z velocity in m/s (NED)
  */
 static inline float mavlink_msg_odom_mocap_get_vz(const mavlink_message_t* msg)
 {

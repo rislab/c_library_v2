@@ -5,13 +5,13 @@
 
 MAVPACKED(
 typedef struct __mavlink_l1_adaptive_debug_t {
- uint64_t timestamp; /*< Timestamp of the message in used*/
- float avl_hat[3]; /*< Angular Velocity Estimate */
- float dst_hat[3]; /*< Disturbance Estimate*/
- float ang_vel[3]; /*< Angular Velocity obtained from R*/
- float lpd[3]; /*< Disturbance Rate Correction*/
- float rates[3]; /*< Body Rates obtained from Attitude Estimator*/
- uint16_t seq_id; /*< Sequence id of data*/
+ uint64_t timestamp; /*<  Timestamp of the message in used*/
+ float avl_hat[3]; /*<  Angular Velocity Estimate */
+ float dst_hat[3]; /*<  Disturbance Estimate*/
+ float ang_vel[3]; /*<  Angular Velocity obtained from R*/
+ float lpd[3]; /*<  Disturbance Rate Correction*/
+ float rates[3]; /*<  Body Rates obtained from Attitude Estimator*/
+ uint16_t seq_id; /*<  Sequence id of data*/
 }) mavlink_l1_adaptive_debug_t;
 
 #define MAVLINK_MSG_ID_L1_ADAPTIVE_DEBUG_LEN 70
@@ -63,13 +63,13 @@ typedef struct __mavlink_l1_adaptive_debug_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param timestamp Timestamp of the message in used
- * @param seq_id Sequence id of data
- * @param avl_hat Angular Velocity Estimate 
- * @param dst_hat Disturbance Estimate
- * @param ang_vel Angular Velocity obtained from R
- * @param lpd Disturbance Rate Correction
- * @param rates Body Rates obtained from Attitude Estimator
+ * @param timestamp  Timestamp of the message in used
+ * @param seq_id  Sequence id of data
+ * @param avl_hat  Angular Velocity Estimate 
+ * @param dst_hat  Disturbance Estimate
+ * @param ang_vel  Angular Velocity obtained from R
+ * @param lpd  Disturbance Rate Correction
+ * @param rates  Body Rates obtained from Attitude Estimator
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_l1_adaptive_debug_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -107,13 +107,13 @@ static inline uint16_t mavlink_msg_l1_adaptive_debug_pack(uint8_t system_id, uin
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param timestamp Timestamp of the message in used
- * @param seq_id Sequence id of data
- * @param avl_hat Angular Velocity Estimate 
- * @param dst_hat Disturbance Estimate
- * @param ang_vel Angular Velocity obtained from R
- * @param lpd Disturbance Rate Correction
- * @param rates Body Rates obtained from Attitude Estimator
+ * @param timestamp  Timestamp of the message in used
+ * @param seq_id  Sequence id of data
+ * @param avl_hat  Angular Velocity Estimate 
+ * @param dst_hat  Disturbance Estimate
+ * @param ang_vel  Angular Velocity obtained from R
+ * @param lpd  Disturbance Rate Correction
+ * @param rates  Body Rates obtained from Attitude Estimator
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_l1_adaptive_debug_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -177,13 +177,13 @@ static inline uint16_t mavlink_msg_l1_adaptive_debug_encode_chan(uint8_t system_
  * @brief Send a l1_adaptive_debug message
  * @param chan MAVLink channel to send the message
  *
- * @param timestamp Timestamp of the message in used
- * @param seq_id Sequence id of data
- * @param avl_hat Angular Velocity Estimate 
- * @param dst_hat Disturbance Estimate
- * @param ang_vel Angular Velocity obtained from R
- * @param lpd Disturbance Rate Correction
- * @param rates Body Rates obtained from Attitude Estimator
+ * @param timestamp  Timestamp of the message in used
+ * @param seq_id  Sequence id of data
+ * @param avl_hat  Angular Velocity Estimate 
+ * @param dst_hat  Disturbance Estimate
+ * @param ang_vel  Angular Velocity obtained from R
+ * @param lpd  Disturbance Rate Correction
+ * @param rates  Body Rates obtained from Attitude Estimator
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -268,7 +268,7 @@ static inline void mavlink_msg_l1_adaptive_debug_send_buf(mavlink_message_t *msg
 /**
  * @brief Get field timestamp from l1_adaptive_debug message
  *
- * @return Timestamp of the message in used
+ * @return  Timestamp of the message in used
  */
 static inline uint64_t mavlink_msg_l1_adaptive_debug_get_timestamp(const mavlink_message_t* msg)
 {
@@ -278,7 +278,7 @@ static inline uint64_t mavlink_msg_l1_adaptive_debug_get_timestamp(const mavlink
 /**
  * @brief Get field seq_id from l1_adaptive_debug message
  *
- * @return Sequence id of data
+ * @return  Sequence id of data
  */
 static inline uint16_t mavlink_msg_l1_adaptive_debug_get_seq_id(const mavlink_message_t* msg)
 {
@@ -288,7 +288,7 @@ static inline uint16_t mavlink_msg_l1_adaptive_debug_get_seq_id(const mavlink_me
 /**
  * @brief Get field avl_hat from l1_adaptive_debug message
  *
- * @return Angular Velocity Estimate 
+ * @return  Angular Velocity Estimate 
  */
 static inline uint16_t mavlink_msg_l1_adaptive_debug_get_avl_hat(const mavlink_message_t* msg, float *avl_hat)
 {
@@ -298,7 +298,7 @@ static inline uint16_t mavlink_msg_l1_adaptive_debug_get_avl_hat(const mavlink_m
 /**
  * @brief Get field dst_hat from l1_adaptive_debug message
  *
- * @return Disturbance Estimate
+ * @return  Disturbance Estimate
  */
 static inline uint16_t mavlink_msg_l1_adaptive_debug_get_dst_hat(const mavlink_message_t* msg, float *dst_hat)
 {
@@ -308,7 +308,7 @@ static inline uint16_t mavlink_msg_l1_adaptive_debug_get_dst_hat(const mavlink_m
 /**
  * @brief Get field ang_vel from l1_adaptive_debug message
  *
- * @return Angular Velocity obtained from R
+ * @return  Angular Velocity obtained from R
  */
 static inline uint16_t mavlink_msg_l1_adaptive_debug_get_ang_vel(const mavlink_message_t* msg, float *ang_vel)
 {
@@ -318,7 +318,7 @@ static inline uint16_t mavlink_msg_l1_adaptive_debug_get_ang_vel(const mavlink_m
 /**
  * @brief Get field lpd from l1_adaptive_debug message
  *
- * @return Disturbance Rate Correction
+ * @return  Disturbance Rate Correction
  */
 static inline uint16_t mavlink_msg_l1_adaptive_debug_get_lpd(const mavlink_message_t* msg, float *lpd)
 {
@@ -328,7 +328,7 @@ static inline uint16_t mavlink_msg_l1_adaptive_debug_get_lpd(const mavlink_messa
 /**
  * @brief Get field rates from l1_adaptive_debug message
  *
- * @return Body Rates obtained from Attitude Estimator
+ * @return  Body Rates obtained from Attitude Estimator
  */
 static inline uint16_t mavlink_msg_l1_adaptive_debug_get_rates(const mavlink_message_t* msg, float *rates)
 {

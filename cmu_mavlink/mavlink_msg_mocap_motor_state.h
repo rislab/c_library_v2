@@ -5,9 +5,9 @@
 
 MAVPACKED(
 typedef struct __mavlink_mocap_motor_state_t {
- uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- uint8_t target_system; /*< Target system*/
- uint8_t state; /*< Motor status (1 = on, 0 = off)*/
+ uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
+ uint8_t target_system; /*<  Target system*/
+ uint8_t state; /*<  Motor status (1 = on, 0 = off)*/
 }) mavlink_mocap_motor_state_t;
 
 #define MAVLINK_MSG_ID_MOCAP_MOTOR_STATE_LEN 10
@@ -47,9 +47,9 @@ typedef struct __mavlink_mocap_motor_state_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param state Motor status (1 = on, 0 = off)
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param state  Motor status (1 = on, 0 = off)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_motor_state_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -81,9 +81,9 @@ static inline uint16_t mavlink_msg_mocap_motor_state_pack(uint8_t system_id, uin
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param state Motor status (1 = on, 0 = off)
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param state  Motor status (1 = on, 0 = off)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_motor_state_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -141,9 +141,9 @@ static inline uint16_t mavlink_msg_mocap_motor_state_encode_chan(uint8_t system_
  * @brief Send a mocap_motor_state message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param state Motor status (1 = on, 0 = off)
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param state  Motor status (1 = on, 0 = off)
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -216,7 +216,7 @@ static inline void mavlink_msg_mocap_motor_state_send_buf(mavlink_message_t *msg
 /**
  * @brief Get field time_usec from mocap_motor_state message
  *
- * @return Timestamp (micros since boot or Unix epoch)
+ * @return  Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_mocap_motor_state_get_time_usec(const mavlink_message_t* msg)
 {
@@ -226,7 +226,7 @@ static inline uint64_t mavlink_msg_mocap_motor_state_get_time_usec(const mavlink
 /**
  * @brief Get field target_system from mocap_motor_state message
  *
- * @return Target system
+ * @return  Target system
  */
 static inline uint8_t mavlink_msg_mocap_motor_state_get_target_system(const mavlink_message_t* msg)
 {
@@ -236,7 +236,7 @@ static inline uint8_t mavlink_msg_mocap_motor_state_get_target_system(const mavl
 /**
  * @brief Get field state from mocap_motor_state message
  *
- * @return Motor status (1 = on, 0 = off)
+ * @return  Motor status (1 = on, 0 = off)
  */
 static inline uint8_t mavlink_msg_mocap_motor_state_get_state(const mavlink_message_t* msg)
 {

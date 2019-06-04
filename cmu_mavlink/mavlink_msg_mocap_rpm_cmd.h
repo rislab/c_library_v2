@@ -5,10 +5,10 @@
 
 MAVPACKED(
 typedef struct __mavlink_mocap_rpm_cmd_t {
- uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- uint16_t input[8]; /*< RPM cmd inputs*/
- uint8_t target_system; /*< Target system*/
- uint8_t ninputs; /*< Number of valid inputs*/
+ uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
+ uint16_t input[8]; /*<  RPM cmd inputs*/
+ uint8_t target_system; /*<  Target system*/
+ uint8_t ninputs; /*<  Number of valid inputs*/
 }) mavlink_mocap_rpm_cmd_t;
 
 #define MAVLINK_MSG_ID_MOCAP_RPM_CMD_LEN 26
@@ -50,10 +50,10 @@ typedef struct __mavlink_mocap_rpm_cmd_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param ninputs Number of valid inputs
- * @param input RPM cmd inputs
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param ninputs  Number of valid inputs
+ * @param input  RPM cmd inputs
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_rpm_cmd_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -85,10 +85,10 @@ static inline uint16_t mavlink_msg_mocap_rpm_cmd_pack(uint8_t system_id, uint8_t
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param ninputs Number of valid inputs
- * @param input RPM cmd inputs
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param ninputs  Number of valid inputs
+ * @param input  RPM cmd inputs
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_rpm_cmd_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -146,10 +146,10 @@ static inline uint16_t mavlink_msg_mocap_rpm_cmd_encode_chan(uint8_t system_id, 
  * @brief Send a mocap_rpm_cmd message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param ninputs Number of valid inputs
- * @param input RPM cmd inputs
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param ninputs  Number of valid inputs
+ * @param input  RPM cmd inputs
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -222,7 +222,7 @@ static inline void mavlink_msg_mocap_rpm_cmd_send_buf(mavlink_message_t *msgbuf,
 /**
  * @brief Get field time_usec from mocap_rpm_cmd message
  *
- * @return Timestamp (micros since boot or Unix epoch)
+ * @return  Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_mocap_rpm_cmd_get_time_usec(const mavlink_message_t* msg)
 {
@@ -232,7 +232,7 @@ static inline uint64_t mavlink_msg_mocap_rpm_cmd_get_time_usec(const mavlink_mes
 /**
  * @brief Get field target_system from mocap_rpm_cmd message
  *
- * @return Target system
+ * @return  Target system
  */
 static inline uint8_t mavlink_msg_mocap_rpm_cmd_get_target_system(const mavlink_message_t* msg)
 {
@@ -242,7 +242,7 @@ static inline uint8_t mavlink_msg_mocap_rpm_cmd_get_target_system(const mavlink_
 /**
  * @brief Get field ninputs from mocap_rpm_cmd message
  *
- * @return Number of valid inputs
+ * @return  Number of valid inputs
  */
 static inline uint8_t mavlink_msg_mocap_rpm_cmd_get_ninputs(const mavlink_message_t* msg)
 {
@@ -252,7 +252,7 @@ static inline uint8_t mavlink_msg_mocap_rpm_cmd_get_ninputs(const mavlink_messag
 /**
  * @brief Get field input from mocap_rpm_cmd message
  *
- * @return RPM cmd inputs
+ * @return  RPM cmd inputs
  */
 static inline uint16_t mavlink_msg_mocap_rpm_cmd_get_input(const mavlink_message_t* msg, uint16_t *input)
 {

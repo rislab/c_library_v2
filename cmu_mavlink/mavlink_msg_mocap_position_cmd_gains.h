@@ -5,10 +5,10 @@
 
 MAVPACKED(
 typedef struct __mavlink_mocap_position_cmd_gains_t {
- uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- float kp[3]; /*< Proportional gains*/
- float kd[3]; /*< Derivative gains*/
- uint8_t target_system; /*< Target system*/
+ uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
+ float kp[3]; /*<  Proportional gains*/
+ float kd[3]; /*<  Derivative gains*/
+ uint8_t target_system; /*<  Target system*/
 }) mavlink_mocap_position_cmd_gains_t;
 
 #define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_GAINS_LEN 33
@@ -51,10 +51,10 @@ typedef struct __mavlink_mocap_position_cmd_gains_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param kp Proportional gains
- * @param kd Derivative gains
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param kp  Proportional gains
+ * @param kd  Derivative gains
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_gains_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -86,10 +86,10 @@ static inline uint16_t mavlink_msg_mocap_position_cmd_gains_pack(uint8_t system_
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param kp Proportional gains
- * @param kd Derivative gains
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param kp  Proportional gains
+ * @param kd  Derivative gains
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_gains_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -147,10 +147,10 @@ static inline uint16_t mavlink_msg_mocap_position_cmd_gains_encode_chan(uint8_t 
  * @brief Send a mocap_position_cmd_gains message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param kp Proportional gains
- * @param kd Derivative gains
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param kp  Proportional gains
+ * @param kd  Derivative gains
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -223,7 +223,7 @@ static inline void mavlink_msg_mocap_position_cmd_gains_send_buf(mavlink_message
 /**
  * @brief Get field time_usec from mocap_position_cmd_gains message
  *
- * @return Timestamp (micros since boot or Unix epoch)
+ * @return  Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_mocap_position_cmd_gains_get_time_usec(const mavlink_message_t* msg)
 {
@@ -233,7 +233,7 @@ static inline uint64_t mavlink_msg_mocap_position_cmd_gains_get_time_usec(const 
 /**
  * @brief Get field target_system from mocap_position_cmd_gains message
  *
- * @return Target system
+ * @return  Target system
  */
 static inline uint8_t mavlink_msg_mocap_position_cmd_gains_get_target_system(const mavlink_message_t* msg)
 {
@@ -243,7 +243,7 @@ static inline uint8_t mavlink_msg_mocap_position_cmd_gains_get_target_system(con
 /**
  * @brief Get field kp from mocap_position_cmd_gains message
  *
- * @return Proportional gains
+ * @return  Proportional gains
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_gains_get_kp(const mavlink_message_t* msg, float *kp)
 {
@@ -253,7 +253,7 @@ static inline uint16_t mavlink_msg_mocap_position_cmd_gains_get_kp(const mavlink
 /**
  * @brief Get field kd from mocap_position_cmd_gains message
  *
- * @return Derivative gains
+ * @return  Derivative gains
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_gains_get_kd(const mavlink_message_t* msg, float *kd)
 {
