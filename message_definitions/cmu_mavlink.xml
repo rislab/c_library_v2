@@ -142,7 +142,8 @@
     <message id="223" name="ATT_CTRL_DEBUG">
       <description>Calculated RPMs from MocapAttitudeController</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
-      <field type="float[4]" name="rpm">RPM values calculated from MocapAttitudeController for quadrotor</field>
+      <field type="float[6]" name="rpm">RPM values calculated from MocapAttitudeController for quadrotor</field>
+      <field type="float[3]" name="eOm">Angular velocity error</field>
     </message>
   </messages>
 </mavlink>

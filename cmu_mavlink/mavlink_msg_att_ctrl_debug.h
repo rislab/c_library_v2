@@ -6,34 +6,38 @@
 MAVPACKED(
 typedef struct __mavlink_att_ctrl_debug_t {
  uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- float rpm[4]; /*< RPM values calculated from MocapAttitudeController for quadrotor*/
+ float rpm[6]; /*< RPM values calculated from MocapAttitudeController for quadrotor*/
+ float eOm[3]; /*< Angular velocity error*/
 }) mavlink_att_ctrl_debug_t;
 
-#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN 24
-#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN 24
-#define MAVLINK_MSG_ID_223_LEN 24
-#define MAVLINK_MSG_ID_223_MIN_LEN 24
+#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN 44
+#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN 44
+#define MAVLINK_MSG_ID_223_LEN 44
+#define MAVLINK_MSG_ID_223_MIN_LEN 44
 
-#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC 17
-#define MAVLINK_MSG_ID_223_CRC 17
+#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC 184
+#define MAVLINK_MSG_ID_223_CRC 184
 
-#define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_RPM_LEN 4
+#define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_RPM_LEN 6
+#define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_EOM_LEN 3
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_ATT_CTRL_DEBUG { \
     223, \
     "ATT_CTRL_DEBUG", \
-    2, \
+    3, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_att_ctrl_debug_t, time_usec) }, \
-         { "rpm", NULL, MAVLINK_TYPE_FLOAT, 4, 8, offsetof(mavlink_att_ctrl_debug_t, rpm) }, \
+         { "rpm", NULL, MAVLINK_TYPE_FLOAT, 6, 8, offsetof(mavlink_att_ctrl_debug_t, rpm) }, \
+         { "eOm", NULL, MAVLINK_TYPE_FLOAT, 3, 32, offsetof(mavlink_att_ctrl_debug_t, eOm) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_ATT_CTRL_DEBUG { \
     "ATT_CTRL_DEBUG", \
-    2, \
+    3, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_att_ctrl_debug_t, time_usec) }, \
-         { "rpm", NULL, MAVLINK_TYPE_FLOAT, 4, 8, offsetof(mavlink_att_ctrl_debug_t, rpm) }, \
+         { "rpm", NULL, MAVLINK_TYPE_FLOAT, 6, 8, offsetof(mavlink_att_ctrl_debug_t, rpm) }, \
+         { "eOm", NULL, MAVLINK_TYPE_FLOAT, 3, 32, offsetof(mavlink_att_ctrl_debug_t, eOm) }, \
          } \
 }
 #endif
@@ -46,20 +50,23 @@ typedef struct __mavlink_att_ctrl_debug_t {
  *
  * @param time_usec Timestamp (micros since boot or Unix epoch)
  * @param rpm RPM values calculated from MocapAttitudeController for quadrotor
+ * @param eOm Angular velocity error
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_att_ctrl_debug_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint64_t time_usec, const float *rpm)
+                               uint64_t time_usec, const float *rpm, const float *eOm)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN];
     _mav_put_uint64_t(buf, 0, time_usec);
-    _mav_put_float_array(buf, 8, rpm, 4);
+    _mav_put_float_array(buf, 8, rpm, 6);
+    _mav_put_float_array(buf, 32, eOm, 3);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);
 #else
     mavlink_att_ctrl_debug_t packet;
     packet.time_usec = time_usec;
-    mav_array_memcpy(packet.rpm, rpm, sizeof(float)*4);
+    mav_array_memcpy(packet.rpm, rpm, sizeof(float)*6);
+    mav_array_memcpy(packet.eOm, eOm, sizeof(float)*3);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);
 #endif
 
@@ -75,21 +82,24 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_pack(uint8_t system_id, uint8_
  * @param msg The MAVLink message to compress the data into
  * @param time_usec Timestamp (micros since boot or Unix epoch)
  * @param rpm RPM values calculated from MocapAttitudeController for quadrotor
+ * @param eOm Angular velocity error
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_att_ctrl_debug_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint64_t time_usec,const float *rpm)
+                                   uint64_t time_usec,const float *rpm,const float *eOm)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN];
     _mav_put_uint64_t(buf, 0, time_usec);
-    _mav_put_float_array(buf, 8, rpm, 4);
+    _mav_put_float_array(buf, 8, rpm, 6);
+    _mav_put_float_array(buf, 32, eOm, 3);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);
 #else
     mavlink_att_ctrl_debug_t packet;
     packet.time_usec = time_usec;
-    mav_array_memcpy(packet.rpm, rpm, sizeof(float)*4);
+    mav_array_memcpy(packet.rpm, rpm, sizeof(float)*6);
+    mav_array_memcpy(packet.eOm, eOm, sizeof(float)*3);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);
 #endif
 
@@ -107,7 +117,7 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_pack_chan(uint8_t system_id, u
  */
 static inline uint16_t mavlink_msg_att_ctrl_debug_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_att_ctrl_debug_t* att_ctrl_debug)
 {
-    return mavlink_msg_att_ctrl_debug_pack(system_id, component_id, msg, att_ctrl_debug->time_usec, att_ctrl_debug->rpm);
+    return mavlink_msg_att_ctrl_debug_pack(system_id, component_id, msg, att_ctrl_debug->time_usec, att_ctrl_debug->rpm, att_ctrl_debug->eOm);
 }
 
 /**
@@ -121,7 +131,7 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_encode(uint8_t system_id, uint
  */
 static inline uint16_t mavlink_msg_att_ctrl_debug_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_att_ctrl_debug_t* att_ctrl_debug)
 {
-    return mavlink_msg_att_ctrl_debug_pack_chan(system_id, component_id, chan, msg, att_ctrl_debug->time_usec, att_ctrl_debug->rpm);
+    return mavlink_msg_att_ctrl_debug_pack_chan(system_id, component_id, chan, msg, att_ctrl_debug->time_usec, att_ctrl_debug->rpm, att_ctrl_debug->eOm);
 }
 
 /**
@@ -130,20 +140,23 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_encode_chan(uint8_t system_id,
  *
  * @param time_usec Timestamp (micros since boot or Unix epoch)
  * @param rpm RPM values calculated from MocapAttitudeController for quadrotor
+ * @param eOm Angular velocity error
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_att_ctrl_debug_send(mavlink_channel_t chan, uint64_t time_usec, const float *rpm)
+static inline void mavlink_msg_att_ctrl_debug_send(mavlink_channel_t chan, uint64_t time_usec, const float *rpm, const float *eOm)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN];
     _mav_put_uint64_t(buf, 0, time_usec);
-    _mav_put_float_array(buf, 8, rpm, 4);
+    _mav_put_float_array(buf, 8, rpm, 6);
+    _mav_put_float_array(buf, 32, eOm, 3);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, buf, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #else
     mavlink_att_ctrl_debug_t packet;
     packet.time_usec = time_usec;
-    mav_array_memcpy(packet.rpm, rpm, sizeof(float)*4);
+    mav_array_memcpy(packet.rpm, rpm, sizeof(float)*6);
+    mav_array_memcpy(packet.eOm, eOm, sizeof(float)*3);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, (const char *)&packet, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #endif
 }
@@ -156,7 +169,7 @@ static inline void mavlink_msg_att_ctrl_debug_send(mavlink_channel_t chan, uint6
 static inline void mavlink_msg_att_ctrl_debug_send_struct(mavlink_channel_t chan, const mavlink_att_ctrl_debug_t* att_ctrl_debug)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_att_ctrl_debug_send(chan, att_ctrl_debug->time_usec, att_ctrl_debug->rpm);
+    mavlink_msg_att_ctrl_debug_send(chan, att_ctrl_debug->time_usec, att_ctrl_debug->rpm, att_ctrl_debug->eOm);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, (const char *)att_ctrl_debug, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #endif
@@ -170,17 +183,19 @@ static inline void mavlink_msg_att_ctrl_debug_send_struct(mavlink_channel_t chan
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_att_ctrl_debug_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint64_t time_usec, const float *rpm)
+static inline void mavlink_msg_att_ctrl_debug_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint64_t time_usec, const float *rpm, const float *eOm)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
     _mav_put_uint64_t(buf, 0, time_usec);
-    _mav_put_float_array(buf, 8, rpm, 4);
+    _mav_put_float_array(buf, 8, rpm, 6);
+    _mav_put_float_array(buf, 32, eOm, 3);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, buf, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #else
     mavlink_att_ctrl_debug_t *packet = (mavlink_att_ctrl_debug_t *)msgbuf;
     packet->time_usec = time_usec;
-    mav_array_memcpy(packet->rpm, rpm, sizeof(float)*4);
+    mav_array_memcpy(packet->rpm, rpm, sizeof(float)*6);
+    mav_array_memcpy(packet->eOm, eOm, sizeof(float)*3);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, (const char *)packet, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #endif
 }
@@ -208,7 +223,17 @@ static inline uint64_t mavlink_msg_att_ctrl_debug_get_time_usec(const mavlink_me
  */
 static inline uint16_t mavlink_msg_att_ctrl_debug_get_rpm(const mavlink_message_t* msg, float *rpm)
 {
-    return _MAV_RETURN_float_array(msg, rpm, 4,  8);
+    return _MAV_RETURN_float_array(msg, rpm, 6,  8);
+}
+
+/**
+ * @brief Get field eOm from att_ctrl_debug message
+ *
+ * @return Angular velocity error
+ */
+static inline uint16_t mavlink_msg_att_ctrl_debug_get_eOm(const mavlink_message_t* msg, float *eOm)
+{
+    return _MAV_RETURN_float_array(msg, eOm, 3,  32);
 }
 
 /**
@@ -222,6 +247,7 @@ static inline void mavlink_msg_att_ctrl_debug_decode(const mavlink_message_t* ms
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     att_ctrl_debug->time_usec = mavlink_msg_att_ctrl_debug_get_time_usec(msg);
     mavlink_msg_att_ctrl_debug_get_rpm(msg, att_ctrl_debug->rpm);
+    mavlink_msg_att_ctrl_debug_get_eOm(msg, att_ctrl_debug->eOm);
 #else
         uint8_t len = msg->len < MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN? msg->len : MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN;
         memset(att_ctrl_debug, 0, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);
