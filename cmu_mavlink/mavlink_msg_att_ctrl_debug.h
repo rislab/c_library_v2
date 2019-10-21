@@ -10,42 +10,50 @@ typedef struct __mavlink_att_ctrl_debug_t {
  float eOm[3]; /*< Angular velocity error*/
  float Omd[3]; /*< Desired angular velocity*/
  float eR[3]; /*< Orientation error*/
+ float Rd[9]; /*< Desired orientation (populated in row-major order)*/
+ float R[9]; /*< Actual orientation (populated in row-major order)*/
 }) mavlink_att_ctrl_debug_t;
 
-#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN 68
-#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN 68
-#define MAVLINK_MSG_ID_223_LEN 68
-#define MAVLINK_MSG_ID_223_MIN_LEN 68
+#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN 140
+#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN 140
+#define MAVLINK_MSG_ID_223_LEN 140
+#define MAVLINK_MSG_ID_223_MIN_LEN 140
 
-#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC 29
-#define MAVLINK_MSG_ID_223_CRC 29
+#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC 161
+#define MAVLINK_MSG_ID_223_CRC 161
 
 #define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_RPM_LEN 6
 #define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_EOM_LEN 3
 #define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_OMD_LEN 3
 #define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_ER_LEN 3
+#define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_RD_LEN 9
+#define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_R_LEN 9
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_ATT_CTRL_DEBUG { \
     223, \
     "ATT_CTRL_DEBUG", \
-    5, \
+    7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_att_ctrl_debug_t, time_usec) }, \
          { "rpm", NULL, MAVLINK_TYPE_FLOAT, 6, 8, offsetof(mavlink_att_ctrl_debug_t, rpm) }, \
          { "eOm", NULL, MAVLINK_TYPE_FLOAT, 3, 32, offsetof(mavlink_att_ctrl_debug_t, eOm) }, \
          { "Omd", NULL, MAVLINK_TYPE_FLOAT, 3, 44, offsetof(mavlink_att_ctrl_debug_t, Omd) }, \
          { "eR", NULL, MAVLINK_TYPE_FLOAT, 3, 56, offsetof(mavlink_att_ctrl_debug_t, eR) }, \
+         { "Rd", NULL, MAVLINK_TYPE_FLOAT, 9, 68, offsetof(mavlink_att_ctrl_debug_t, Rd) }, \
+         { "R", NULL, MAVLINK_TYPE_FLOAT, 9, 104, offsetof(mavlink_att_ctrl_debug_t, R) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_ATT_CTRL_DEBUG { \
     "ATT_CTRL_DEBUG", \
-    5, \
+    7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_att_ctrl_debug_t, time_usec) }, \
          { "rpm", NULL, MAVLINK_TYPE_FLOAT, 6, 8, offsetof(mavlink_att_ctrl_debug_t, rpm) }, \
          { "eOm", NULL, MAVLINK_TYPE_FLOAT, 3, 32, offsetof(mavlink_att_ctrl_debug_t, eOm) }, \
          { "Omd", NULL, MAVLINK_TYPE_FLOAT, 3, 44, offsetof(mavlink_att_ctrl_debug_t, Omd) }, \
          { "eR", NULL, MAVLINK_TYPE_FLOAT, 3, 56, offsetof(mavlink_att_ctrl_debug_t, eR) }, \
+         { "Rd", NULL, MAVLINK_TYPE_FLOAT, 9, 68, offsetof(mavlink_att_ctrl_debug_t, Rd) }, \
+         { "R", NULL, MAVLINK_TYPE_FLOAT, 9, 104, offsetof(mavlink_att_ctrl_debug_t, R) }, \
          } \
 }
 #endif
@@ -61,10 +69,12 @@ typedef struct __mavlink_att_ctrl_debug_t {
  * @param eOm Angular velocity error
  * @param Omd Desired angular velocity
  * @param eR Orientation error
+ * @param Rd Desired orientation (populated in row-major order)
+ * @param R Actual orientation (populated in row-major order)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_att_ctrl_debug_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint64_t time_usec, const float *rpm, const float *eOm, const float *Omd, const float *eR)
+                               uint64_t time_usec, const float *rpm, const float *eOm, const float *Omd, const float *eR, const float *Rd, const float *R)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN];
@@ -73,6 +83,8 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_pack(uint8_t system_id, uint8_
     _mav_put_float_array(buf, 32, eOm, 3);
     _mav_put_float_array(buf, 44, Omd, 3);
     _mav_put_float_array(buf, 56, eR, 3);
+    _mav_put_float_array(buf, 68, Rd, 9);
+    _mav_put_float_array(buf, 104, R, 9);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);
 #else
     mavlink_att_ctrl_debug_t packet;
@@ -81,6 +93,8 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_pack(uint8_t system_id, uint8_
     mav_array_memcpy(packet.eOm, eOm, sizeof(float)*3);
     mav_array_memcpy(packet.Omd, Omd, sizeof(float)*3);
     mav_array_memcpy(packet.eR, eR, sizeof(float)*3);
+    mav_array_memcpy(packet.Rd, Rd, sizeof(float)*9);
+    mav_array_memcpy(packet.R, R, sizeof(float)*9);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);
 #endif
 
@@ -99,11 +113,13 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_pack(uint8_t system_id, uint8_
  * @param eOm Angular velocity error
  * @param Omd Desired angular velocity
  * @param eR Orientation error
+ * @param Rd Desired orientation (populated in row-major order)
+ * @param R Actual orientation (populated in row-major order)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_att_ctrl_debug_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint64_t time_usec,const float *rpm,const float *eOm,const float *Omd,const float *eR)
+                                   uint64_t time_usec,const float *rpm,const float *eOm,const float *Omd,const float *eR,const float *Rd,const float *R)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN];
@@ -112,6 +128,8 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_pack_chan(uint8_t system_id, u
     _mav_put_float_array(buf, 32, eOm, 3);
     _mav_put_float_array(buf, 44, Omd, 3);
     _mav_put_float_array(buf, 56, eR, 3);
+    _mav_put_float_array(buf, 68, Rd, 9);
+    _mav_put_float_array(buf, 104, R, 9);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);
 #else
     mavlink_att_ctrl_debug_t packet;
@@ -120,6 +138,8 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_pack_chan(uint8_t system_id, u
     mav_array_memcpy(packet.eOm, eOm, sizeof(float)*3);
     mav_array_memcpy(packet.Omd, Omd, sizeof(float)*3);
     mav_array_memcpy(packet.eR, eR, sizeof(float)*3);
+    mav_array_memcpy(packet.Rd, Rd, sizeof(float)*9);
+    mav_array_memcpy(packet.R, R, sizeof(float)*9);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);
 #endif
 
@@ -137,7 +157,7 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_pack_chan(uint8_t system_id, u
  */
 static inline uint16_t mavlink_msg_att_ctrl_debug_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_att_ctrl_debug_t* att_ctrl_debug)
 {
-    return mavlink_msg_att_ctrl_debug_pack(system_id, component_id, msg, att_ctrl_debug->time_usec, att_ctrl_debug->rpm, att_ctrl_debug->eOm, att_ctrl_debug->Omd, att_ctrl_debug->eR);
+    return mavlink_msg_att_ctrl_debug_pack(system_id, component_id, msg, att_ctrl_debug->time_usec, att_ctrl_debug->rpm, att_ctrl_debug->eOm, att_ctrl_debug->Omd, att_ctrl_debug->eR, att_ctrl_debug->Rd, att_ctrl_debug->R);
 }
 
 /**
@@ -151,7 +171,7 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_encode(uint8_t system_id, uint
  */
 static inline uint16_t mavlink_msg_att_ctrl_debug_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_att_ctrl_debug_t* att_ctrl_debug)
 {
-    return mavlink_msg_att_ctrl_debug_pack_chan(system_id, component_id, chan, msg, att_ctrl_debug->time_usec, att_ctrl_debug->rpm, att_ctrl_debug->eOm, att_ctrl_debug->Omd, att_ctrl_debug->eR);
+    return mavlink_msg_att_ctrl_debug_pack_chan(system_id, component_id, chan, msg, att_ctrl_debug->time_usec, att_ctrl_debug->rpm, att_ctrl_debug->eOm, att_ctrl_debug->Omd, att_ctrl_debug->eR, att_ctrl_debug->Rd, att_ctrl_debug->R);
 }
 
 /**
@@ -163,10 +183,12 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_encode_chan(uint8_t system_id,
  * @param eOm Angular velocity error
  * @param Omd Desired angular velocity
  * @param eR Orientation error
+ * @param Rd Desired orientation (populated in row-major order)
+ * @param R Actual orientation (populated in row-major order)
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_att_ctrl_debug_send(mavlink_channel_t chan, uint64_t time_usec, const float *rpm, const float *eOm, const float *Omd, const float *eR)
+static inline void mavlink_msg_att_ctrl_debug_send(mavlink_channel_t chan, uint64_t time_usec, const float *rpm, const float *eOm, const float *Omd, const float *eR, const float *Rd, const float *R)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN];
@@ -175,6 +197,8 @@ static inline void mavlink_msg_att_ctrl_debug_send(mavlink_channel_t chan, uint6
     _mav_put_float_array(buf, 32, eOm, 3);
     _mav_put_float_array(buf, 44, Omd, 3);
     _mav_put_float_array(buf, 56, eR, 3);
+    _mav_put_float_array(buf, 68, Rd, 9);
+    _mav_put_float_array(buf, 104, R, 9);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, buf, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #else
     mavlink_att_ctrl_debug_t packet;
@@ -183,6 +207,8 @@ static inline void mavlink_msg_att_ctrl_debug_send(mavlink_channel_t chan, uint6
     mav_array_memcpy(packet.eOm, eOm, sizeof(float)*3);
     mav_array_memcpy(packet.Omd, Omd, sizeof(float)*3);
     mav_array_memcpy(packet.eR, eR, sizeof(float)*3);
+    mav_array_memcpy(packet.Rd, Rd, sizeof(float)*9);
+    mav_array_memcpy(packet.R, R, sizeof(float)*9);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, (const char *)&packet, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #endif
 }
@@ -195,7 +221,7 @@ static inline void mavlink_msg_att_ctrl_debug_send(mavlink_channel_t chan, uint6
 static inline void mavlink_msg_att_ctrl_debug_send_struct(mavlink_channel_t chan, const mavlink_att_ctrl_debug_t* att_ctrl_debug)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_att_ctrl_debug_send(chan, att_ctrl_debug->time_usec, att_ctrl_debug->rpm, att_ctrl_debug->eOm, att_ctrl_debug->Omd, att_ctrl_debug->eR);
+    mavlink_msg_att_ctrl_debug_send(chan, att_ctrl_debug->time_usec, att_ctrl_debug->rpm, att_ctrl_debug->eOm, att_ctrl_debug->Omd, att_ctrl_debug->eR, att_ctrl_debug->Rd, att_ctrl_debug->R);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, (const char *)att_ctrl_debug, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #endif
@@ -209,7 +235,7 @@ static inline void mavlink_msg_att_ctrl_debug_send_struct(mavlink_channel_t chan
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_att_ctrl_debug_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint64_t time_usec, const float *rpm, const float *eOm, const float *Omd, const float *eR)
+static inline void mavlink_msg_att_ctrl_debug_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint64_t time_usec, const float *rpm, const float *eOm, const float *Omd, const float *eR, const float *Rd, const float *R)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
@@ -218,6 +244,8 @@ static inline void mavlink_msg_att_ctrl_debug_send_buf(mavlink_message_t *msgbuf
     _mav_put_float_array(buf, 32, eOm, 3);
     _mav_put_float_array(buf, 44, Omd, 3);
     _mav_put_float_array(buf, 56, eR, 3);
+    _mav_put_float_array(buf, 68, Rd, 9);
+    _mav_put_float_array(buf, 104, R, 9);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, buf, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #else
     mavlink_att_ctrl_debug_t *packet = (mavlink_att_ctrl_debug_t *)msgbuf;
@@ -226,6 +254,8 @@ static inline void mavlink_msg_att_ctrl_debug_send_buf(mavlink_message_t *msgbuf
     mav_array_memcpy(packet->eOm, eOm, sizeof(float)*3);
     mav_array_memcpy(packet->Omd, Omd, sizeof(float)*3);
     mav_array_memcpy(packet->eR, eR, sizeof(float)*3);
+    mav_array_memcpy(packet->Rd, Rd, sizeof(float)*9);
+    mav_array_memcpy(packet->R, R, sizeof(float)*9);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ATT_CTRL_DEBUG, (const char *)packet, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC);
 #endif
 }
@@ -287,6 +317,26 @@ static inline uint16_t mavlink_msg_att_ctrl_debug_get_eR(const mavlink_message_t
 }
 
 /**
+ * @brief Get field Rd from att_ctrl_debug message
+ *
+ * @return Desired orientation (populated in row-major order)
+ */
+static inline uint16_t mavlink_msg_att_ctrl_debug_get_Rd(const mavlink_message_t* msg, float *Rd)
+{
+    return _MAV_RETURN_float_array(msg, Rd, 9,  68);
+}
+
+/**
+ * @brief Get field R from att_ctrl_debug message
+ *
+ * @return Actual orientation (populated in row-major order)
+ */
+static inline uint16_t mavlink_msg_att_ctrl_debug_get_R(const mavlink_message_t* msg, float *R)
+{
+    return _MAV_RETURN_float_array(msg, R, 9,  104);
+}
+
+/**
  * @brief Decode a att_ctrl_debug message into a struct
  *
  * @param msg The message to decode
@@ -300,6 +350,8 @@ static inline void mavlink_msg_att_ctrl_debug_decode(const mavlink_message_t* ms
     mavlink_msg_att_ctrl_debug_get_eOm(msg, att_ctrl_debug->eOm);
     mavlink_msg_att_ctrl_debug_get_Omd(msg, att_ctrl_debug->Omd);
     mavlink_msg_att_ctrl_debug_get_eR(msg, att_ctrl_debug->eR);
+    mavlink_msg_att_ctrl_debug_get_Rd(msg, att_ctrl_debug->Rd);
+    mavlink_msg_att_ctrl_debug_get_R(msg, att_ctrl_debug->R);
 #else
         uint8_t len = msg->len < MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN? msg->len : MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN;
         memset(att_ctrl_debug, 0, MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN);

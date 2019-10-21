@@ -966,7 +966,7 @@ static void mavlink_test_att_ctrl_debug(uint8_t system_id, uint8_t component_id,
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_att_ctrl_debug_t packet_in = {
-        93372036854775807ULL,{ 73.0, 74.0, 75.0, 76.0, 77.0, 78.0 },{ 241.0, 242.0, 243.0 },{ 325.0, 326.0, 327.0 },{ 409.0, 410.0, 411.0 }
+        93372036854775807ULL,{ 73.0, 74.0, 75.0, 76.0, 77.0, 78.0 },{ 241.0, 242.0, 243.0 },{ 325.0, 326.0, 327.0 },{ 409.0, 410.0, 411.0 },{ 493.0, 494.0, 495.0, 496.0, 497.0, 498.0, 499.0, 500.0, 501.0 },{ 745.0, 746.0, 747.0, 748.0, 749.0, 750.0, 751.0, 752.0, 753.0 }
     };
     mavlink_att_ctrl_debug_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
@@ -976,6 +976,8 @@ static void mavlink_test_att_ctrl_debug(uint8_t system_id, uint8_t component_id,
         mav_array_memcpy(packet1.eOm, packet_in.eOm, sizeof(float)*3);
         mav_array_memcpy(packet1.Omd, packet_in.Omd, sizeof(float)*3);
         mav_array_memcpy(packet1.eR, packet_in.eR, sizeof(float)*3);
+        mav_array_memcpy(packet1.Rd, packet_in.Rd, sizeof(float)*9);
+        mav_array_memcpy(packet1.R, packet_in.R, sizeof(float)*9);
         
 #ifdef MAVLINK_STATUS_FLAG_OUT_MAVLINK1
         if (status->flags & MAVLINK_STATUS_FLAG_OUT_MAVLINK1) {
@@ -989,12 +991,12 @@ static void mavlink_test_att_ctrl_debug(uint8_t system_id, uint8_t component_id,
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_att_ctrl_debug_pack(system_id, component_id, &msg , packet1.time_usec , packet1.rpm , packet1.eOm , packet1.Omd , packet1.eR );
+    mavlink_msg_att_ctrl_debug_pack(system_id, component_id, &msg , packet1.time_usec , packet1.rpm , packet1.eOm , packet1.Omd , packet1.eR , packet1.Rd , packet1.R );
     mavlink_msg_att_ctrl_debug_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_att_ctrl_debug_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.time_usec , packet1.rpm , packet1.eOm , packet1.Omd , packet1.eR );
+    mavlink_msg_att_ctrl_debug_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.time_usec , packet1.rpm , packet1.eOm , packet1.Omd , packet1.eR , packet1.Rd , packet1.R );
     mavlink_msg_att_ctrl_debug_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -1007,7 +1009,7 @@ static void mavlink_test_att_ctrl_debug(uint8_t system_id, uint8_t component_id,
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_att_ctrl_debug_send(MAVLINK_COMM_1 , packet1.time_usec , packet1.rpm , packet1.eOm , packet1.Omd , packet1.eR );
+    mavlink_msg_att_ctrl_debug_send(MAVLINK_COMM_1 , packet1.time_usec , packet1.rpm , packet1.eOm , packet1.Omd , packet1.eR , packet1.Rd , packet1.R );
     mavlink_msg_att_ctrl_debug_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 }
