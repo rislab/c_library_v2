@@ -145,6 +145,7 @@
       <field type="float[6]" name="rpm">RPM values calculated from MocapAttitudeController for quadrotor</field>
       <field type="float[3]" name="eOm">Angular velocity error</field>
       <field type="float[3]" name="Omd">Desired angular velocity</field>
+      <field type="float[3]" name="eR">Orientation error</field>
     </message>
   </messages>
 </mavlink>
