@@ -148,6 +148,9 @@
       <field type="float[3]" name="eR">Orientation error</field>
       <field type="float[9]" name="Rd">Desired orientation (populated in row-major order)</field>
       <field type="float[9]" name="R">Actual orientation (populated in row-major order)</field>
+      <field type="float" name="casc_cmd_dt">Time difference between current and previously received cascaded commands</field>
+      <field type="float[3]" name="eRint">New orientation error</field>
+      <field type="float" name="body_cmd_fbz">Thrust component of cascaded command</field>
     </message>
   </messages>
 </mavlink>
