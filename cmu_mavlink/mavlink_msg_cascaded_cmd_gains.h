@@ -5,10 +5,10 @@
 
 MAVPACKED(
 typedef struct __mavlink_cascaded_cmd_gains_t {
- uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
- float kR[3]; /*<  Rotational gains*/
- float kOm[3]; /*<  Derivative gains*/
- uint8_t target_system; /*<  Target system*/
+ uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
+ float kR[3]; /*< Rotational gains*/
+ float kOm[3]; /*< Derivative gains*/
+ uint8_t target_system; /*< Target system*/
 }) mavlink_cascaded_cmd_gains_t;
 
 #define MAVLINK_MSG_ID_CASCADED_CMD_GAINS_LEN 33
@@ -28,9 +28,9 @@ typedef struct __mavlink_cascaded_cmd_gains_t {
     "CASCADED_CMD_GAINS", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_cascaded_cmd_gains_t, time_usec) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_cascaded_cmd_gains_t, target_system) }, \
          { "kR", NULL, MAVLINK_TYPE_FLOAT, 3, 8, offsetof(mavlink_cascaded_cmd_gains_t, kR) }, \
          { "kOm", NULL, MAVLINK_TYPE_FLOAT, 3, 20, offsetof(mavlink_cascaded_cmd_gains_t, kOm) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_cascaded_cmd_gains_t, target_system) }, \
          } \
 }
 #else
@@ -38,9 +38,9 @@ typedef struct __mavlink_cascaded_cmd_gains_t {
     "CASCADED_CMD_GAINS", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_cascaded_cmd_gains_t, time_usec) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_cascaded_cmd_gains_t, target_system) }, \
          { "kR", NULL, MAVLINK_TYPE_FLOAT, 3, 8, offsetof(mavlink_cascaded_cmd_gains_t, kR) }, \
          { "kOm", NULL, MAVLINK_TYPE_FLOAT, 3, 20, offsetof(mavlink_cascaded_cmd_gains_t, kOm) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_cascaded_cmd_gains_t, target_system) }, \
          } \
 }
 #endif
@@ -51,10 +51,10 @@ typedef struct __mavlink_cascaded_cmd_gains_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param kR  Rotational gains
- * @param kOm  Derivative gains
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param kR Rotational gains
+ * @param kOm Derivative gains
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_cascaded_cmd_gains_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -86,10 +86,10 @@ static inline uint16_t mavlink_msg_cascaded_cmd_gains_pack(uint8_t system_id, ui
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param kR  Rotational gains
- * @param kOm  Derivative gains
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param kR Rotational gains
+ * @param kOm Derivative gains
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_cascaded_cmd_gains_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -147,10 +147,10 @@ static inline uint16_t mavlink_msg_cascaded_cmd_gains_encode_chan(uint8_t system
  * @brief Send a cascaded_cmd_gains message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param kR  Rotational gains
- * @param kOm  Derivative gains
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param kR Rotational gains
+ * @param kOm Derivative gains
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -223,7 +223,7 @@ static inline void mavlink_msg_cascaded_cmd_gains_send_buf(mavlink_message_t *ms
 /**
  * @brief Get field time_usec from cascaded_cmd_gains message
  *
- * @return  Timestamp (micros since boot or Unix epoch)
+ * @return Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_cascaded_cmd_gains_get_time_usec(const mavlink_message_t* msg)
 {
@@ -233,7 +233,7 @@ static inline uint64_t mavlink_msg_cascaded_cmd_gains_get_time_usec(const mavlin
 /**
  * @brief Get field target_system from cascaded_cmd_gains message
  *
- * @return  Target system
+ * @return Target system
  */
 static inline uint8_t mavlink_msg_cascaded_cmd_gains_get_target_system(const mavlink_message_t* msg)
 {
@@ -243,7 +243,7 @@ static inline uint8_t mavlink_msg_cascaded_cmd_gains_get_target_system(const mav
 /**
  * @brief Get field kR from cascaded_cmd_gains message
  *
- * @return  Rotational gains
+ * @return Rotational gains
  */
 static inline uint16_t mavlink_msg_cascaded_cmd_gains_get_kR(const mavlink_message_t* msg, float *kR)
 {
@@ -253,7 +253,7 @@ static inline uint16_t mavlink_msg_cascaded_cmd_gains_get_kR(const mavlink_messa
 /**
  * @brief Get field kOm from cascaded_cmd_gains message
  *
- * @return  Derivative gains
+ * @return Derivative gains
  */
 static inline uint16_t mavlink_msg_cascaded_cmd_gains_get_kOm(const mavlink_message_t* msg, float *kOm)
 {

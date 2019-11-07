@@ -5,9 +5,9 @@
 
 MAVPACKED(
 typedef struct __mavlink_blinkm_control_t {
- uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
- uint8_t target_system; /*<  Target system*/
- uint8_t control; /*<  LED Control Variable*/
+ uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
+ uint8_t target_system; /*< Target system*/
+ uint8_t control; /*< LED Control Variable*/
 }) mavlink_blinkm_control_t;
 
 #define MAVLINK_MSG_ID_BLINKM_CONTROL_LEN 10
@@ -47,9 +47,9 @@ typedef struct __mavlink_blinkm_control_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param control  LED Control Variable
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param control LED Control Variable
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_blinkm_control_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -81,9 +81,9 @@ static inline uint16_t mavlink_msg_blinkm_control_pack(uint8_t system_id, uint8_
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param control  LED Control Variable
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param control LED Control Variable
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_blinkm_control_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -141,9 +141,9 @@ static inline uint16_t mavlink_msg_blinkm_control_encode_chan(uint8_t system_id,
  * @brief Send a blinkm_control message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param control  LED Control Variable
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param control LED Control Variable
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -216,7 +216,7 @@ static inline void mavlink_msg_blinkm_control_send_buf(mavlink_message_t *msgbuf
 /**
  * @brief Get field time_usec from blinkm_control message
  *
- * @return  Timestamp (micros since boot or Unix epoch)
+ * @return Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_blinkm_control_get_time_usec(const mavlink_message_t* msg)
 {
@@ -226,7 +226,7 @@ static inline uint64_t mavlink_msg_blinkm_control_get_time_usec(const mavlink_me
 /**
  * @brief Get field target_system from blinkm_control message
  *
- * @return  Target system
+ * @return Target system
  */
 static inline uint8_t mavlink_msg_blinkm_control_get_target_system(const mavlink_message_t* msg)
 {
@@ -236,7 +236,7 @@ static inline uint8_t mavlink_msg_blinkm_control_get_target_system(const mavlink
 /**
  * @brief Get field control from blinkm_control message
  *
- * @return  LED Control Variable
+ * @return LED Control Variable
  */
 static inline uint8_t mavlink_msg_blinkm_control_get_control(const mavlink_message_t* msg)
 {

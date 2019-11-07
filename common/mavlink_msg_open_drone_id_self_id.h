@@ -5,8 +5,8 @@
 
 MAVPACKED(
 typedef struct __mavlink_open_drone_id_self_id_t {
- uint8_t description_type; /*<  Indicates the type of the description field.*/
- char description[23]; /*<  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.*/
+ uint8_t description_type; /*< Indicates the type of the description field.*/
+ char description[23]; /*< Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.*/
 }) mavlink_open_drone_id_self_id_t;
 
 #define MAVLINK_MSG_ID_OPEN_DRONE_ID_SELF_ID_LEN 24
@@ -44,8 +44,8 @@ typedef struct __mavlink_open_drone_id_self_id_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param description_type  Indicates the type of the description field.
- * @param description  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+ * @param description_type Indicates the type of the description field.
+ * @param description Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_self_id_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -73,8 +73,8 @@ static inline uint16_t mavlink_msg_open_drone_id_self_id_pack(uint8_t system_id,
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param description_type  Indicates the type of the description field.
- * @param description  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+ * @param description_type Indicates the type of the description field.
+ * @param description Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_self_id_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -128,8 +128,8 @@ static inline uint16_t mavlink_msg_open_drone_id_self_id_encode_chan(uint8_t sys
  * @brief Send a open_drone_id_self_id message
  * @param chan MAVLink channel to send the message
  *
- * @param description_type  Indicates the type of the description field.
- * @param description  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+ * @param description_type Indicates the type of the description field.
+ * @param description Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -194,7 +194,7 @@ static inline void mavlink_msg_open_drone_id_self_id_send_buf(mavlink_message_t 
 /**
  * @brief Get field description_type from open_drone_id_self_id message
  *
- * @return  Indicates the type of the description field.
+ * @return Indicates the type of the description field.
  */
 static inline uint8_t mavlink_msg_open_drone_id_self_id_get_description_type(const mavlink_message_t* msg)
 {
@@ -204,7 +204,7 @@ static inline uint8_t mavlink_msg_open_drone_id_self_id_get_description_type(con
 /**
  * @brief Get field description from open_drone_id_self_id message
  *
- * @return  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+ * @return Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
  */
 static inline uint16_t mavlink_msg_open_drone_id_self_id_get_description(const mavlink_message_t* msg, char *description)
 {

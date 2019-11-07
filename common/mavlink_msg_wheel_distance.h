@@ -5,9 +5,9 @@
 
 MAVPACKED(
 typedef struct __mavlink_wheel_distance_t {
- uint64_t time_usec; /*< [us] Timestamp (synced to UNIX time or since system boot).*/
- double distance[16]; /*< [m] Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.*/
- uint8_t count; /*<  Number of wheels reported.*/
+ uint64_t time_usec; /*< Timestamp (synced to UNIX time or since system boot).*/
+ double distance[16]; /*< Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.*/
+ uint8_t count; /*< Number of wheels reported.*/
 }) mavlink_wheel_distance_t;
 
 #define MAVLINK_MSG_ID_WHEEL_DISTANCE_LEN 137
@@ -26,8 +26,8 @@ typedef struct __mavlink_wheel_distance_t {
     "WHEEL_DISTANCE", \
     3, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_wheel_distance_t, time_usec) }, \
-         { "count", NULL, MAVLINK_TYPE_UINT8_T, 0, 136, offsetof(mavlink_wheel_distance_t, count) }, \
          { "distance", NULL, MAVLINK_TYPE_DOUBLE, 16, 8, offsetof(mavlink_wheel_distance_t, distance) }, \
+         { "count", NULL, MAVLINK_TYPE_UINT8_T, 0, 136, offsetof(mavlink_wheel_distance_t, count) }, \
          } \
 }
 #else
@@ -35,8 +35,8 @@ typedef struct __mavlink_wheel_distance_t {
     "WHEEL_DISTANCE", \
     3, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_wheel_distance_t, time_usec) }, \
-         { "count", NULL, MAVLINK_TYPE_UINT8_T, 0, 136, offsetof(mavlink_wheel_distance_t, count) }, \
          { "distance", NULL, MAVLINK_TYPE_DOUBLE, 16, 8, offsetof(mavlink_wheel_distance_t, distance) }, \
+         { "count", NULL, MAVLINK_TYPE_UINT8_T, 0, 136, offsetof(mavlink_wheel_distance_t, count) }, \
          } \
 }
 #endif
@@ -47,9 +47,9 @@ typedef struct __mavlink_wheel_distance_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec [us] Timestamp (synced to UNIX time or since system boot).
- * @param count  Number of wheels reported.
- * @param distance [m] Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.
+ * @param time_usec Timestamp (synced to UNIX time or since system boot).
+ * @param count Number of wheels reported.
+ * @param distance Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_wheel_distance_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -79,9 +79,9 @@ static inline uint16_t mavlink_msg_wheel_distance_pack(uint8_t system_id, uint8_
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec [us] Timestamp (synced to UNIX time or since system boot).
- * @param count  Number of wheels reported.
- * @param distance [m] Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.
+ * @param time_usec Timestamp (synced to UNIX time or since system boot).
+ * @param count Number of wheels reported.
+ * @param distance Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_wheel_distance_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -137,9 +137,9 @@ static inline uint16_t mavlink_msg_wheel_distance_encode_chan(uint8_t system_id,
  * @brief Send a wheel_distance message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec [us] Timestamp (synced to UNIX time or since system boot).
- * @param count  Number of wheels reported.
- * @param distance [m] Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.
+ * @param time_usec Timestamp (synced to UNIX time or since system boot).
+ * @param count Number of wheels reported.
+ * @param distance Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -208,7 +208,7 @@ static inline void mavlink_msg_wheel_distance_send_buf(mavlink_message_t *msgbuf
 /**
  * @brief Get field time_usec from wheel_distance message
  *
- * @return [us] Timestamp (synced to UNIX time or since system boot).
+ * @return Timestamp (synced to UNIX time or since system boot).
  */
 static inline uint64_t mavlink_msg_wheel_distance_get_time_usec(const mavlink_message_t* msg)
 {
@@ -218,7 +218,7 @@ static inline uint64_t mavlink_msg_wheel_distance_get_time_usec(const mavlink_me
 /**
  * @brief Get field count from wheel_distance message
  *
- * @return  Number of wheels reported.
+ * @return Number of wheels reported.
  */
 static inline uint8_t mavlink_msg_wheel_distance_get_count(const mavlink_message_t* msg)
 {
@@ -228,7 +228,7 @@ static inline uint8_t mavlink_msg_wheel_distance_get_count(const mavlink_message
 /**
  * @brief Get field distance from wheel_distance message
  *
- * @return [m] Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.
+ * @return Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.
  */
 static inline uint16_t mavlink_msg_wheel_distance_get_distance(const mavlink_message_t* msg, double *distance)
 {

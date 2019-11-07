@@ -5,9 +5,9 @@
 
 MAVPACKED(
 typedef struct __mavlink_mocap_timesync_t {
- int64_t tc1; /*<  Time sync timestamp 1*/
- int64_t ts1; /*<  Time sync timestamp 2*/
- uint8_t target_system; /*<  Target system*/
+ int64_t tc1; /*< Time sync timestamp 1*/
+ int64_t ts1; /*< Time sync timestamp 2*/
+ uint8_t target_system; /*< Target system*/
 }) mavlink_mocap_timesync_t;
 
 #define MAVLINK_MSG_ID_MOCAP_TIMESYNC_LEN 17
@@ -25,18 +25,18 @@ typedef struct __mavlink_mocap_timesync_t {
     215, \
     "MOCAP_TIMESYNC", \
     3, \
-    {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_mocap_timesync_t, target_system) }, \
-         { "tc1", NULL, MAVLINK_TYPE_INT64_T, 0, 0, offsetof(mavlink_mocap_timesync_t, tc1) }, \
+    {  { "tc1", NULL, MAVLINK_TYPE_INT64_T, 0, 0, offsetof(mavlink_mocap_timesync_t, tc1) }, \
          { "ts1", NULL, MAVLINK_TYPE_INT64_T, 0, 8, offsetof(mavlink_mocap_timesync_t, ts1) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_mocap_timesync_t, target_system) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_MOCAP_TIMESYNC { \
     "MOCAP_TIMESYNC", \
     3, \
-    {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_mocap_timesync_t, target_system) }, \
-         { "tc1", NULL, MAVLINK_TYPE_INT64_T, 0, 0, offsetof(mavlink_mocap_timesync_t, tc1) }, \
+    {  { "tc1", NULL, MAVLINK_TYPE_INT64_T, 0, 0, offsetof(mavlink_mocap_timesync_t, tc1) }, \
          { "ts1", NULL, MAVLINK_TYPE_INT64_T, 0, 8, offsetof(mavlink_mocap_timesync_t, ts1) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_mocap_timesync_t, target_system) }, \
          } \
 }
 #endif
@@ -47,9 +47,9 @@ typedef struct __mavlink_mocap_timesync_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param target_system  Target system
- * @param tc1  Time sync timestamp 1
- * @param ts1  Time sync timestamp 2
+ * @param target_system Target system
+ * @param tc1 Time sync timestamp 1
+ * @param ts1 Time sync timestamp 2
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_timesync_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -81,9 +81,9 @@ static inline uint16_t mavlink_msg_mocap_timesync_pack(uint8_t system_id, uint8_
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param target_system  Target system
- * @param tc1  Time sync timestamp 1
- * @param ts1  Time sync timestamp 2
+ * @param target_system Target system
+ * @param tc1 Time sync timestamp 1
+ * @param ts1 Time sync timestamp 2
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_timesync_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -141,9 +141,9 @@ static inline uint16_t mavlink_msg_mocap_timesync_encode_chan(uint8_t system_id,
  * @brief Send a mocap_timesync message
  * @param chan MAVLink channel to send the message
  *
- * @param target_system  Target system
- * @param tc1  Time sync timestamp 1
- * @param ts1  Time sync timestamp 2
+ * @param target_system Target system
+ * @param tc1 Time sync timestamp 1
+ * @param ts1 Time sync timestamp 2
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -216,7 +216,7 @@ static inline void mavlink_msg_mocap_timesync_send_buf(mavlink_message_t *msgbuf
 /**
  * @brief Get field target_system from mocap_timesync message
  *
- * @return  Target system
+ * @return Target system
  */
 static inline uint8_t mavlink_msg_mocap_timesync_get_target_system(const mavlink_message_t* msg)
 {
@@ -226,7 +226,7 @@ static inline uint8_t mavlink_msg_mocap_timesync_get_target_system(const mavlink
 /**
  * @brief Get field tc1 from mocap_timesync message
  *
- * @return  Time sync timestamp 1
+ * @return Time sync timestamp 1
  */
 static inline int64_t mavlink_msg_mocap_timesync_get_tc1(const mavlink_message_t* msg)
 {
@@ -236,7 +236,7 @@ static inline int64_t mavlink_msg_mocap_timesync_get_tc1(const mavlink_message_t
 /**
  * @brief Get field ts1 from mocap_timesync message
  *
- * @return  Time sync timestamp 2
+ * @return Time sync timestamp 2
  */
 static inline int64_t mavlink_msg_mocap_timesync_get_ts1(const mavlink_message_t* msg)
 {

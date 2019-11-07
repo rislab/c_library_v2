@@ -5,17 +5,17 @@
 
 MAVPACKED(
 typedef struct __mavlink_link_node_status_t {
- uint64_t timestamp; /*< [ms] Timestamp (time since system boot).*/
- uint32_t tx_rate; /*< [bytes/s] Transmit rate*/
- uint32_t rx_rate; /*< [bytes/s] Receive rate*/
- uint32_t messages_sent; /*<  Messages sent*/
- uint32_t messages_received; /*<  Messages received (estimated from counting seq)*/
- uint32_t messages_lost; /*<  Messages lost (estimated from counting seq)*/
- uint16_t rx_parse_err; /*< [bytes] Number of bytes that could not be parsed correctly.*/
- uint16_t tx_overflows; /*< [bytes] Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX*/
- uint16_t rx_overflows; /*< [bytes] Receive buffer overflows. This number wraps around as it reaches UINT16_MAX*/
- uint8_t tx_buf; /*< [%] Remaining free transmit buffer space*/
- uint8_t rx_buf; /*< [%] Remaining free receive buffer space*/
+ uint64_t timestamp; /*< Timestamp (time since system boot).*/
+ uint32_t tx_rate; /*< Transmit rate*/
+ uint32_t rx_rate; /*< Receive rate*/
+ uint32_t messages_sent; /*< Messages sent*/
+ uint32_t messages_received; /*< Messages received (estimated from counting seq)*/
+ uint32_t messages_lost; /*< Messages lost (estimated from counting seq)*/
+ uint16_t rx_parse_err; /*< Number of bytes that could not be parsed correctly.*/
+ uint16_t tx_overflows; /*< Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX*/
+ uint16_t rx_overflows; /*< Receive buffer overflows. This number wraps around as it reaches UINT16_MAX*/
+ uint8_t tx_buf; /*< Remaining free transmit buffer space*/
+ uint8_t rx_buf; /*< Remaining free receive buffer space*/
 }) mavlink_link_node_status_t;
 
 #define MAVLINK_MSG_ID_LINK_NODE_STATUS_LEN 36
@@ -34,16 +34,16 @@ typedef struct __mavlink_link_node_status_t {
     "LINK_NODE_STATUS", \
     11, \
     {  { "timestamp", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_link_node_status_t, timestamp) }, \
-         { "tx_buf", NULL, MAVLINK_TYPE_UINT8_T, 0, 34, offsetof(mavlink_link_node_status_t, tx_buf) }, \
-         { "rx_buf", NULL, MAVLINK_TYPE_UINT8_T, 0, 35, offsetof(mavlink_link_node_status_t, rx_buf) }, \
          { "tx_rate", NULL, MAVLINK_TYPE_UINT32_T, 0, 8, offsetof(mavlink_link_node_status_t, tx_rate) }, \
          { "rx_rate", NULL, MAVLINK_TYPE_UINT32_T, 0, 12, offsetof(mavlink_link_node_status_t, rx_rate) }, \
-         { "rx_parse_err", NULL, MAVLINK_TYPE_UINT16_T, 0, 28, offsetof(mavlink_link_node_status_t, rx_parse_err) }, \
-         { "tx_overflows", NULL, MAVLINK_TYPE_UINT16_T, 0, 30, offsetof(mavlink_link_node_status_t, tx_overflows) }, \
-         { "rx_overflows", NULL, MAVLINK_TYPE_UINT16_T, 0, 32, offsetof(mavlink_link_node_status_t, rx_overflows) }, \
          { "messages_sent", NULL, MAVLINK_TYPE_UINT32_T, 0, 16, offsetof(mavlink_link_node_status_t, messages_sent) }, \
          { "messages_received", NULL, MAVLINK_TYPE_UINT32_T, 0, 20, offsetof(mavlink_link_node_status_t, messages_received) }, \
          { "messages_lost", NULL, MAVLINK_TYPE_UINT32_T, 0, 24, offsetof(mavlink_link_node_status_t, messages_lost) }, \
+         { "rx_parse_err", NULL, MAVLINK_TYPE_UINT16_T, 0, 28, offsetof(mavlink_link_node_status_t, rx_parse_err) }, \
+         { "tx_overflows", NULL, MAVLINK_TYPE_UINT16_T, 0, 30, offsetof(mavlink_link_node_status_t, tx_overflows) }, \
+         { "rx_overflows", NULL, MAVLINK_TYPE_UINT16_T, 0, 32, offsetof(mavlink_link_node_status_t, rx_overflows) }, \
+         { "tx_buf", NULL, MAVLINK_TYPE_UINT8_T, 0, 34, offsetof(mavlink_link_node_status_t, tx_buf) }, \
+         { "rx_buf", NULL, MAVLINK_TYPE_UINT8_T, 0, 35, offsetof(mavlink_link_node_status_t, rx_buf) }, \
          } \
 }
 #else
@@ -51,16 +51,16 @@ typedef struct __mavlink_link_node_status_t {
     "LINK_NODE_STATUS", \
     11, \
     {  { "timestamp", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_link_node_status_t, timestamp) }, \
-         { "tx_buf", NULL, MAVLINK_TYPE_UINT8_T, 0, 34, offsetof(mavlink_link_node_status_t, tx_buf) }, \
-         { "rx_buf", NULL, MAVLINK_TYPE_UINT8_T, 0, 35, offsetof(mavlink_link_node_status_t, rx_buf) }, \
          { "tx_rate", NULL, MAVLINK_TYPE_UINT32_T, 0, 8, offsetof(mavlink_link_node_status_t, tx_rate) }, \
          { "rx_rate", NULL, MAVLINK_TYPE_UINT32_T, 0, 12, offsetof(mavlink_link_node_status_t, rx_rate) }, \
-         { "rx_parse_err", NULL, MAVLINK_TYPE_UINT16_T, 0, 28, offsetof(mavlink_link_node_status_t, rx_parse_err) }, \
-         { "tx_overflows", NULL, MAVLINK_TYPE_UINT16_T, 0, 30, offsetof(mavlink_link_node_status_t, tx_overflows) }, \
-         { "rx_overflows", NULL, MAVLINK_TYPE_UINT16_T, 0, 32, offsetof(mavlink_link_node_status_t, rx_overflows) }, \
          { "messages_sent", NULL, MAVLINK_TYPE_UINT32_T, 0, 16, offsetof(mavlink_link_node_status_t, messages_sent) }, \
          { "messages_received", NULL, MAVLINK_TYPE_UINT32_T, 0, 20, offsetof(mavlink_link_node_status_t, messages_received) }, \
          { "messages_lost", NULL, MAVLINK_TYPE_UINT32_T, 0, 24, offsetof(mavlink_link_node_status_t, messages_lost) }, \
+         { "rx_parse_err", NULL, MAVLINK_TYPE_UINT16_T, 0, 28, offsetof(mavlink_link_node_status_t, rx_parse_err) }, \
+         { "tx_overflows", NULL, MAVLINK_TYPE_UINT16_T, 0, 30, offsetof(mavlink_link_node_status_t, tx_overflows) }, \
+         { "rx_overflows", NULL, MAVLINK_TYPE_UINT16_T, 0, 32, offsetof(mavlink_link_node_status_t, rx_overflows) }, \
+         { "tx_buf", NULL, MAVLINK_TYPE_UINT8_T, 0, 34, offsetof(mavlink_link_node_status_t, tx_buf) }, \
+         { "rx_buf", NULL, MAVLINK_TYPE_UINT8_T, 0, 35, offsetof(mavlink_link_node_status_t, rx_buf) }, \
          } \
 }
 #endif
@@ -71,17 +71,17 @@ typedef struct __mavlink_link_node_status_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param timestamp [ms] Timestamp (time since system boot).
- * @param tx_buf [%] Remaining free transmit buffer space
- * @param rx_buf [%] Remaining free receive buffer space
- * @param tx_rate [bytes/s] Transmit rate
- * @param rx_rate [bytes/s] Receive rate
- * @param rx_parse_err [bytes] Number of bytes that could not be parsed correctly.
- * @param tx_overflows [bytes] Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX
- * @param rx_overflows [bytes] Receive buffer overflows. This number wraps around as it reaches UINT16_MAX
- * @param messages_sent  Messages sent
- * @param messages_received  Messages received (estimated from counting seq)
- * @param messages_lost  Messages lost (estimated from counting seq)
+ * @param timestamp Timestamp (time since system boot).
+ * @param tx_buf Remaining free transmit buffer space
+ * @param rx_buf Remaining free receive buffer space
+ * @param tx_rate Transmit rate
+ * @param rx_rate Receive rate
+ * @param rx_parse_err Number of bytes that could not be parsed correctly.
+ * @param tx_overflows Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX
+ * @param rx_overflows Receive buffer overflows. This number wraps around as it reaches UINT16_MAX
+ * @param messages_sent Messages sent
+ * @param messages_received Messages received (estimated from counting seq)
+ * @param messages_lost Messages lost (estimated from counting seq)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_link_node_status_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -129,17 +129,17 @@ static inline uint16_t mavlink_msg_link_node_status_pack(uint8_t system_id, uint
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param timestamp [ms] Timestamp (time since system boot).
- * @param tx_buf [%] Remaining free transmit buffer space
- * @param rx_buf [%] Remaining free receive buffer space
- * @param tx_rate [bytes/s] Transmit rate
- * @param rx_rate [bytes/s] Receive rate
- * @param rx_parse_err [bytes] Number of bytes that could not be parsed correctly.
- * @param tx_overflows [bytes] Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX
- * @param rx_overflows [bytes] Receive buffer overflows. This number wraps around as it reaches UINT16_MAX
- * @param messages_sent  Messages sent
- * @param messages_received  Messages received (estimated from counting seq)
- * @param messages_lost  Messages lost (estimated from counting seq)
+ * @param timestamp Timestamp (time since system boot).
+ * @param tx_buf Remaining free transmit buffer space
+ * @param rx_buf Remaining free receive buffer space
+ * @param tx_rate Transmit rate
+ * @param rx_rate Receive rate
+ * @param rx_parse_err Number of bytes that could not be parsed correctly.
+ * @param tx_overflows Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX
+ * @param rx_overflows Receive buffer overflows. This number wraps around as it reaches UINT16_MAX
+ * @param messages_sent Messages sent
+ * @param messages_received Messages received (estimated from counting seq)
+ * @param messages_lost Messages lost (estimated from counting seq)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_link_node_status_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -213,17 +213,17 @@ static inline uint16_t mavlink_msg_link_node_status_encode_chan(uint8_t system_i
  * @brief Send a link_node_status message
  * @param chan MAVLink channel to send the message
  *
- * @param timestamp [ms] Timestamp (time since system boot).
- * @param tx_buf [%] Remaining free transmit buffer space
- * @param rx_buf [%] Remaining free receive buffer space
- * @param tx_rate [bytes/s] Transmit rate
- * @param rx_rate [bytes/s] Receive rate
- * @param rx_parse_err [bytes] Number of bytes that could not be parsed correctly.
- * @param tx_overflows [bytes] Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX
- * @param rx_overflows [bytes] Receive buffer overflows. This number wraps around as it reaches UINT16_MAX
- * @param messages_sent  Messages sent
- * @param messages_received  Messages received (estimated from counting seq)
- * @param messages_lost  Messages lost (estimated from counting seq)
+ * @param timestamp Timestamp (time since system boot).
+ * @param tx_buf Remaining free transmit buffer space
+ * @param rx_buf Remaining free receive buffer space
+ * @param tx_rate Transmit rate
+ * @param rx_rate Receive rate
+ * @param rx_parse_err Number of bytes that could not be parsed correctly.
+ * @param tx_overflows Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX
+ * @param rx_overflows Receive buffer overflows. This number wraps around as it reaches UINT16_MAX
+ * @param messages_sent Messages sent
+ * @param messages_received Messages received (estimated from counting seq)
+ * @param messages_lost Messages lost (estimated from counting seq)
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -328,7 +328,7 @@ static inline void mavlink_msg_link_node_status_send_buf(mavlink_message_t *msgb
 /**
  * @brief Get field timestamp from link_node_status message
  *
- * @return [ms] Timestamp (time since system boot).
+ * @return Timestamp (time since system boot).
  */
 static inline uint64_t mavlink_msg_link_node_status_get_timestamp(const mavlink_message_t* msg)
 {
@@ -338,7 +338,7 @@ static inline uint64_t mavlink_msg_link_node_status_get_timestamp(const mavlink_
 /**
  * @brief Get field tx_buf from link_node_status message
  *
- * @return [%] Remaining free transmit buffer space
+ * @return Remaining free transmit buffer space
  */
 static inline uint8_t mavlink_msg_link_node_status_get_tx_buf(const mavlink_message_t* msg)
 {
@@ -348,7 +348,7 @@ static inline uint8_t mavlink_msg_link_node_status_get_tx_buf(const mavlink_mess
 /**
  * @brief Get field rx_buf from link_node_status message
  *
- * @return [%] Remaining free receive buffer space
+ * @return Remaining free receive buffer space
  */
 static inline uint8_t mavlink_msg_link_node_status_get_rx_buf(const mavlink_message_t* msg)
 {
@@ -358,7 +358,7 @@ static inline uint8_t mavlink_msg_link_node_status_get_rx_buf(const mavlink_mess
 /**
  * @brief Get field tx_rate from link_node_status message
  *
- * @return [bytes/s] Transmit rate
+ * @return Transmit rate
  */
 static inline uint32_t mavlink_msg_link_node_status_get_tx_rate(const mavlink_message_t* msg)
 {
@@ -368,7 +368,7 @@ static inline uint32_t mavlink_msg_link_node_status_get_tx_rate(const mavlink_me
 /**
  * @brief Get field rx_rate from link_node_status message
  *
- * @return [bytes/s] Receive rate
+ * @return Receive rate
  */
 static inline uint32_t mavlink_msg_link_node_status_get_rx_rate(const mavlink_message_t* msg)
 {
@@ -378,7 +378,7 @@ static inline uint32_t mavlink_msg_link_node_status_get_rx_rate(const mavlink_me
 /**
  * @brief Get field rx_parse_err from link_node_status message
  *
- * @return [bytes] Number of bytes that could not be parsed correctly.
+ * @return Number of bytes that could not be parsed correctly.
  */
 static inline uint16_t mavlink_msg_link_node_status_get_rx_parse_err(const mavlink_message_t* msg)
 {
@@ -388,7 +388,7 @@ static inline uint16_t mavlink_msg_link_node_status_get_rx_parse_err(const mavli
 /**
  * @brief Get field tx_overflows from link_node_status message
  *
- * @return [bytes] Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX
+ * @return Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX
  */
 static inline uint16_t mavlink_msg_link_node_status_get_tx_overflows(const mavlink_message_t* msg)
 {
@@ -398,7 +398,7 @@ static inline uint16_t mavlink_msg_link_node_status_get_tx_overflows(const mavli
 /**
  * @brief Get field rx_overflows from link_node_status message
  *
- * @return [bytes] Receive buffer overflows. This number wraps around as it reaches UINT16_MAX
+ * @return Receive buffer overflows. This number wraps around as it reaches UINT16_MAX
  */
 static inline uint16_t mavlink_msg_link_node_status_get_rx_overflows(const mavlink_message_t* msg)
 {
@@ -408,7 +408,7 @@ static inline uint16_t mavlink_msg_link_node_status_get_rx_overflows(const mavli
 /**
  * @brief Get field messages_sent from link_node_status message
  *
- * @return  Messages sent
+ * @return Messages sent
  */
 static inline uint32_t mavlink_msg_link_node_status_get_messages_sent(const mavlink_message_t* msg)
 {
@@ -418,7 +418,7 @@ static inline uint32_t mavlink_msg_link_node_status_get_messages_sent(const mavl
 /**
  * @brief Get field messages_received from link_node_status message
  *
- * @return  Messages received (estimated from counting seq)
+ * @return Messages received (estimated from counting seq)
  */
 static inline uint32_t mavlink_msg_link_node_status_get_messages_received(const mavlink_message_t* msg)
 {
@@ -428,7 +428,7 @@ static inline uint32_t mavlink_msg_link_node_status_get_messages_received(const 
 /**
  * @brief Get field messages_lost from link_node_status message
  *
- * @return  Messages lost (estimated from counting seq)
+ * @return Messages lost (estimated from counting seq)
  */
 static inline uint32_t mavlink_msg_link_node_status_get_messages_lost(const mavlink_message_t* msg)
 {

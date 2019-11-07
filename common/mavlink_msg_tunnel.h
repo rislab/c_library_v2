@@ -5,11 +5,11 @@
 
 MAVPACKED(
 typedef struct __mavlink_tunnel_t {
- uint16_t payload_type; /*<  A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.*/
- uint8_t target_system; /*<  System ID (can be 0 for broadcast, but this is discouraged)*/
- uint8_t target_component; /*<  Component ID (can be 0 for broadcast, but this is discouraged)*/
- uint8_t payload_length; /*<  Length of the data transported in payload*/
- uint8_t payload[128]; /*<  Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.*/
+ uint16_t payload_type; /*< A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.*/
+ uint8_t target_system; /*< System ID (can be 0 for broadcast, but this is discouraged)*/
+ uint8_t target_component; /*< Component ID (can be 0 for broadcast, but this is discouraged)*/
+ uint8_t payload_length; /*< Length of the data transported in payload*/
+ uint8_t payload[128]; /*< Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.*/
 }) mavlink_tunnel_t;
 
 #define MAVLINK_MSG_ID_TUNNEL_LEN 133
@@ -27,9 +27,9 @@ typedef struct __mavlink_tunnel_t {
     385, \
     "TUNNEL", \
     5, \
-    {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 2, offsetof(mavlink_tunnel_t, target_system) }, \
+    {  { "payload_type", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_tunnel_t, payload_type) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 2, offsetof(mavlink_tunnel_t, target_system) }, \
          { "target_component", NULL, MAVLINK_TYPE_UINT8_T, 0, 3, offsetof(mavlink_tunnel_t, target_component) }, \
-         { "payload_type", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_tunnel_t, payload_type) }, \
          { "payload_length", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_tunnel_t, payload_length) }, \
          { "payload", NULL, MAVLINK_TYPE_UINT8_T, 128, 5, offsetof(mavlink_tunnel_t, payload) }, \
          } \
@@ -38,9 +38,9 @@ typedef struct __mavlink_tunnel_t {
 #define MAVLINK_MESSAGE_INFO_TUNNEL { \
     "TUNNEL", \
     5, \
-    {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 2, offsetof(mavlink_tunnel_t, target_system) }, \
+    {  { "payload_type", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_tunnel_t, payload_type) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 2, offsetof(mavlink_tunnel_t, target_system) }, \
          { "target_component", NULL, MAVLINK_TYPE_UINT8_T, 0, 3, offsetof(mavlink_tunnel_t, target_component) }, \
-         { "payload_type", NULL, MAVLINK_TYPE_UINT16_T, 0, 0, offsetof(mavlink_tunnel_t, payload_type) }, \
          { "payload_length", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_tunnel_t, payload_length) }, \
          { "payload", NULL, MAVLINK_TYPE_UINT8_T, 128, 5, offsetof(mavlink_tunnel_t, payload) }, \
          } \
@@ -53,11 +53,11 @@ typedef struct __mavlink_tunnel_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param target_system  System ID (can be 0 for broadcast, but this is discouraged)
- * @param target_component  Component ID (can be 0 for broadcast, but this is discouraged)
- * @param payload_type  A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
- * @param payload_length  Length of the data transported in payload
- * @param payload  Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.
+ * @param target_system System ID (can be 0 for broadcast, but this is discouraged)
+ * @param target_component Component ID (can be 0 for broadcast, but this is discouraged)
+ * @param payload_type A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
+ * @param payload_length Length of the data transported in payload
+ * @param payload Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_tunnel_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -91,11 +91,11 @@ static inline uint16_t mavlink_msg_tunnel_pack(uint8_t system_id, uint8_t compon
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param target_system  System ID (can be 0 for broadcast, but this is discouraged)
- * @param target_component  Component ID (can be 0 for broadcast, but this is discouraged)
- * @param payload_type  A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
- * @param payload_length  Length of the data transported in payload
- * @param payload  Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.
+ * @param target_system System ID (can be 0 for broadcast, but this is discouraged)
+ * @param target_component Component ID (can be 0 for broadcast, but this is discouraged)
+ * @param payload_type A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
+ * @param payload_length Length of the data transported in payload
+ * @param payload Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_tunnel_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -155,11 +155,11 @@ static inline uint16_t mavlink_msg_tunnel_encode_chan(uint8_t system_id, uint8_t
  * @brief Send a tunnel message
  * @param chan MAVLink channel to send the message
  *
- * @param target_system  System ID (can be 0 for broadcast, but this is discouraged)
- * @param target_component  Component ID (can be 0 for broadcast, but this is discouraged)
- * @param payload_type  A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
- * @param payload_length  Length of the data transported in payload
- * @param payload  Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.
+ * @param target_system System ID (can be 0 for broadcast, but this is discouraged)
+ * @param target_component Component ID (can be 0 for broadcast, but this is discouraged)
+ * @param payload_type A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
+ * @param payload_length Length of the data transported in payload
+ * @param payload Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -236,7 +236,7 @@ static inline void mavlink_msg_tunnel_send_buf(mavlink_message_t *msgbuf, mavlin
 /**
  * @brief Get field target_system from tunnel message
  *
- * @return  System ID (can be 0 for broadcast, but this is discouraged)
+ * @return System ID (can be 0 for broadcast, but this is discouraged)
  */
 static inline uint8_t mavlink_msg_tunnel_get_target_system(const mavlink_message_t* msg)
 {
@@ -246,7 +246,7 @@ static inline uint8_t mavlink_msg_tunnel_get_target_system(const mavlink_message
 /**
  * @brief Get field target_component from tunnel message
  *
- * @return  Component ID (can be 0 for broadcast, but this is discouraged)
+ * @return Component ID (can be 0 for broadcast, but this is discouraged)
  */
 static inline uint8_t mavlink_msg_tunnel_get_target_component(const mavlink_message_t* msg)
 {
@@ -256,7 +256,7 @@ static inline uint8_t mavlink_msg_tunnel_get_target_component(const mavlink_mess
 /**
  * @brief Get field payload_type from tunnel message
  *
- * @return  A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
+ * @return A code that identifies the content of the payload (0 for unknown, which is the default). If this code is less than 32768, it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
  */
 static inline uint16_t mavlink_msg_tunnel_get_payload_type(const mavlink_message_t* msg)
 {
@@ -266,7 +266,7 @@ static inline uint16_t mavlink_msg_tunnel_get_payload_type(const mavlink_message
 /**
  * @brief Get field payload_length from tunnel message
  *
- * @return  Length of the data transported in payload
+ * @return Length of the data transported in payload
  */
 static inline uint8_t mavlink_msg_tunnel_get_payload_length(const mavlink_message_t* msg)
 {
@@ -276,7 +276,7 @@ static inline uint8_t mavlink_msg_tunnel_get_payload_length(const mavlink_messag
 /**
  * @brief Get field payload from tunnel message
  *
- * @return  Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.
+ * @return Variable length payload. The payload length is defined by payload_length. The entire content of this block is opaque unless you understand the encoding specified by payload_type.
  */
 static inline uint16_t mavlink_msg_tunnel_get_payload(const mavlink_message_t* msg, uint8_t *payload)
 {

@@ -5,9 +5,9 @@
 
 MAVPACKED(
 typedef struct __mavlink_open_drone_id_message_pack_t {
- uint8_t single_message_size; /*< [bytes] This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.*/
- uint8_t msg_pack_size; /*<  Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.*/
- uint8_t messages[250]; /*<  Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.*/
+ uint8_t single_message_size; /*< This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.*/
+ uint8_t msg_pack_size; /*< Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.*/
+ uint8_t messages[250]; /*< Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.*/
 }) mavlink_open_drone_id_message_pack_t;
 
 #define MAVLINK_MSG_ID_OPEN_DRONE_ID_MESSAGE_PACK_LEN 252
@@ -47,9 +47,9 @@ typedef struct __mavlink_open_drone_id_message_pack_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param single_message_size [bytes] This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.
- * @param msg_pack_size  Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.
- * @param messages  Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.
+ * @param single_message_size This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.
+ * @param msg_pack_size Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.
+ * @param messages Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_message_pack_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -79,9 +79,9 @@ static inline uint16_t mavlink_msg_open_drone_id_message_pack_pack(uint8_t syste
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param single_message_size [bytes] This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.
- * @param msg_pack_size  Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.
- * @param messages  Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.
+ * @param single_message_size This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.
+ * @param msg_pack_size Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.
+ * @param messages Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_message_pack_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -137,9 +137,9 @@ static inline uint16_t mavlink_msg_open_drone_id_message_pack_encode_chan(uint8_
  * @brief Send a open_drone_id_message_pack message
  * @param chan MAVLink channel to send the message
  *
- * @param single_message_size [bytes] This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.
- * @param msg_pack_size  Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.
- * @param messages  Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.
+ * @param single_message_size This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.
+ * @param msg_pack_size Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.
+ * @param messages Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -208,7 +208,7 @@ static inline void mavlink_msg_open_drone_id_message_pack_send_buf(mavlink_messa
 /**
  * @brief Get field single_message_size from open_drone_id_message_pack message
  *
- * @return [bytes] This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.
+ * @return This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.
  */
 static inline uint8_t mavlink_msg_open_drone_id_message_pack_get_single_message_size(const mavlink_message_t* msg)
 {
@@ -218,7 +218,7 @@ static inline uint8_t mavlink_msg_open_drone_id_message_pack_get_single_message_
 /**
  * @brief Get field msg_pack_size from open_drone_id_message_pack message
  *
- * @return  Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.
+ * @return Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.
  */
 static inline uint8_t mavlink_msg_open_drone_id_message_pack_get_msg_pack_size(const mavlink_message_t* msg)
 {
@@ -228,7 +228,7 @@ static inline uint8_t mavlink_msg_open_drone_id_message_pack_get_msg_pack_size(c
 /**
  * @brief Get field messages from open_drone_id_message_pack message
  *
- * @return  Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.
+ * @return Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.
  */
 static inline uint16_t mavlink_msg_open_drone_id_message_pack_get_messages(const mavlink_message_t* msg, uint8_t *messages)
 {

@@ -5,10 +5,10 @@
 
 MAVPACKED(
 typedef struct __mavlink_debug_float_array_t {
- uint64_t time_usec; /*< [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.*/
- uint16_t array_id; /*<  Unique ID used to discriminate between arrays*/
- char name[10]; /*<  Name, for human-friendly display in a Ground Control Station*/
- float data[58]; /*<  data*/
+ uint64_t time_usec; /*< Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.*/
+ uint16_t array_id; /*< Unique ID used to discriminate between arrays*/
+ char name[10]; /*< Name, for human-friendly display in a Ground Control Station*/
+ float data[58]; /*< data*/
 }) mavlink_debug_float_array_t;
 
 #define MAVLINK_MSG_ID_DEBUG_FLOAT_ARRAY_LEN 252
@@ -28,8 +28,8 @@ typedef struct __mavlink_debug_float_array_t {
     "DEBUG_FLOAT_ARRAY", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_debug_float_array_t, time_usec) }, \
-         { "name", NULL, MAVLINK_TYPE_CHAR, 10, 10, offsetof(mavlink_debug_float_array_t, name) }, \
          { "array_id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_debug_float_array_t, array_id) }, \
+         { "name", NULL, MAVLINK_TYPE_CHAR, 10, 10, offsetof(mavlink_debug_float_array_t, name) }, \
          { "data", NULL, MAVLINK_TYPE_FLOAT, 58, 20, offsetof(mavlink_debug_float_array_t, data) }, \
          } \
 }
@@ -38,8 +38,8 @@ typedef struct __mavlink_debug_float_array_t {
     "DEBUG_FLOAT_ARRAY", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_debug_float_array_t, time_usec) }, \
-         { "name", NULL, MAVLINK_TYPE_CHAR, 10, 10, offsetof(mavlink_debug_float_array_t, name) }, \
          { "array_id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_debug_float_array_t, array_id) }, \
+         { "name", NULL, MAVLINK_TYPE_CHAR, 10, 10, offsetof(mavlink_debug_float_array_t, name) }, \
          { "data", NULL, MAVLINK_TYPE_FLOAT, 58, 20, offsetof(mavlink_debug_float_array_t, data) }, \
          } \
 }
@@ -51,10 +51,10 @@ typedef struct __mavlink_debug_float_array_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param name  Name, for human-friendly display in a Ground Control Station
- * @param array_id  Unique ID used to discriminate between arrays
- * @param data  data
+ * @param time_usec Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param name Name, for human-friendly display in a Ground Control Station
+ * @param array_id Unique ID used to discriminate between arrays
+ * @param data data
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_debug_float_array_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -86,10 +86,10 @@ static inline uint16_t mavlink_msg_debug_float_array_pack(uint8_t system_id, uin
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param name  Name, for human-friendly display in a Ground Control Station
- * @param array_id  Unique ID used to discriminate between arrays
- * @param data  data
+ * @param time_usec Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param name Name, for human-friendly display in a Ground Control Station
+ * @param array_id Unique ID used to discriminate between arrays
+ * @param data data
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_debug_float_array_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -147,10 +147,10 @@ static inline uint16_t mavlink_msg_debug_float_array_encode_chan(uint8_t system_
  * @brief Send a debug_float_array message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param name  Name, for human-friendly display in a Ground Control Station
- * @param array_id  Unique ID used to discriminate between arrays
- * @param data  data
+ * @param time_usec Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param name Name, for human-friendly display in a Ground Control Station
+ * @param array_id Unique ID used to discriminate between arrays
+ * @param data data
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -223,7 +223,7 @@ static inline void mavlink_msg_debug_float_array_send_buf(mavlink_message_t *msg
 /**
  * @brief Get field time_usec from debug_float_array message
  *
- * @return [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @return Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
  */
 static inline uint64_t mavlink_msg_debug_float_array_get_time_usec(const mavlink_message_t* msg)
 {
@@ -233,7 +233,7 @@ static inline uint64_t mavlink_msg_debug_float_array_get_time_usec(const mavlink
 /**
  * @brief Get field name from debug_float_array message
  *
- * @return  Name, for human-friendly display in a Ground Control Station
+ * @return Name, for human-friendly display in a Ground Control Station
  */
 static inline uint16_t mavlink_msg_debug_float_array_get_name(const mavlink_message_t* msg, char *name)
 {
@@ -243,7 +243,7 @@ static inline uint16_t mavlink_msg_debug_float_array_get_name(const mavlink_mess
 /**
  * @brief Get field array_id from debug_float_array message
  *
- * @return  Unique ID used to discriminate between arrays
+ * @return Unique ID used to discriminate between arrays
  */
 static inline uint16_t mavlink_msg_debug_float_array_get_array_id(const mavlink_message_t* msg)
 {
@@ -253,7 +253,7 @@ static inline uint16_t mavlink_msg_debug_float_array_get_array_id(const mavlink_
 /**
  * @brief Get field data from debug_float_array message
  *
- * @return  data
+ * @return data
  */
 static inline uint16_t mavlink_msg_debug_float_array_get_data(const mavlink_message_t* msg, float *data)
 {

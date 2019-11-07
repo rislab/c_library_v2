@@ -5,13 +5,13 @@
 
 MAVPACKED(
 typedef struct __mavlink_mocap_position_cmd_t {
- uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
- int16_t pos[3]; /*<  Reference position (x, y, z) in mm*/
- int16_t vel[3]; /*<  Reference velocity (x, y, z) in mm/s*/
- int16_t acc[3]; /*<  Reference acceleration (x, y, z) in mm/s^2*/
- int16_t jerk[3]; /*<  Reference jerk (x, y, z) in mm/s^3*/
- int16_t heading[3]; /*<  Reference heading in mrad, mrad/s, mrad/s^2*/
- uint8_t target_system; /*<  Target system*/
+ uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
+ int16_t pos[3]; /*< Reference position (x, y, z) in mm*/
+ int16_t vel[3]; /*< Reference velocity (x, y, z) in mm/s*/
+ int16_t acc[3]; /*< Reference acceleration (x, y, z) in mm/s^2*/
+ int16_t jerk[3]; /*< Reference jerk (x, y, z) in mm/s^3*/
+ int16_t heading[3]; /*< Reference heading in mrad, mrad/s, mrad/s^2*/
+ uint8_t target_system; /*< Target system*/
 }) mavlink_mocap_position_cmd_t;
 
 #define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_LEN 39
@@ -34,12 +34,12 @@ typedef struct __mavlink_mocap_position_cmd_t {
     "MOCAP_POSITION_CMD", \
     7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_position_cmd_t, time_usec) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 38, offsetof(mavlink_mocap_position_cmd_t, target_system) }, \
          { "pos", NULL, MAVLINK_TYPE_INT16_T, 3, 8, offsetof(mavlink_mocap_position_cmd_t, pos) }, \
          { "vel", NULL, MAVLINK_TYPE_INT16_T, 3, 14, offsetof(mavlink_mocap_position_cmd_t, vel) }, \
          { "acc", NULL, MAVLINK_TYPE_INT16_T, 3, 20, offsetof(mavlink_mocap_position_cmd_t, acc) }, \
          { "jerk", NULL, MAVLINK_TYPE_INT16_T, 3, 26, offsetof(mavlink_mocap_position_cmd_t, jerk) }, \
          { "heading", NULL, MAVLINK_TYPE_INT16_T, 3, 32, offsetof(mavlink_mocap_position_cmd_t, heading) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 38, offsetof(mavlink_mocap_position_cmd_t, target_system) }, \
          } \
 }
 #else
@@ -47,12 +47,12 @@ typedef struct __mavlink_mocap_position_cmd_t {
     "MOCAP_POSITION_CMD", \
     7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_position_cmd_t, time_usec) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 38, offsetof(mavlink_mocap_position_cmd_t, target_system) }, \
          { "pos", NULL, MAVLINK_TYPE_INT16_T, 3, 8, offsetof(mavlink_mocap_position_cmd_t, pos) }, \
          { "vel", NULL, MAVLINK_TYPE_INT16_T, 3, 14, offsetof(mavlink_mocap_position_cmd_t, vel) }, \
          { "acc", NULL, MAVLINK_TYPE_INT16_T, 3, 20, offsetof(mavlink_mocap_position_cmd_t, acc) }, \
          { "jerk", NULL, MAVLINK_TYPE_INT16_T, 3, 26, offsetof(mavlink_mocap_position_cmd_t, jerk) }, \
          { "heading", NULL, MAVLINK_TYPE_INT16_T, 3, 32, offsetof(mavlink_mocap_position_cmd_t, heading) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 38, offsetof(mavlink_mocap_position_cmd_t, target_system) }, \
          } \
 }
 #endif
@@ -63,13 +63,13 @@ typedef struct __mavlink_mocap_position_cmd_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param pos  Reference position (x, y, z) in mm
- * @param vel  Reference velocity (x, y, z) in mm/s
- * @param acc  Reference acceleration (x, y, z) in mm/s^2
- * @param jerk  Reference jerk (x, y, z) in mm/s^3
- * @param heading  Reference heading in mrad, mrad/s, mrad/s^2
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param pos Reference position (x, y, z) in mm
+ * @param vel Reference velocity (x, y, z) in mm/s
+ * @param acc Reference acceleration (x, y, z) in mm/s^2
+ * @param jerk Reference jerk (x, y, z) in mm/s^3
+ * @param heading Reference heading in mrad, mrad/s, mrad/s^2
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -107,13 +107,13 @@ static inline uint16_t mavlink_msg_mocap_position_cmd_pack(uint8_t system_id, ui
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param pos  Reference position (x, y, z) in mm
- * @param vel  Reference velocity (x, y, z) in mm/s
- * @param acc  Reference acceleration (x, y, z) in mm/s^2
- * @param jerk  Reference jerk (x, y, z) in mm/s^3
- * @param heading  Reference heading in mrad, mrad/s, mrad/s^2
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param pos Reference position (x, y, z) in mm
+ * @param vel Reference velocity (x, y, z) in mm/s
+ * @param acc Reference acceleration (x, y, z) in mm/s^2
+ * @param jerk Reference jerk (x, y, z) in mm/s^3
+ * @param heading Reference heading in mrad, mrad/s, mrad/s^2
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -177,13 +177,13 @@ static inline uint16_t mavlink_msg_mocap_position_cmd_encode_chan(uint8_t system
  * @brief Send a mocap_position_cmd message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param pos  Reference position (x, y, z) in mm
- * @param vel  Reference velocity (x, y, z) in mm/s
- * @param acc  Reference acceleration (x, y, z) in mm/s^2
- * @param jerk  Reference jerk (x, y, z) in mm/s^3
- * @param heading  Reference heading in mrad, mrad/s, mrad/s^2
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param pos Reference position (x, y, z) in mm
+ * @param vel Reference velocity (x, y, z) in mm/s
+ * @param acc Reference acceleration (x, y, z) in mm/s^2
+ * @param jerk Reference jerk (x, y, z) in mm/s^3
+ * @param heading Reference heading in mrad, mrad/s, mrad/s^2
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -268,7 +268,7 @@ static inline void mavlink_msg_mocap_position_cmd_send_buf(mavlink_message_t *ms
 /**
  * @brief Get field time_usec from mocap_position_cmd message
  *
- * @return  Timestamp (micros since boot or Unix epoch)
+ * @return Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_mocap_position_cmd_get_time_usec(const mavlink_message_t* msg)
 {
@@ -278,7 +278,7 @@ static inline uint64_t mavlink_msg_mocap_position_cmd_get_time_usec(const mavlin
 /**
  * @brief Get field target_system from mocap_position_cmd message
  *
- * @return  Target system
+ * @return Target system
  */
 static inline uint8_t mavlink_msg_mocap_position_cmd_get_target_system(const mavlink_message_t* msg)
 {
@@ -288,7 +288,7 @@ static inline uint8_t mavlink_msg_mocap_position_cmd_get_target_system(const mav
 /**
  * @brief Get field pos from mocap_position_cmd message
  *
- * @return  Reference position (x, y, z) in mm
+ * @return Reference position (x, y, z) in mm
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_get_pos(const mavlink_message_t* msg, int16_t *pos)
 {
@@ -298,7 +298,7 @@ static inline uint16_t mavlink_msg_mocap_position_cmd_get_pos(const mavlink_mess
 /**
  * @brief Get field vel from mocap_position_cmd message
  *
- * @return  Reference velocity (x, y, z) in mm/s
+ * @return Reference velocity (x, y, z) in mm/s
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_get_vel(const mavlink_message_t* msg, int16_t *vel)
 {
@@ -308,7 +308,7 @@ static inline uint16_t mavlink_msg_mocap_position_cmd_get_vel(const mavlink_mess
 /**
  * @brief Get field acc from mocap_position_cmd message
  *
- * @return  Reference acceleration (x, y, z) in mm/s^2
+ * @return Reference acceleration (x, y, z) in mm/s^2
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_get_acc(const mavlink_message_t* msg, int16_t *acc)
 {
@@ -318,7 +318,7 @@ static inline uint16_t mavlink_msg_mocap_position_cmd_get_acc(const mavlink_mess
 /**
  * @brief Get field jerk from mocap_position_cmd message
  *
- * @return  Reference jerk (x, y, z) in mm/s^3
+ * @return Reference jerk (x, y, z) in mm/s^3
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_get_jerk(const mavlink_message_t* msg, int16_t *jerk)
 {
@@ -328,7 +328,7 @@ static inline uint16_t mavlink_msg_mocap_position_cmd_get_jerk(const mavlink_mes
 /**
  * @brief Get field heading from mocap_position_cmd message
  *
- * @return  Reference heading in mrad, mrad/s, mrad/s^2
+ * @return Reference heading in mrad, mrad/s, mrad/s^2
  */
 static inline uint16_t mavlink_msg_mocap_position_cmd_get_heading(const mavlink_message_t* msg, int16_t *heading)
 {

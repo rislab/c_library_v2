@@ -5,8 +5,8 @@
 
 MAVPACKED(
 typedef struct __mavlink_open_drone_id_operator_id_t {
- uint8_t operator_id_type; /*<  Indicates the type of the operator_id field.*/
- char operator_id[20]; /*<  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.*/
+ uint8_t operator_id_type; /*< Indicates the type of the operator_id field.*/
+ char operator_id[20]; /*< Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.*/
 }) mavlink_open_drone_id_operator_id_t;
 
 #define MAVLINK_MSG_ID_OPEN_DRONE_ID_OPERATOR_ID_LEN 21
@@ -44,8 +44,8 @@ typedef struct __mavlink_open_drone_id_operator_id_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param operator_id_type  Indicates the type of the operator_id field.
- * @param operator_id  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+ * @param operator_id_type Indicates the type of the operator_id field.
+ * @param operator_id Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_operator_id_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -73,8 +73,8 @@ static inline uint16_t mavlink_msg_open_drone_id_operator_id_pack(uint8_t system
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param operator_id_type  Indicates the type of the operator_id field.
- * @param operator_id  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+ * @param operator_id_type Indicates the type of the operator_id field.
+ * @param operator_id Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_operator_id_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -128,8 +128,8 @@ static inline uint16_t mavlink_msg_open_drone_id_operator_id_encode_chan(uint8_t
  * @brief Send a open_drone_id_operator_id message
  * @param chan MAVLink channel to send the message
  *
- * @param operator_id_type  Indicates the type of the operator_id field.
- * @param operator_id  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+ * @param operator_id_type Indicates the type of the operator_id field.
+ * @param operator_id Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -194,7 +194,7 @@ static inline void mavlink_msg_open_drone_id_operator_id_send_buf(mavlink_messag
 /**
  * @brief Get field operator_id_type from open_drone_id_operator_id message
  *
- * @return  Indicates the type of the operator_id field.
+ * @return Indicates the type of the operator_id field.
  */
 static inline uint8_t mavlink_msg_open_drone_id_operator_id_get_operator_id_type(const mavlink_message_t* msg)
 {
@@ -204,7 +204,7 @@ static inline uint8_t mavlink_msg_open_drone_id_operator_id_get_operator_id_type
 /**
  * @brief Get field operator_id from open_drone_id_operator_id message
  *
- * @return  Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
+ * @return Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the unused portion of the field.
  */
 static inline uint16_t mavlink_msg_open_drone_id_operator_id_get_operator_id(const mavlink_message_t* msg, char *operator_id)
 {

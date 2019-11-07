@@ -5,9 +5,9 @@
 
 MAVPACKED(
 typedef struct __mavlink_rpm_output_t {
- uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
- uint32_t noutputs; /*<  Number of valid outputs*/
- float output[16]; /*<  RPM outputs*/
+ uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
+ uint32_t noutputs; /*< Number of valid outputs*/
+ float output[16]; /*< RPM outputs*/
 }) mavlink_rpm_output_t;
 
 #define MAVLINK_MSG_ID_RPM_OUTPUT_LEN 76
@@ -47,9 +47,9 @@ typedef struct __mavlink_rpm_output_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param noutputs  Number of valid outputs
- * @param output  RPM outputs
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param noutputs Number of valid outputs
+ * @param output RPM outputs
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_rpm_output_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -79,9 +79,9 @@ static inline uint16_t mavlink_msg_rpm_output_pack(uint8_t system_id, uint8_t co
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param noutputs  Number of valid outputs
- * @param output  RPM outputs
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param noutputs Number of valid outputs
+ * @param output RPM outputs
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_rpm_output_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -137,9 +137,9 @@ static inline uint16_t mavlink_msg_rpm_output_encode_chan(uint8_t system_id, uin
  * @brief Send a rpm_output message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param noutputs  Number of valid outputs
- * @param output  RPM outputs
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param noutputs Number of valid outputs
+ * @param output RPM outputs
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -208,7 +208,7 @@ static inline void mavlink_msg_rpm_output_send_buf(mavlink_message_t *msgbuf, ma
 /**
  * @brief Get field time_usec from rpm_output message
  *
- * @return  Timestamp (micros since boot or Unix epoch)
+ * @return Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_rpm_output_get_time_usec(const mavlink_message_t* msg)
 {
@@ -218,7 +218,7 @@ static inline uint64_t mavlink_msg_rpm_output_get_time_usec(const mavlink_messag
 /**
  * @brief Get field noutputs from rpm_output message
  *
- * @return  Number of valid outputs
+ * @return Number of valid outputs
  */
 static inline uint32_t mavlink_msg_rpm_output_get_noutputs(const mavlink_message_t* msg)
 {
@@ -228,7 +228,7 @@ static inline uint32_t mavlink_msg_rpm_output_get_noutputs(const mavlink_message
 /**
  * @brief Get field output from rpm_output message
  *
- * @return  RPM outputs
+ * @return RPM outputs
  */
 static inline uint16_t mavlink_msg_rpm_output_get_output(const mavlink_message_t* msg, float *output)
 {

@@ -5,13 +5,13 @@
 
 MAVPACKED(
 typedef struct __mavlink_cellular_status_t {
- uint32_t cid; /*<  Cell ID. If unknown, set to: UINT32_MAX*/
- uint16_t status; /*<  Status bitmap*/
- uint16_t mcc; /*<  Mobile country code. If unknown, set to: UINT16_MAX*/
- uint16_t mnc; /*<  Mobile network code. If unknown, set to: UINT16_MAX*/
- uint16_t lac; /*<  Location area code. If unknown, set to: 0*/
- uint8_t type; /*<  Cellular network radio type: gsm, cdma, lte...*/
- uint8_t quality; /*<  Cellular network RSSI/RSRP in dBm, absolute value*/
+ uint32_t cid; /*< Cell ID. If unknown, set to: UINT32_MAX*/
+ uint16_t status; /*< Status bitmap*/
+ uint16_t mcc; /*< Mobile country code. If unknown, set to: UINT16_MAX*/
+ uint16_t mnc; /*< Mobile network code. If unknown, set to: UINT16_MAX*/
+ uint16_t lac; /*< Location area code. If unknown, set to: 0*/
+ uint8_t type; /*< Cellular network radio type: gsm, cdma, lte...*/
+ uint8_t quality; /*< Cellular network RSSI/RSRP in dBm, absolute value*/
 }) mavlink_cellular_status_t;
 
 #define MAVLINK_MSG_ID_CELLULAR_STATUS_LEN 14
@@ -29,26 +29,26 @@ typedef struct __mavlink_cellular_status_t {
     334, \
     "CELLULAR_STATUS", \
     7, \
-    {  { "status", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_cellular_status_t, status) }, \
-         { "type", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_cellular_status_t, type) }, \
-         { "quality", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_cellular_status_t, quality) }, \
+    {  { "cid", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_cellular_status_t, cid) }, \
+         { "status", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_cellular_status_t, status) }, \
          { "mcc", NULL, MAVLINK_TYPE_UINT16_T, 0, 6, offsetof(mavlink_cellular_status_t, mcc) }, \
          { "mnc", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_cellular_status_t, mnc) }, \
          { "lac", NULL, MAVLINK_TYPE_UINT16_T, 0, 10, offsetof(mavlink_cellular_status_t, lac) }, \
-         { "cid", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_cellular_status_t, cid) }, \
+         { "type", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_cellular_status_t, type) }, \
+         { "quality", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_cellular_status_t, quality) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_CELLULAR_STATUS { \
     "CELLULAR_STATUS", \
     7, \
-    {  { "status", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_cellular_status_t, status) }, \
-         { "type", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_cellular_status_t, type) }, \
-         { "quality", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_cellular_status_t, quality) }, \
+    {  { "cid", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_cellular_status_t, cid) }, \
+         { "status", NULL, MAVLINK_TYPE_UINT16_T, 0, 4, offsetof(mavlink_cellular_status_t, status) }, \
          { "mcc", NULL, MAVLINK_TYPE_UINT16_T, 0, 6, offsetof(mavlink_cellular_status_t, mcc) }, \
          { "mnc", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_cellular_status_t, mnc) }, \
          { "lac", NULL, MAVLINK_TYPE_UINT16_T, 0, 10, offsetof(mavlink_cellular_status_t, lac) }, \
-         { "cid", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_cellular_status_t, cid) }, \
+         { "type", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_cellular_status_t, type) }, \
+         { "quality", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_cellular_status_t, quality) }, \
          } \
 }
 #endif
@@ -59,13 +59,13 @@ typedef struct __mavlink_cellular_status_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param status  Status bitmap
- * @param type  Cellular network radio type: gsm, cdma, lte...
- * @param quality  Cellular network RSSI/RSRP in dBm, absolute value
- * @param mcc  Mobile country code. If unknown, set to: UINT16_MAX
- * @param mnc  Mobile network code. If unknown, set to: UINT16_MAX
- * @param lac  Location area code. If unknown, set to: 0
- * @param cid  Cell ID. If unknown, set to: UINT32_MAX
+ * @param status Status bitmap
+ * @param type Cellular network radio type: gsm, cdma, lte...
+ * @param quality Cellular network RSSI/RSRP in dBm, absolute value
+ * @param mcc Mobile country code. If unknown, set to: UINT16_MAX
+ * @param mnc Mobile network code. If unknown, set to: UINT16_MAX
+ * @param lac Location area code. If unknown, set to: 0
+ * @param cid Cell ID. If unknown, set to: UINT32_MAX
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_cellular_status_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -105,13 +105,13 @@ static inline uint16_t mavlink_msg_cellular_status_pack(uint8_t system_id, uint8
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param status  Status bitmap
- * @param type  Cellular network radio type: gsm, cdma, lte...
- * @param quality  Cellular network RSSI/RSRP in dBm, absolute value
- * @param mcc  Mobile country code. If unknown, set to: UINT16_MAX
- * @param mnc  Mobile network code. If unknown, set to: UINT16_MAX
- * @param lac  Location area code. If unknown, set to: 0
- * @param cid  Cell ID. If unknown, set to: UINT32_MAX
+ * @param status Status bitmap
+ * @param type Cellular network radio type: gsm, cdma, lte...
+ * @param quality Cellular network RSSI/RSRP in dBm, absolute value
+ * @param mcc Mobile country code. If unknown, set to: UINT16_MAX
+ * @param mnc Mobile network code. If unknown, set to: UINT16_MAX
+ * @param lac Location area code. If unknown, set to: 0
+ * @param cid Cell ID. If unknown, set to: UINT32_MAX
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_cellular_status_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -177,13 +177,13 @@ static inline uint16_t mavlink_msg_cellular_status_encode_chan(uint8_t system_id
  * @brief Send a cellular_status message
  * @param chan MAVLink channel to send the message
  *
- * @param status  Status bitmap
- * @param type  Cellular network radio type: gsm, cdma, lte...
- * @param quality  Cellular network RSSI/RSRP in dBm, absolute value
- * @param mcc  Mobile country code. If unknown, set to: UINT16_MAX
- * @param mnc  Mobile network code. If unknown, set to: UINT16_MAX
- * @param lac  Location area code. If unknown, set to: 0
- * @param cid  Cell ID. If unknown, set to: UINT32_MAX
+ * @param status Status bitmap
+ * @param type Cellular network radio type: gsm, cdma, lte...
+ * @param quality Cellular network RSSI/RSRP in dBm, absolute value
+ * @param mcc Mobile country code. If unknown, set to: UINT16_MAX
+ * @param mnc Mobile network code. If unknown, set to: UINT16_MAX
+ * @param lac Location area code. If unknown, set to: 0
+ * @param cid Cell ID. If unknown, set to: UINT32_MAX
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -272,7 +272,7 @@ static inline void mavlink_msg_cellular_status_send_buf(mavlink_message_t *msgbu
 /**
  * @brief Get field status from cellular_status message
  *
- * @return  Status bitmap
+ * @return Status bitmap
  */
 static inline uint16_t mavlink_msg_cellular_status_get_status(const mavlink_message_t* msg)
 {
@@ -282,7 +282,7 @@ static inline uint16_t mavlink_msg_cellular_status_get_status(const mavlink_mess
 /**
  * @brief Get field type from cellular_status message
  *
- * @return  Cellular network radio type: gsm, cdma, lte...
+ * @return Cellular network radio type: gsm, cdma, lte...
  */
 static inline uint8_t mavlink_msg_cellular_status_get_type(const mavlink_message_t* msg)
 {
@@ -292,7 +292,7 @@ static inline uint8_t mavlink_msg_cellular_status_get_type(const mavlink_message
 /**
  * @brief Get field quality from cellular_status message
  *
- * @return  Cellular network RSSI/RSRP in dBm, absolute value
+ * @return Cellular network RSSI/RSRP in dBm, absolute value
  */
 static inline uint8_t mavlink_msg_cellular_status_get_quality(const mavlink_message_t* msg)
 {
@@ -302,7 +302,7 @@ static inline uint8_t mavlink_msg_cellular_status_get_quality(const mavlink_mess
 /**
  * @brief Get field mcc from cellular_status message
  *
- * @return  Mobile country code. If unknown, set to: UINT16_MAX
+ * @return Mobile country code. If unknown, set to: UINT16_MAX
  */
 static inline uint16_t mavlink_msg_cellular_status_get_mcc(const mavlink_message_t* msg)
 {
@@ -312,7 +312,7 @@ static inline uint16_t mavlink_msg_cellular_status_get_mcc(const mavlink_message
 /**
  * @brief Get field mnc from cellular_status message
  *
- * @return  Mobile network code. If unknown, set to: UINT16_MAX
+ * @return Mobile network code. If unknown, set to: UINT16_MAX
  */
 static inline uint16_t mavlink_msg_cellular_status_get_mnc(const mavlink_message_t* msg)
 {
@@ -322,7 +322,7 @@ static inline uint16_t mavlink_msg_cellular_status_get_mnc(const mavlink_message
 /**
  * @brief Get field lac from cellular_status message
  *
- * @return  Location area code. If unknown, set to: 0
+ * @return Location area code. If unknown, set to: 0
  */
 static inline uint16_t mavlink_msg_cellular_status_get_lac(const mavlink_message_t* msg)
 {
@@ -332,7 +332,7 @@ static inline uint16_t mavlink_msg_cellular_status_get_lac(const mavlink_message
 /**
  * @brief Get field cid from cellular_status message
  *
- * @return  Cell ID. If unknown, set to: UINT32_MAX
+ * @return Cell ID. If unknown, set to: UINT32_MAX
  */
 static inline uint32_t mavlink_msg_cellular_status_get_cid(const mavlink_message_t* msg)
 {

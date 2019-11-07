@@ -5,9 +5,9 @@
 
 MAVPACKED(
 typedef struct __mavlink_charger_gpio_t {
- uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
- uint8_t target_system; /*<  Target system*/
- uint8_t on; /*<  toggle GPIO on or off*/
+ uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
+ uint8_t target_system; /*< Target system*/
+ uint8_t on; /*< toggle GPIO on or off*/
 }) mavlink_charger_gpio_t;
 
 #define MAVLINK_MSG_ID_CHARGER_GPIO_LEN 10
@@ -47,9 +47,9 @@ typedef struct __mavlink_charger_gpio_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param on  toggle GPIO on or off
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param on toggle GPIO on or off
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_charger_gpio_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -81,9 +81,9 @@ static inline uint16_t mavlink_msg_charger_gpio_pack(uint8_t system_id, uint8_t 
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param on  toggle GPIO on or off
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param on toggle GPIO on or off
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_charger_gpio_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -141,9 +141,9 @@ static inline uint16_t mavlink_msg_charger_gpio_encode_chan(uint8_t system_id, u
  * @brief Send a charger_gpio message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec  Timestamp (micros since boot or Unix epoch)
- * @param target_system  Target system
- * @param on  toggle GPIO on or off
+ * @param time_usec Timestamp (micros since boot or Unix epoch)
+ * @param target_system Target system
+ * @param on toggle GPIO on or off
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -216,7 +216,7 @@ static inline void mavlink_msg_charger_gpio_send_buf(mavlink_message_t *msgbuf, 
 /**
  * @brief Get field time_usec from charger_gpio message
  *
- * @return  Timestamp (micros since boot or Unix epoch)
+ * @return Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_charger_gpio_get_time_usec(const mavlink_message_t* msg)
 {
@@ -226,7 +226,7 @@ static inline uint64_t mavlink_msg_charger_gpio_get_time_usec(const mavlink_mess
 /**
  * @brief Get field target_system from charger_gpio message
  *
- * @return  Target system
+ * @return Target system
  */
 static inline uint8_t mavlink_msg_charger_gpio_get_target_system(const mavlink_message_t* msg)
 {
@@ -236,7 +236,7 @@ static inline uint8_t mavlink_msg_charger_gpio_get_target_system(const mavlink_m
 /**
  * @brief Get field on from charger_gpio message
  *
- * @return  toggle GPIO on or off
+ * @return toggle GPIO on or off
  */
 static inline uint8_t mavlink_msg_charger_gpio_get_on(const mavlink_message_t* msg)
 {

@@ -5,24 +5,24 @@
 
 MAVPACKED(
 typedef struct __mavlink_utm_global_position_t {
- uint64_t time; /*< [us] Time of applicability of position (microseconds since UNIX epoch).*/
- int32_t lat; /*< [degE7] Latitude (WGS84)*/
- int32_t lon; /*< [degE7] Longitude (WGS84)*/
- int32_t alt; /*< [mm] Altitude (WGS84)*/
- int32_t relative_alt; /*< [mm] Altitude above ground*/
- int32_t next_lat; /*< [degE7] Next waypoint, latitude (WGS84)*/
- int32_t next_lon; /*< [degE7] Next waypoint, longitude (WGS84)*/
- int32_t next_alt; /*< [mm] Next waypoint, altitude (WGS84)*/
- int16_t vx; /*< [cm/s] Ground X speed (latitude, positive north)*/
- int16_t vy; /*< [cm/s] Ground Y speed (longitude, positive east)*/
- int16_t vz; /*< [cm/s] Ground Z speed (altitude, positive down)*/
- uint16_t h_acc; /*< [mm] Horizontal position uncertainty (standard deviation)*/
- uint16_t v_acc; /*< [mm] Altitude uncertainty (standard deviation)*/
- uint16_t vel_acc; /*< [cm/s] Speed uncertainty (standard deviation)*/
- uint16_t update_rate; /*< [cs] Time until next update. Set to 0 if unknown or in data driven mode.*/
- uint8_t uas_id[18]; /*<  Unique UAS ID.*/
- uint8_t flight_state; /*<  Flight state*/
- uint8_t flags; /*<  Bitwise OR combination of the data available flags.*/
+ uint64_t time; /*< Time of applicability of position (microseconds since UNIX epoch).*/
+ int32_t lat; /*< Latitude (WGS84)*/
+ int32_t lon; /*< Longitude (WGS84)*/
+ int32_t alt; /*< Altitude (WGS84)*/
+ int32_t relative_alt; /*< Altitude above ground*/
+ int32_t next_lat; /*< Next waypoint, latitude (WGS84)*/
+ int32_t next_lon; /*< Next waypoint, longitude (WGS84)*/
+ int32_t next_alt; /*< Next waypoint, altitude (WGS84)*/
+ int16_t vx; /*< Ground X speed (latitude, positive north)*/
+ int16_t vy; /*< Ground Y speed (longitude, positive east)*/
+ int16_t vz; /*< Ground Z speed (altitude, positive down)*/
+ uint16_t h_acc; /*< Horizontal position uncertainty (standard deviation)*/
+ uint16_t v_acc; /*< Altitude uncertainty (standard deviation)*/
+ uint16_t vel_acc; /*< Speed uncertainty (standard deviation)*/
+ uint16_t update_rate; /*< Time until next update. Set to 0 if unknown or in data driven mode.*/
+ uint8_t uas_id[18]; /*< Unique UAS ID.*/
+ uint8_t flight_state; /*< Flight state*/
+ uint8_t flags; /*< Bitwise OR combination of the data available flags.*/
 }) mavlink_utm_global_position_t;
 
 #define MAVLINK_MSG_ID_UTM_GLOBAL_POSITION_LEN 70
@@ -41,21 +41,21 @@ typedef struct __mavlink_utm_global_position_t {
     "UTM_GLOBAL_POSITION", \
     18, \
     {  { "time", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_utm_global_position_t, time) }, \
-         { "uas_id", NULL, MAVLINK_TYPE_UINT8_T, 18, 50, offsetof(mavlink_utm_global_position_t, uas_id) }, \
          { "lat", NULL, MAVLINK_TYPE_INT32_T, 0, 8, offsetof(mavlink_utm_global_position_t, lat) }, \
          { "lon", NULL, MAVLINK_TYPE_INT32_T, 0, 12, offsetof(mavlink_utm_global_position_t, lon) }, \
          { "alt", NULL, MAVLINK_TYPE_INT32_T, 0, 16, offsetof(mavlink_utm_global_position_t, alt) }, \
          { "relative_alt", NULL, MAVLINK_TYPE_INT32_T, 0, 20, offsetof(mavlink_utm_global_position_t, relative_alt) }, \
+         { "next_lat", NULL, MAVLINK_TYPE_INT32_T, 0, 24, offsetof(mavlink_utm_global_position_t, next_lat) }, \
+         { "next_lon", NULL, MAVLINK_TYPE_INT32_T, 0, 28, offsetof(mavlink_utm_global_position_t, next_lon) }, \
+         { "next_alt", NULL, MAVLINK_TYPE_INT32_T, 0, 32, offsetof(mavlink_utm_global_position_t, next_alt) }, \
          { "vx", NULL, MAVLINK_TYPE_INT16_T, 0, 36, offsetof(mavlink_utm_global_position_t, vx) }, \
          { "vy", NULL, MAVLINK_TYPE_INT16_T, 0, 38, offsetof(mavlink_utm_global_position_t, vy) }, \
          { "vz", NULL, MAVLINK_TYPE_INT16_T, 0, 40, offsetof(mavlink_utm_global_position_t, vz) }, \
          { "h_acc", NULL, MAVLINK_TYPE_UINT16_T, 0, 42, offsetof(mavlink_utm_global_position_t, h_acc) }, \
          { "v_acc", NULL, MAVLINK_TYPE_UINT16_T, 0, 44, offsetof(mavlink_utm_global_position_t, v_acc) }, \
          { "vel_acc", NULL, MAVLINK_TYPE_UINT16_T, 0, 46, offsetof(mavlink_utm_global_position_t, vel_acc) }, \
-         { "next_lat", NULL, MAVLINK_TYPE_INT32_T, 0, 24, offsetof(mavlink_utm_global_position_t, next_lat) }, \
-         { "next_lon", NULL, MAVLINK_TYPE_INT32_T, 0, 28, offsetof(mavlink_utm_global_position_t, next_lon) }, \
-         { "next_alt", NULL, MAVLINK_TYPE_INT32_T, 0, 32, offsetof(mavlink_utm_global_position_t, next_alt) }, \
          { "update_rate", NULL, MAVLINK_TYPE_UINT16_T, 0, 48, offsetof(mavlink_utm_global_position_t, update_rate) }, \
+         { "uas_id", NULL, MAVLINK_TYPE_UINT8_T, 18, 50, offsetof(mavlink_utm_global_position_t, uas_id) }, \
          { "flight_state", NULL, MAVLINK_TYPE_UINT8_T, 0, 68, offsetof(mavlink_utm_global_position_t, flight_state) }, \
          { "flags", NULL, MAVLINK_TYPE_UINT8_T, 0, 69, offsetof(mavlink_utm_global_position_t, flags) }, \
          } \
@@ -65,21 +65,21 @@ typedef struct __mavlink_utm_global_position_t {
     "UTM_GLOBAL_POSITION", \
     18, \
     {  { "time", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_utm_global_position_t, time) }, \
-         { "uas_id", NULL, MAVLINK_TYPE_UINT8_T, 18, 50, offsetof(mavlink_utm_global_position_t, uas_id) }, \
          { "lat", NULL, MAVLINK_TYPE_INT32_T, 0, 8, offsetof(mavlink_utm_global_position_t, lat) }, \
          { "lon", NULL, MAVLINK_TYPE_INT32_T, 0, 12, offsetof(mavlink_utm_global_position_t, lon) }, \
          { "alt", NULL, MAVLINK_TYPE_INT32_T, 0, 16, offsetof(mavlink_utm_global_position_t, alt) }, \
          { "relative_alt", NULL, MAVLINK_TYPE_INT32_T, 0, 20, offsetof(mavlink_utm_global_position_t, relative_alt) }, \
+         { "next_lat", NULL, MAVLINK_TYPE_INT32_T, 0, 24, offsetof(mavlink_utm_global_position_t, next_lat) }, \
+         { "next_lon", NULL, MAVLINK_TYPE_INT32_T, 0, 28, offsetof(mavlink_utm_global_position_t, next_lon) }, \
+         { "next_alt", NULL, MAVLINK_TYPE_INT32_T, 0, 32, offsetof(mavlink_utm_global_position_t, next_alt) }, \
          { "vx", NULL, MAVLINK_TYPE_INT16_T, 0, 36, offsetof(mavlink_utm_global_position_t, vx) }, \
          { "vy", NULL, MAVLINK_TYPE_INT16_T, 0, 38, offsetof(mavlink_utm_global_position_t, vy) }, \
          { "vz", NULL, MAVLINK_TYPE_INT16_T, 0, 40, offsetof(mavlink_utm_global_position_t, vz) }, \
          { "h_acc", NULL, MAVLINK_TYPE_UINT16_T, 0, 42, offsetof(mavlink_utm_global_position_t, h_acc) }, \
          { "v_acc", NULL, MAVLINK_TYPE_UINT16_T, 0, 44, offsetof(mavlink_utm_global_position_t, v_acc) }, \
          { "vel_acc", NULL, MAVLINK_TYPE_UINT16_T, 0, 46, offsetof(mavlink_utm_global_position_t, vel_acc) }, \
-         { "next_lat", NULL, MAVLINK_TYPE_INT32_T, 0, 24, offsetof(mavlink_utm_global_position_t, next_lat) }, \
-         { "next_lon", NULL, MAVLINK_TYPE_INT32_T, 0, 28, offsetof(mavlink_utm_global_position_t, next_lon) }, \
-         { "next_alt", NULL, MAVLINK_TYPE_INT32_T, 0, 32, offsetof(mavlink_utm_global_position_t, next_alt) }, \
          { "update_rate", NULL, MAVLINK_TYPE_UINT16_T, 0, 48, offsetof(mavlink_utm_global_position_t, update_rate) }, \
+         { "uas_id", NULL, MAVLINK_TYPE_UINT8_T, 18, 50, offsetof(mavlink_utm_global_position_t, uas_id) }, \
          { "flight_state", NULL, MAVLINK_TYPE_UINT8_T, 0, 68, offsetof(mavlink_utm_global_position_t, flight_state) }, \
          { "flags", NULL, MAVLINK_TYPE_UINT8_T, 0, 69, offsetof(mavlink_utm_global_position_t, flags) }, \
          } \
@@ -92,24 +92,24 @@ typedef struct __mavlink_utm_global_position_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time [us] Time of applicability of position (microseconds since UNIX epoch).
- * @param uas_id  Unique UAS ID.
- * @param lat [degE7] Latitude (WGS84)
- * @param lon [degE7] Longitude (WGS84)
- * @param alt [mm] Altitude (WGS84)
- * @param relative_alt [mm] Altitude above ground
- * @param vx [cm/s] Ground X speed (latitude, positive north)
- * @param vy [cm/s] Ground Y speed (longitude, positive east)
- * @param vz [cm/s] Ground Z speed (altitude, positive down)
- * @param h_acc [mm] Horizontal position uncertainty (standard deviation)
- * @param v_acc [mm] Altitude uncertainty (standard deviation)
- * @param vel_acc [cm/s] Speed uncertainty (standard deviation)
- * @param next_lat [degE7] Next waypoint, latitude (WGS84)
- * @param next_lon [degE7] Next waypoint, longitude (WGS84)
- * @param next_alt [mm] Next waypoint, altitude (WGS84)
- * @param update_rate [cs] Time until next update. Set to 0 if unknown or in data driven mode.
- * @param flight_state  Flight state
- * @param flags  Bitwise OR combination of the data available flags.
+ * @param time Time of applicability of position (microseconds since UNIX epoch).
+ * @param uas_id Unique UAS ID.
+ * @param lat Latitude (WGS84)
+ * @param lon Longitude (WGS84)
+ * @param alt Altitude (WGS84)
+ * @param relative_alt Altitude above ground
+ * @param vx Ground X speed (latitude, positive north)
+ * @param vy Ground Y speed (longitude, positive east)
+ * @param vz Ground Z speed (altitude, positive down)
+ * @param h_acc Horizontal position uncertainty (standard deviation)
+ * @param v_acc Altitude uncertainty (standard deviation)
+ * @param vel_acc Speed uncertainty (standard deviation)
+ * @param next_lat Next waypoint, latitude (WGS84)
+ * @param next_lon Next waypoint, longitude (WGS84)
+ * @param next_alt Next waypoint, altitude (WGS84)
+ * @param update_rate Time until next update. Set to 0 if unknown or in data driven mode.
+ * @param flight_state Flight state
+ * @param flags Bitwise OR combination of the data available flags.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_utm_global_position_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -169,24 +169,24 @@ static inline uint16_t mavlink_msg_utm_global_position_pack(uint8_t system_id, u
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time [us] Time of applicability of position (microseconds since UNIX epoch).
- * @param uas_id  Unique UAS ID.
- * @param lat [degE7] Latitude (WGS84)
- * @param lon [degE7] Longitude (WGS84)
- * @param alt [mm] Altitude (WGS84)
- * @param relative_alt [mm] Altitude above ground
- * @param vx [cm/s] Ground X speed (latitude, positive north)
- * @param vy [cm/s] Ground Y speed (longitude, positive east)
- * @param vz [cm/s] Ground Z speed (altitude, positive down)
- * @param h_acc [mm] Horizontal position uncertainty (standard deviation)
- * @param v_acc [mm] Altitude uncertainty (standard deviation)
- * @param vel_acc [cm/s] Speed uncertainty (standard deviation)
- * @param next_lat [degE7] Next waypoint, latitude (WGS84)
- * @param next_lon [degE7] Next waypoint, longitude (WGS84)
- * @param next_alt [mm] Next waypoint, altitude (WGS84)
- * @param update_rate [cs] Time until next update. Set to 0 if unknown or in data driven mode.
- * @param flight_state  Flight state
- * @param flags  Bitwise OR combination of the data available flags.
+ * @param time Time of applicability of position (microseconds since UNIX epoch).
+ * @param uas_id Unique UAS ID.
+ * @param lat Latitude (WGS84)
+ * @param lon Longitude (WGS84)
+ * @param alt Altitude (WGS84)
+ * @param relative_alt Altitude above ground
+ * @param vx Ground X speed (latitude, positive north)
+ * @param vy Ground Y speed (longitude, positive east)
+ * @param vz Ground Z speed (altitude, positive down)
+ * @param h_acc Horizontal position uncertainty (standard deviation)
+ * @param v_acc Altitude uncertainty (standard deviation)
+ * @param vel_acc Speed uncertainty (standard deviation)
+ * @param next_lat Next waypoint, latitude (WGS84)
+ * @param next_lon Next waypoint, longitude (WGS84)
+ * @param next_alt Next waypoint, altitude (WGS84)
+ * @param update_rate Time until next update. Set to 0 if unknown or in data driven mode.
+ * @param flight_state Flight state
+ * @param flags Bitwise OR combination of the data available flags.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_utm_global_position_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -272,24 +272,24 @@ static inline uint16_t mavlink_msg_utm_global_position_encode_chan(uint8_t syste
  * @brief Send a utm_global_position message
  * @param chan MAVLink channel to send the message
  *
- * @param time [us] Time of applicability of position (microseconds since UNIX epoch).
- * @param uas_id  Unique UAS ID.
- * @param lat [degE7] Latitude (WGS84)
- * @param lon [degE7] Longitude (WGS84)
- * @param alt [mm] Altitude (WGS84)
- * @param relative_alt [mm] Altitude above ground
- * @param vx [cm/s] Ground X speed (latitude, positive north)
- * @param vy [cm/s] Ground Y speed (longitude, positive east)
- * @param vz [cm/s] Ground Z speed (altitude, positive down)
- * @param h_acc [mm] Horizontal position uncertainty (standard deviation)
- * @param v_acc [mm] Altitude uncertainty (standard deviation)
- * @param vel_acc [cm/s] Speed uncertainty (standard deviation)
- * @param next_lat [degE7] Next waypoint, latitude (WGS84)
- * @param next_lon [degE7] Next waypoint, longitude (WGS84)
- * @param next_alt [mm] Next waypoint, altitude (WGS84)
- * @param update_rate [cs] Time until next update. Set to 0 if unknown or in data driven mode.
- * @param flight_state  Flight state
- * @param flags  Bitwise OR combination of the data available flags.
+ * @param time Time of applicability of position (microseconds since UNIX epoch).
+ * @param uas_id Unique UAS ID.
+ * @param lat Latitude (WGS84)
+ * @param lon Longitude (WGS84)
+ * @param alt Altitude (WGS84)
+ * @param relative_alt Altitude above ground
+ * @param vx Ground X speed (latitude, positive north)
+ * @param vy Ground Y speed (longitude, positive east)
+ * @param vz Ground Z speed (altitude, positive down)
+ * @param h_acc Horizontal position uncertainty (standard deviation)
+ * @param v_acc Altitude uncertainty (standard deviation)
+ * @param vel_acc Speed uncertainty (standard deviation)
+ * @param next_lat Next waypoint, latitude (WGS84)
+ * @param next_lon Next waypoint, longitude (WGS84)
+ * @param next_alt Next waypoint, altitude (WGS84)
+ * @param update_rate Time until next update. Set to 0 if unknown or in data driven mode.
+ * @param flight_state Flight state
+ * @param flags Bitwise OR combination of the data available flags.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -418,7 +418,7 @@ static inline void mavlink_msg_utm_global_position_send_buf(mavlink_message_t *m
 /**
  * @brief Get field time from utm_global_position message
  *
- * @return [us] Time of applicability of position (microseconds since UNIX epoch).
+ * @return Time of applicability of position (microseconds since UNIX epoch).
  */
 static inline uint64_t mavlink_msg_utm_global_position_get_time(const mavlink_message_t* msg)
 {
@@ -428,7 +428,7 @@ static inline uint64_t mavlink_msg_utm_global_position_get_time(const mavlink_me
 /**
  * @brief Get field uas_id from utm_global_position message
  *
- * @return  Unique UAS ID.
+ * @return Unique UAS ID.
  */
 static inline uint16_t mavlink_msg_utm_global_position_get_uas_id(const mavlink_message_t* msg, uint8_t *uas_id)
 {
@@ -438,7 +438,7 @@ static inline uint16_t mavlink_msg_utm_global_position_get_uas_id(const mavlink_
 /**
  * @brief Get field lat from utm_global_position message
  *
- * @return [degE7] Latitude (WGS84)
+ * @return Latitude (WGS84)
  */
 static inline int32_t mavlink_msg_utm_global_position_get_lat(const mavlink_message_t* msg)
 {
@@ -448,7 +448,7 @@ static inline int32_t mavlink_msg_utm_global_position_get_lat(const mavlink_mess
 /**
  * @brief Get field lon from utm_global_position message
  *
- * @return [degE7] Longitude (WGS84)
+ * @return Longitude (WGS84)
  */
 static inline int32_t mavlink_msg_utm_global_position_get_lon(const mavlink_message_t* msg)
 {
@@ -458,7 +458,7 @@ static inline int32_t mavlink_msg_utm_global_position_get_lon(const mavlink_mess
 /**
  * @brief Get field alt from utm_global_position message
  *
- * @return [mm] Altitude (WGS84)
+ * @return Altitude (WGS84)
  */
 static inline int32_t mavlink_msg_utm_global_position_get_alt(const mavlink_message_t* msg)
 {
@@ -468,7 +468,7 @@ static inline int32_t mavlink_msg_utm_global_position_get_alt(const mavlink_mess
 /**
  * @brief Get field relative_alt from utm_global_position message
  *
- * @return [mm] Altitude above ground
+ * @return Altitude above ground
  */
 static inline int32_t mavlink_msg_utm_global_position_get_relative_alt(const mavlink_message_t* msg)
 {
@@ -478,7 +478,7 @@ static inline int32_t mavlink_msg_utm_global_position_get_relative_alt(const mav
 /**
  * @brief Get field vx from utm_global_position message
  *
- * @return [cm/s] Ground X speed (latitude, positive north)
+ * @return Ground X speed (latitude, positive north)
  */
 static inline int16_t mavlink_msg_utm_global_position_get_vx(const mavlink_message_t* msg)
 {
@@ -488,7 +488,7 @@ static inline int16_t mavlink_msg_utm_global_position_get_vx(const mavlink_messa
 /**
  * @brief Get field vy from utm_global_position message
  *
- * @return [cm/s] Ground Y speed (longitude, positive east)
+ * @return Ground Y speed (longitude, positive east)
  */
 static inline int16_t mavlink_msg_utm_global_position_get_vy(const mavlink_message_t* msg)
 {
@@ -498,7 +498,7 @@ static inline int16_t mavlink_msg_utm_global_position_get_vy(const mavlink_messa
 /**
  * @brief Get field vz from utm_global_position message
  *
- * @return [cm/s] Ground Z speed (altitude, positive down)
+ * @return Ground Z speed (altitude, positive down)
  */
 static inline int16_t mavlink_msg_utm_global_position_get_vz(const mavlink_message_t* msg)
 {
@@ -508,7 +508,7 @@ static inline int16_t mavlink_msg_utm_global_position_get_vz(const mavlink_messa
 /**
  * @brief Get field h_acc from utm_global_position message
  *
- * @return [mm] Horizontal position uncertainty (standard deviation)
+ * @return Horizontal position uncertainty (standard deviation)
  */
 static inline uint16_t mavlink_msg_utm_global_position_get_h_acc(const mavlink_message_t* msg)
 {
@@ -518,7 +518,7 @@ static inline uint16_t mavlink_msg_utm_global_position_get_h_acc(const mavlink_m
 /**
  * @brief Get field v_acc from utm_global_position message
  *
- * @return [mm] Altitude uncertainty (standard deviation)
+ * @return Altitude uncertainty (standard deviation)
  */
 static inline uint16_t mavlink_msg_utm_global_position_get_v_acc(const mavlink_message_t* msg)
 {
@@ -528,7 +528,7 @@ static inline uint16_t mavlink_msg_utm_global_position_get_v_acc(const mavlink_m
 /**
  * @brief Get field vel_acc from utm_global_position message
  *
- * @return [cm/s] Speed uncertainty (standard deviation)
+ * @return Speed uncertainty (standard deviation)
  */
 static inline uint16_t mavlink_msg_utm_global_position_get_vel_acc(const mavlink_message_t* msg)
 {
@@ -538,7 +538,7 @@ static inline uint16_t mavlink_msg_utm_global_position_get_vel_acc(const mavlink
 /**
  * @brief Get field next_lat from utm_global_position message
  *
- * @return [degE7] Next waypoint, latitude (WGS84)
+ * @return Next waypoint, latitude (WGS84)
  */
 static inline int32_t mavlink_msg_utm_global_position_get_next_lat(const mavlink_message_t* msg)
 {
@@ -548,7 +548,7 @@ static inline int32_t mavlink_msg_utm_global_position_get_next_lat(const mavlink
 /**
  * @brief Get field next_lon from utm_global_position message
  *
- * @return [degE7] Next waypoint, longitude (WGS84)
+ * @return Next waypoint, longitude (WGS84)
  */
 static inline int32_t mavlink_msg_utm_global_position_get_next_lon(const mavlink_message_t* msg)
 {
@@ -558,7 +558,7 @@ static inline int32_t mavlink_msg_utm_global_position_get_next_lon(const mavlink
 /**
  * @brief Get field next_alt from utm_global_position message
  *
- * @return [mm] Next waypoint, altitude (WGS84)
+ * @return Next waypoint, altitude (WGS84)
  */
 static inline int32_t mavlink_msg_utm_global_position_get_next_alt(const mavlink_message_t* msg)
 {
@@ -568,7 +568,7 @@ static inline int32_t mavlink_msg_utm_global_position_get_next_alt(const mavlink
 /**
  * @brief Get field update_rate from utm_global_position message
  *
- * @return [cs] Time until next update. Set to 0 if unknown or in data driven mode.
+ * @return Time until next update. Set to 0 if unknown or in data driven mode.
  */
 static inline uint16_t mavlink_msg_utm_global_position_get_update_rate(const mavlink_message_t* msg)
 {
@@ -578,7 +578,7 @@ static inline uint16_t mavlink_msg_utm_global_position_get_update_rate(const mav
 /**
  * @brief Get field flight_state from utm_global_position message
  *
- * @return  Flight state
+ * @return Flight state
  */
 static inline uint8_t mavlink_msg_utm_global_position_get_flight_state(const mavlink_message_t* msg)
 {
@@ -588,7 +588,7 @@ static inline uint8_t mavlink_msg_utm_global_position_get_flight_state(const mav
 /**
  * @brief Get field flags from utm_global_position message
  *
- * @return  Bitwise OR combination of the data available flags.
+ * @return Bitwise OR combination of the data available flags.
  */
 static inline uint8_t mavlink_msg_utm_global_position_get_flags(const mavlink_message_t* msg)
 {

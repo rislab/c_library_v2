@@ -5,17 +5,17 @@
 
 MAVPACKED(
 typedef struct __mavlink_scaled_imu_t {
- uint32_t time_boot_ms; /*< [ms] Timestamp (time since system boot).*/
- int16_t xacc; /*< [mG] X acceleration*/
- int16_t yacc; /*< [mG] Y acceleration*/
- int16_t zacc; /*< [mG] Z acceleration*/
- int16_t xgyro; /*< [mrad/s] Angular speed around X axis*/
- int16_t ygyro; /*< [mrad/s] Angular speed around Y axis*/
- int16_t zgyro; /*< [mrad/s] Angular speed around Z axis*/
- int16_t xmag; /*< [mgauss] X Magnetic field*/
- int16_t ymag; /*< [mgauss] Y Magnetic field*/
- int16_t zmag; /*< [mgauss] Z Magnetic field*/
- int16_t temperature; /*< [cdegC] Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).*/
+ uint32_t time_boot_ms; /*< Timestamp (time since system boot).*/
+ int16_t xacc; /*< X acceleration*/
+ int16_t yacc; /*< Y acceleration*/
+ int16_t zacc; /*< Z acceleration*/
+ int16_t xgyro; /*< Angular speed around X axis*/
+ int16_t ygyro; /*< Angular speed around Y axis*/
+ int16_t zgyro; /*< Angular speed around Z axis*/
+ int16_t xmag; /*< X Magnetic field*/
+ int16_t ymag; /*< Y Magnetic field*/
+ int16_t zmag; /*< Z Magnetic field*/
+ int16_t temperature; /*< Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).*/
 }) mavlink_scaled_imu_t;
 
 #define MAVLINK_MSG_ID_SCALED_IMU_LEN 24
@@ -71,17 +71,17 @@ typedef struct __mavlink_scaled_imu_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_boot_ms [ms] Timestamp (time since system boot).
- * @param xacc [mG] X acceleration
- * @param yacc [mG] Y acceleration
- * @param zacc [mG] Z acceleration
- * @param xgyro [mrad/s] Angular speed around X axis
- * @param ygyro [mrad/s] Angular speed around Y axis
- * @param zgyro [mrad/s] Angular speed around Z axis
- * @param xmag [mgauss] X Magnetic field
- * @param ymag [mgauss] Y Magnetic field
- * @param zmag [mgauss] Z Magnetic field
- * @param temperature [cdegC] Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
+ * @param time_boot_ms Timestamp (time since system boot).
+ * @param xacc X acceleration
+ * @param yacc Y acceleration
+ * @param zacc Z acceleration
+ * @param xgyro Angular speed around X axis
+ * @param ygyro Angular speed around Y axis
+ * @param zgyro Angular speed around Z axis
+ * @param xmag X Magnetic field
+ * @param ymag Y Magnetic field
+ * @param zmag Z Magnetic field
+ * @param temperature Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_scaled_imu_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -129,17 +129,17 @@ static inline uint16_t mavlink_msg_scaled_imu_pack(uint8_t system_id, uint8_t co
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_boot_ms [ms] Timestamp (time since system boot).
- * @param xacc [mG] X acceleration
- * @param yacc [mG] Y acceleration
- * @param zacc [mG] Z acceleration
- * @param xgyro [mrad/s] Angular speed around X axis
- * @param ygyro [mrad/s] Angular speed around Y axis
- * @param zgyro [mrad/s] Angular speed around Z axis
- * @param xmag [mgauss] X Magnetic field
- * @param ymag [mgauss] Y Magnetic field
- * @param zmag [mgauss] Z Magnetic field
- * @param temperature [cdegC] Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
+ * @param time_boot_ms Timestamp (time since system boot).
+ * @param xacc X acceleration
+ * @param yacc Y acceleration
+ * @param zacc Z acceleration
+ * @param xgyro Angular speed around X axis
+ * @param ygyro Angular speed around Y axis
+ * @param zgyro Angular speed around Z axis
+ * @param xmag X Magnetic field
+ * @param ymag Y Magnetic field
+ * @param zmag Z Magnetic field
+ * @param temperature Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_scaled_imu_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -213,17 +213,17 @@ static inline uint16_t mavlink_msg_scaled_imu_encode_chan(uint8_t system_id, uin
  * @brief Send a scaled_imu message
  * @param chan MAVLink channel to send the message
  *
- * @param time_boot_ms [ms] Timestamp (time since system boot).
- * @param xacc [mG] X acceleration
- * @param yacc [mG] Y acceleration
- * @param zacc [mG] Z acceleration
- * @param xgyro [mrad/s] Angular speed around X axis
- * @param ygyro [mrad/s] Angular speed around Y axis
- * @param zgyro [mrad/s] Angular speed around Z axis
- * @param xmag [mgauss] X Magnetic field
- * @param ymag [mgauss] Y Magnetic field
- * @param zmag [mgauss] Z Magnetic field
- * @param temperature [cdegC] Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
+ * @param time_boot_ms Timestamp (time since system boot).
+ * @param xacc X acceleration
+ * @param yacc Y acceleration
+ * @param zacc Z acceleration
+ * @param xgyro Angular speed around X axis
+ * @param ygyro Angular speed around Y axis
+ * @param zgyro Angular speed around Z axis
+ * @param xmag X Magnetic field
+ * @param ymag Y Magnetic field
+ * @param zmag Z Magnetic field
+ * @param temperature Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -328,7 +328,7 @@ static inline void mavlink_msg_scaled_imu_send_buf(mavlink_message_t *msgbuf, ma
 /**
  * @brief Get field time_boot_ms from scaled_imu message
  *
- * @return [ms] Timestamp (time since system boot).
+ * @return Timestamp (time since system boot).
  */
 static inline uint32_t mavlink_msg_scaled_imu_get_time_boot_ms(const mavlink_message_t* msg)
 {
@@ -338,7 +338,7 @@ static inline uint32_t mavlink_msg_scaled_imu_get_time_boot_ms(const mavlink_mes
 /**
  * @brief Get field xacc from scaled_imu message
  *
- * @return [mG] X acceleration
+ * @return X acceleration
  */
 static inline int16_t mavlink_msg_scaled_imu_get_xacc(const mavlink_message_t* msg)
 {
@@ -348,7 +348,7 @@ static inline int16_t mavlink_msg_scaled_imu_get_xacc(const mavlink_message_t* m
 /**
  * @brief Get field yacc from scaled_imu message
  *
- * @return [mG] Y acceleration
+ * @return Y acceleration
  */
 static inline int16_t mavlink_msg_scaled_imu_get_yacc(const mavlink_message_t* msg)
 {
@@ -358,7 +358,7 @@ static inline int16_t mavlink_msg_scaled_imu_get_yacc(const mavlink_message_t* m
 /**
  * @brief Get field zacc from scaled_imu message
  *
- * @return [mG] Z acceleration
+ * @return Z acceleration
  */
 static inline int16_t mavlink_msg_scaled_imu_get_zacc(const mavlink_message_t* msg)
 {
@@ -368,7 +368,7 @@ static inline int16_t mavlink_msg_scaled_imu_get_zacc(const mavlink_message_t* m
 /**
  * @brief Get field xgyro from scaled_imu message
  *
- * @return [mrad/s] Angular speed around X axis
+ * @return Angular speed around X axis
  */
 static inline int16_t mavlink_msg_scaled_imu_get_xgyro(const mavlink_message_t* msg)
 {
@@ -378,7 +378,7 @@ static inline int16_t mavlink_msg_scaled_imu_get_xgyro(const mavlink_message_t* 
 /**
  * @brief Get field ygyro from scaled_imu message
  *
- * @return [mrad/s] Angular speed around Y axis
+ * @return Angular speed around Y axis
  */
 static inline int16_t mavlink_msg_scaled_imu_get_ygyro(const mavlink_message_t* msg)
 {
@@ -388,7 +388,7 @@ static inline int16_t mavlink_msg_scaled_imu_get_ygyro(const mavlink_message_t* 
 /**
  * @brief Get field zgyro from scaled_imu message
  *
- * @return [mrad/s] Angular speed around Z axis
+ * @return Angular speed around Z axis
  */
 static inline int16_t mavlink_msg_scaled_imu_get_zgyro(const mavlink_message_t* msg)
 {
@@ -398,7 +398,7 @@ static inline int16_t mavlink_msg_scaled_imu_get_zgyro(const mavlink_message_t* 
 /**
  * @brief Get field xmag from scaled_imu message
  *
- * @return [mgauss] X Magnetic field
+ * @return X Magnetic field
  */
 static inline int16_t mavlink_msg_scaled_imu_get_xmag(const mavlink_message_t* msg)
 {
@@ -408,7 +408,7 @@ static inline int16_t mavlink_msg_scaled_imu_get_xmag(const mavlink_message_t* m
 /**
  * @brief Get field ymag from scaled_imu message
  *
- * @return [mgauss] Y Magnetic field
+ * @return Y Magnetic field
  */
 static inline int16_t mavlink_msg_scaled_imu_get_ymag(const mavlink_message_t* msg)
 {
@@ -418,7 +418,7 @@ static inline int16_t mavlink_msg_scaled_imu_get_ymag(const mavlink_message_t* m
 /**
  * @brief Get field zmag from scaled_imu message
  *
- * @return [mgauss] Z Magnetic field
+ * @return Z Magnetic field
  */
 static inline int16_t mavlink_msg_scaled_imu_get_zmag(const mavlink_message_t* msg)
 {
@@ -428,7 +428,7 @@ static inline int16_t mavlink_msg_scaled_imu_get_zmag(const mavlink_message_t* m
 /**
  * @brief Get field temperature from scaled_imu message
  *
- * @return [cdegC] Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
+ * @return Temperature, 0: IMU does not provide temperature values. If the IMU is at 0C it must send 1 (0.01C).
  */
 static inline int16_t mavlink_msg_scaled_imu_get_temperature(const mavlink_message_t* msg)
 {

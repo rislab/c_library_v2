@@ -34,6 +34,7 @@
       <field type="float[3]" name="dst_hat">Disturbance Estimate</field>
       <field type="float[3]" name="ang_vel">Angular Velocity obtained from R</field>
       <field type="float[3]" name="lpd">Disturbance Rate Correction</field>
+      <field type="float[4]" name="rpm">RPM Hat Motor Values</field>
       <field type="float[3]" name="rates">Body Rates obtained from Attitude Estimator</field>
     </message>
     <message id="209" name="ODOM_MOCAP">
