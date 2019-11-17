@@ -5,8 +5,8 @@
 
 MAVPACKED(
 typedef struct __mavlink_mocap_pose_t {
- uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- int16_t pose[4]; /*< Robot pose (x, y, z, heading) in m/10^3 or rad/10^4*/
+ uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
+ int16_t pose[4]; /*<  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4*/
 }) mavlink_mocap_pose_t;
 
 #define MAVLINK_MSG_ID_MOCAP_POSE_LEN 16
@@ -44,8 +44,8 @@ typedef struct __mavlink_mocap_pose_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param pose Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param pose  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_pose_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -73,8 +73,8 @@ static inline uint16_t mavlink_msg_mocap_pose_pack(uint8_t system_id, uint8_t co
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param pose Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param pose  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_pose_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -128,8 +128,8 @@ static inline uint16_t mavlink_msg_mocap_pose_encode_chan(uint8_t system_id, uin
  * @brief Send a mocap_pose message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param pose Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param pose  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -194,7 +194,7 @@ static inline void mavlink_msg_mocap_pose_send_buf(mavlink_message_t *msgbuf, ma
 /**
  * @brief Get field time_usec from mocap_pose message
  *
- * @return Timestamp (micros since boot or Unix epoch)
+ * @return  Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_mocap_pose_get_time_usec(const mavlink_message_t* msg)
 {
@@ -204,7 +204,7 @@ static inline uint64_t mavlink_msg_mocap_pose_get_time_usec(const mavlink_messag
 /**
  * @brief Get field pose from mocap_pose message
  *
- * @return Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
+ * @return  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
  */
 static inline uint16_t mavlink_msg_mocap_pose_get_pose(const mavlink_message_t* msg, int16_t *pose)
 {

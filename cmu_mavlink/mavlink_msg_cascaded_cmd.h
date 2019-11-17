@@ -5,13 +5,13 @@
 
 MAVPACKED(
 typedef struct __mavlink_cascaded_cmd_t {
- uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- float thrust; /*< Thrust (N)*/
- float current_yaw; /*< Current system heading in world (yaw)*/
- float q[4]; /*< Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)*/
- float ang_vel[3]; /*< Angular velocity about body axes (x, y, z)*/
- float ang_acc[3]; /*< Angular velocity about body axes (x, y, z)*/
- uint8_t target_system; /*< Target system*/
+ uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
+ float thrust; /*<  Thrust (N)*/
+ float current_yaw; /*<  Current system heading in world (yaw)*/
+ float q[4]; /*<  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)*/
+ float ang_vel[3]; /*<  Angular velocity about body axes (x, y, z)*/
+ float ang_acc[3]; /*<  Angular velocity about body axes (x, y, z)*/
+ uint8_t target_system; /*<  Target system*/
 }) mavlink_cascaded_cmd_t;
 
 #define MAVLINK_MSG_ID_CASCADED_CMD_LEN 57
@@ -32,12 +32,12 @@ typedef struct __mavlink_cascaded_cmd_t {
     "CASCADED_CMD", \
     7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_cascaded_cmd_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 56, offsetof(mavlink_cascaded_cmd_t, target_system) }, \
          { "thrust", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_cascaded_cmd_t, thrust) }, \
          { "current_yaw", NULL, MAVLINK_TYPE_FLOAT, 0, 12, offsetof(mavlink_cascaded_cmd_t, current_yaw) }, \
          { "q", NULL, MAVLINK_TYPE_FLOAT, 4, 16, offsetof(mavlink_cascaded_cmd_t, q) }, \
          { "ang_vel", NULL, MAVLINK_TYPE_FLOAT, 3, 32, offsetof(mavlink_cascaded_cmd_t, ang_vel) }, \
          { "ang_acc", NULL, MAVLINK_TYPE_FLOAT, 3, 44, offsetof(mavlink_cascaded_cmd_t, ang_acc) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 56, offsetof(mavlink_cascaded_cmd_t, target_system) }, \
          } \
 }
 #else
@@ -45,12 +45,12 @@ typedef struct __mavlink_cascaded_cmd_t {
     "CASCADED_CMD", \
     7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_cascaded_cmd_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 56, offsetof(mavlink_cascaded_cmd_t, target_system) }, \
          { "thrust", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_cascaded_cmd_t, thrust) }, \
          { "current_yaw", NULL, MAVLINK_TYPE_FLOAT, 0, 12, offsetof(mavlink_cascaded_cmd_t, current_yaw) }, \
          { "q", NULL, MAVLINK_TYPE_FLOAT, 4, 16, offsetof(mavlink_cascaded_cmd_t, q) }, \
          { "ang_vel", NULL, MAVLINK_TYPE_FLOAT, 3, 32, offsetof(mavlink_cascaded_cmd_t, ang_vel) }, \
          { "ang_acc", NULL, MAVLINK_TYPE_FLOAT, 3, 44, offsetof(mavlink_cascaded_cmd_t, ang_acc) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 56, offsetof(mavlink_cascaded_cmd_t, target_system) }, \
          } \
 }
 #endif
@@ -61,13 +61,13 @@ typedef struct __mavlink_cascaded_cmd_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param thrust Thrust (N)
- * @param current_yaw Current system heading in world (yaw)
- * @param q Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
- * @param ang_vel Angular velocity about body axes (x, y, z)
- * @param ang_acc Angular velocity about body axes (x, y, z)
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param thrust  Thrust (N)
+ * @param current_yaw  Current system heading in world (yaw)
+ * @param q  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+ * @param ang_vel  Angular velocity about body axes (x, y, z)
+ * @param ang_acc  Angular velocity about body axes (x, y, z)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_cascaded_cmd_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -105,13 +105,13 @@ static inline uint16_t mavlink_msg_cascaded_cmd_pack(uint8_t system_id, uint8_t 
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param thrust Thrust (N)
- * @param current_yaw Current system heading in world (yaw)
- * @param q Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
- * @param ang_vel Angular velocity about body axes (x, y, z)
- * @param ang_acc Angular velocity about body axes (x, y, z)
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param thrust  Thrust (N)
+ * @param current_yaw  Current system heading in world (yaw)
+ * @param q  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+ * @param ang_vel  Angular velocity about body axes (x, y, z)
+ * @param ang_acc  Angular velocity about body axes (x, y, z)
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_cascaded_cmd_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -175,13 +175,13 @@ static inline uint16_t mavlink_msg_cascaded_cmd_encode_chan(uint8_t system_id, u
  * @brief Send a cascaded_cmd message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param thrust Thrust (N)
- * @param current_yaw Current system heading in world (yaw)
- * @param q Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
- * @param ang_vel Angular velocity about body axes (x, y, z)
- * @param ang_acc Angular velocity about body axes (x, y, z)
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param thrust  Thrust (N)
+ * @param current_yaw  Current system heading in world (yaw)
+ * @param q  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+ * @param ang_vel  Angular velocity about body axes (x, y, z)
+ * @param ang_acc  Angular velocity about body axes (x, y, z)
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -266,7 +266,7 @@ static inline void mavlink_msg_cascaded_cmd_send_buf(mavlink_message_t *msgbuf, 
 /**
  * @brief Get field time_usec from cascaded_cmd message
  *
- * @return Timestamp (micros since boot or Unix epoch)
+ * @return  Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_cascaded_cmd_get_time_usec(const mavlink_message_t* msg)
 {
@@ -276,7 +276,7 @@ static inline uint64_t mavlink_msg_cascaded_cmd_get_time_usec(const mavlink_mess
 /**
  * @brief Get field target_system from cascaded_cmd message
  *
- * @return Target system
+ * @return  Target system
  */
 static inline uint8_t mavlink_msg_cascaded_cmd_get_target_system(const mavlink_message_t* msg)
 {
@@ -286,7 +286,7 @@ static inline uint8_t mavlink_msg_cascaded_cmd_get_target_system(const mavlink_m
 /**
  * @brief Get field thrust from cascaded_cmd message
  *
- * @return Thrust (N)
+ * @return  Thrust (N)
  */
 static inline float mavlink_msg_cascaded_cmd_get_thrust(const mavlink_message_t* msg)
 {
@@ -296,7 +296,7 @@ static inline float mavlink_msg_cascaded_cmd_get_thrust(const mavlink_message_t*
 /**
  * @brief Get field current_yaw from cascaded_cmd message
  *
- * @return Current system heading in world (yaw)
+ * @return  Current system heading in world (yaw)
  */
 static inline float mavlink_msg_cascaded_cmd_get_current_yaw(const mavlink_message_t* msg)
 {
@@ -306,7 +306,7 @@ static inline float mavlink_msg_cascaded_cmd_get_current_yaw(const mavlink_messa
 /**
  * @brief Get field q from cascaded_cmd message
  *
- * @return Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
+ * @return  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
  */
 static inline uint16_t mavlink_msg_cascaded_cmd_get_q(const mavlink_message_t* msg, float *q)
 {
@@ -316,7 +316,7 @@ static inline uint16_t mavlink_msg_cascaded_cmd_get_q(const mavlink_message_t* m
 /**
  * @brief Get field ang_vel from cascaded_cmd message
  *
- * @return Angular velocity about body axes (x, y, z)
+ * @return  Angular velocity about body axes (x, y, z)
  */
 static inline uint16_t mavlink_msg_cascaded_cmd_get_ang_vel(const mavlink_message_t* msg, float *ang_vel)
 {
@@ -326,7 +326,7 @@ static inline uint16_t mavlink_msg_cascaded_cmd_get_ang_vel(const mavlink_messag
 /**
  * @brief Get field ang_acc from cascaded_cmd message
  *
- * @return Angular velocity about body axes (x, y, z)
+ * @return  Angular velocity about body axes (x, y, z)
  */
 static inline uint16_t mavlink_msg_cascaded_cmd_get_ang_acc(const mavlink_message_t* msg, float *ang_acc)
 {

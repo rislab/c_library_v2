@@ -5,10 +5,10 @@
 
 MAVPACKED(
 typedef struct __mavlink_play_tune_v2_t {
- uint8_t target_system; /*< System ID*/
- uint8_t target_component; /*< Component ID*/
- uint8_t format; /*< Tune format*/
- char tune[252]; /*< Tune definition*/
+ uint8_t target_system; /*<  System ID*/
+ uint8_t target_component; /*<  Component ID*/
+ uint8_t format; /*<  Tune format*/
+ char tune[252]; /*<  Tune definition*/
 }) mavlink_play_tune_v2_t;
 
 #define MAVLINK_MSG_ID_PLAY_TUNE_V2_LEN 255
@@ -50,10 +50,10 @@ typedef struct __mavlink_play_tune_v2_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param target_system System ID
- * @param target_component Component ID
- * @param format Tune format
- * @param tune Tune definition
+ * @param target_system  System ID
+ * @param target_component  Component ID
+ * @param format  Tune format
+ * @param tune  Tune definition
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_play_tune_v2_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -85,10 +85,10 @@ static inline uint16_t mavlink_msg_play_tune_v2_pack(uint8_t system_id, uint8_t 
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param target_system System ID
- * @param target_component Component ID
- * @param format Tune format
- * @param tune Tune definition
+ * @param target_system  System ID
+ * @param target_component  Component ID
+ * @param format  Tune format
+ * @param tune  Tune definition
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_play_tune_v2_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -146,10 +146,10 @@ static inline uint16_t mavlink_msg_play_tune_v2_encode_chan(uint8_t system_id, u
  * @brief Send a play_tune_v2 message
  * @param chan MAVLink channel to send the message
  *
- * @param target_system System ID
- * @param target_component Component ID
- * @param format Tune format
- * @param tune Tune definition
+ * @param target_system  System ID
+ * @param target_component  Component ID
+ * @param format  Tune format
+ * @param tune  Tune definition
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -222,7 +222,7 @@ static inline void mavlink_msg_play_tune_v2_send_buf(mavlink_message_t *msgbuf, 
 /**
  * @brief Get field target_system from play_tune_v2 message
  *
- * @return System ID
+ * @return  System ID
  */
 static inline uint8_t mavlink_msg_play_tune_v2_get_target_system(const mavlink_message_t* msg)
 {
@@ -232,7 +232,7 @@ static inline uint8_t mavlink_msg_play_tune_v2_get_target_system(const mavlink_m
 /**
  * @brief Get field target_component from play_tune_v2 message
  *
- * @return Component ID
+ * @return  Component ID
  */
 static inline uint8_t mavlink_msg_play_tune_v2_get_target_component(const mavlink_message_t* msg)
 {
@@ -242,7 +242,7 @@ static inline uint8_t mavlink_msg_play_tune_v2_get_target_component(const mavlin
 /**
  * @brief Get field format from play_tune_v2 message
  *
- * @return Tune format
+ * @return  Tune format
  */
 static inline uint8_t mavlink_msg_play_tune_v2_get_format(const mavlink_message_t* msg)
 {
@@ -252,7 +252,7 @@ static inline uint8_t mavlink_msg_play_tune_v2_get_format(const mavlink_message_
 /**
  * @brief Get field tune from play_tune_v2 message
  *
- * @return Tune definition
+ * @return  Tune definition
  */
 static inline uint16_t mavlink_msg_play_tune_v2_get_tune(const mavlink_message_t* msg, char *tune)
 {

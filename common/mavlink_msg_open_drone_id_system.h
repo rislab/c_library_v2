@@ -5,13 +5,13 @@
 
 MAVPACKED(
 typedef struct __mavlink_open_drone_id_system_t {
- int32_t operator_latitude; /*< Latitude of the operator. If unknown: 0 deg (both Lat/Lon).*/
- int32_t operator_longitude; /*< Longitude of the operator. If unknown: 0 deg (both Lat/Lon).*/
- float area_ceiling; /*< Area Operations Ceiling relative to WGS84. If unknown: -1000 m.*/
- float area_floor; /*< Area Operations Floor relative to WGS84. If unknown: -1000 m.*/
- uint16_t area_count; /*< Number of aircraft in the area, group or formation (default 1).*/
- uint16_t area_radius; /*< Radius of the cylindrical area of the group or formation (default 0).*/
- uint8_t flags; /*< Specifies the location source for the operator location.*/
+ int32_t operator_latitude; /*< [degE7] Latitude of the operator. If unknown: 0 deg (both Lat/Lon).*/
+ int32_t operator_longitude; /*< [degE7] Longitude of the operator. If unknown: 0 deg (both Lat/Lon).*/
+ float area_ceiling; /*< [m] Area Operations Ceiling relative to WGS84. If unknown: -1000 m.*/
+ float area_floor; /*< [m] Area Operations Floor relative to WGS84. If unknown: -1000 m.*/
+ uint16_t area_count; /*<  Number of aircraft in the area, group or formation (default 1).*/
+ uint16_t area_radius; /*< [m] Radius of the cylindrical area of the group or formation (default 0).*/
+ uint8_t flags; /*<  Specifies the location source for the operator location.*/
 }) mavlink_open_drone_id_system_t;
 
 #define MAVLINK_MSG_ID_OPEN_DRONE_ID_SYSTEM_LEN 21
@@ -29,26 +29,26 @@ typedef struct __mavlink_open_drone_id_system_t {
     12904, \
     "OPEN_DRONE_ID_SYSTEM", \
     7, \
-    {  { "operator_latitude", NULL, MAVLINK_TYPE_INT32_T, 0, 0, offsetof(mavlink_open_drone_id_system_t, operator_latitude) }, \
+    {  { "flags", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_open_drone_id_system_t, flags) }, \
+         { "operator_latitude", NULL, MAVLINK_TYPE_INT32_T, 0, 0, offsetof(mavlink_open_drone_id_system_t, operator_latitude) }, \
          { "operator_longitude", NULL, MAVLINK_TYPE_INT32_T, 0, 4, offsetof(mavlink_open_drone_id_system_t, operator_longitude) }, \
-         { "area_ceiling", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_open_drone_id_system_t, area_ceiling) }, \
-         { "area_floor", NULL, MAVLINK_TYPE_FLOAT, 0, 12, offsetof(mavlink_open_drone_id_system_t, area_floor) }, \
          { "area_count", NULL, MAVLINK_TYPE_UINT16_T, 0, 16, offsetof(mavlink_open_drone_id_system_t, area_count) }, \
          { "area_radius", NULL, MAVLINK_TYPE_UINT16_T, 0, 18, offsetof(mavlink_open_drone_id_system_t, area_radius) }, \
-         { "flags", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_open_drone_id_system_t, flags) }, \
+         { "area_ceiling", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_open_drone_id_system_t, area_ceiling) }, \
+         { "area_floor", NULL, MAVLINK_TYPE_FLOAT, 0, 12, offsetof(mavlink_open_drone_id_system_t, area_floor) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_OPEN_DRONE_ID_SYSTEM { \
     "OPEN_DRONE_ID_SYSTEM", \
     7, \
-    {  { "operator_latitude", NULL, MAVLINK_TYPE_INT32_T, 0, 0, offsetof(mavlink_open_drone_id_system_t, operator_latitude) }, \
+    {  { "flags", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_open_drone_id_system_t, flags) }, \
+         { "operator_latitude", NULL, MAVLINK_TYPE_INT32_T, 0, 0, offsetof(mavlink_open_drone_id_system_t, operator_latitude) }, \
          { "operator_longitude", NULL, MAVLINK_TYPE_INT32_T, 0, 4, offsetof(mavlink_open_drone_id_system_t, operator_longitude) }, \
-         { "area_ceiling", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_open_drone_id_system_t, area_ceiling) }, \
-         { "area_floor", NULL, MAVLINK_TYPE_FLOAT, 0, 12, offsetof(mavlink_open_drone_id_system_t, area_floor) }, \
          { "area_count", NULL, MAVLINK_TYPE_UINT16_T, 0, 16, offsetof(mavlink_open_drone_id_system_t, area_count) }, \
          { "area_radius", NULL, MAVLINK_TYPE_UINT16_T, 0, 18, offsetof(mavlink_open_drone_id_system_t, area_radius) }, \
-         { "flags", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_open_drone_id_system_t, flags) }, \
+         { "area_ceiling", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_open_drone_id_system_t, area_ceiling) }, \
+         { "area_floor", NULL, MAVLINK_TYPE_FLOAT, 0, 12, offsetof(mavlink_open_drone_id_system_t, area_floor) }, \
          } \
 }
 #endif
@@ -59,13 +59,13 @@ typedef struct __mavlink_open_drone_id_system_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param flags Specifies the location source for the operator location.
- * @param operator_latitude Latitude of the operator. If unknown: 0 deg (both Lat/Lon).
- * @param operator_longitude Longitude of the operator. If unknown: 0 deg (both Lat/Lon).
- * @param area_count Number of aircraft in the area, group or formation (default 1).
- * @param area_radius Radius of the cylindrical area of the group or formation (default 0).
- * @param area_ceiling Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
- * @param area_floor Area Operations Floor relative to WGS84. If unknown: -1000 m.
+ * @param flags  Specifies the location source for the operator location.
+ * @param operator_latitude [degE7] Latitude of the operator. If unknown: 0 deg (both Lat/Lon).
+ * @param operator_longitude [degE7] Longitude of the operator. If unknown: 0 deg (both Lat/Lon).
+ * @param area_count  Number of aircraft in the area, group or formation (default 1).
+ * @param area_radius [m] Radius of the cylindrical area of the group or formation (default 0).
+ * @param area_ceiling [m] Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
+ * @param area_floor [m] Area Operations Floor relative to WGS84. If unknown: -1000 m.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_system_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -105,13 +105,13 @@ static inline uint16_t mavlink_msg_open_drone_id_system_pack(uint8_t system_id, 
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param flags Specifies the location source for the operator location.
- * @param operator_latitude Latitude of the operator. If unknown: 0 deg (both Lat/Lon).
- * @param operator_longitude Longitude of the operator. If unknown: 0 deg (both Lat/Lon).
- * @param area_count Number of aircraft in the area, group or formation (default 1).
- * @param area_radius Radius of the cylindrical area of the group or formation (default 0).
- * @param area_ceiling Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
- * @param area_floor Area Operations Floor relative to WGS84. If unknown: -1000 m.
+ * @param flags  Specifies the location source for the operator location.
+ * @param operator_latitude [degE7] Latitude of the operator. If unknown: 0 deg (both Lat/Lon).
+ * @param operator_longitude [degE7] Longitude of the operator. If unknown: 0 deg (both Lat/Lon).
+ * @param area_count  Number of aircraft in the area, group or formation (default 1).
+ * @param area_radius [m] Radius of the cylindrical area of the group or formation (default 0).
+ * @param area_ceiling [m] Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
+ * @param area_floor [m] Area Operations Floor relative to WGS84. If unknown: -1000 m.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_system_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -177,13 +177,13 @@ static inline uint16_t mavlink_msg_open_drone_id_system_encode_chan(uint8_t syst
  * @brief Send a open_drone_id_system message
  * @param chan MAVLink channel to send the message
  *
- * @param flags Specifies the location source for the operator location.
- * @param operator_latitude Latitude of the operator. If unknown: 0 deg (both Lat/Lon).
- * @param operator_longitude Longitude of the operator. If unknown: 0 deg (both Lat/Lon).
- * @param area_count Number of aircraft in the area, group or formation (default 1).
- * @param area_radius Radius of the cylindrical area of the group or formation (default 0).
- * @param area_ceiling Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
- * @param area_floor Area Operations Floor relative to WGS84. If unknown: -1000 m.
+ * @param flags  Specifies the location source for the operator location.
+ * @param operator_latitude [degE7] Latitude of the operator. If unknown: 0 deg (both Lat/Lon).
+ * @param operator_longitude [degE7] Longitude of the operator. If unknown: 0 deg (both Lat/Lon).
+ * @param area_count  Number of aircraft in the area, group or formation (default 1).
+ * @param area_radius [m] Radius of the cylindrical area of the group or formation (default 0).
+ * @param area_ceiling [m] Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
+ * @param area_floor [m] Area Operations Floor relative to WGS84. If unknown: -1000 m.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -272,7 +272,7 @@ static inline void mavlink_msg_open_drone_id_system_send_buf(mavlink_message_t *
 /**
  * @brief Get field flags from open_drone_id_system message
  *
- * @return Specifies the location source for the operator location.
+ * @return  Specifies the location source for the operator location.
  */
 static inline uint8_t mavlink_msg_open_drone_id_system_get_flags(const mavlink_message_t* msg)
 {
@@ -282,7 +282,7 @@ static inline uint8_t mavlink_msg_open_drone_id_system_get_flags(const mavlink_m
 /**
  * @brief Get field operator_latitude from open_drone_id_system message
  *
- * @return Latitude of the operator. If unknown: 0 deg (both Lat/Lon).
+ * @return [degE7] Latitude of the operator. If unknown: 0 deg (both Lat/Lon).
  */
 static inline int32_t mavlink_msg_open_drone_id_system_get_operator_latitude(const mavlink_message_t* msg)
 {
@@ -292,7 +292,7 @@ static inline int32_t mavlink_msg_open_drone_id_system_get_operator_latitude(con
 /**
  * @brief Get field operator_longitude from open_drone_id_system message
  *
- * @return Longitude of the operator. If unknown: 0 deg (both Lat/Lon).
+ * @return [degE7] Longitude of the operator. If unknown: 0 deg (both Lat/Lon).
  */
 static inline int32_t mavlink_msg_open_drone_id_system_get_operator_longitude(const mavlink_message_t* msg)
 {
@@ -302,7 +302,7 @@ static inline int32_t mavlink_msg_open_drone_id_system_get_operator_longitude(co
 /**
  * @brief Get field area_count from open_drone_id_system message
  *
- * @return Number of aircraft in the area, group or formation (default 1).
+ * @return  Number of aircraft in the area, group or formation (default 1).
  */
 static inline uint16_t mavlink_msg_open_drone_id_system_get_area_count(const mavlink_message_t* msg)
 {
@@ -312,7 +312,7 @@ static inline uint16_t mavlink_msg_open_drone_id_system_get_area_count(const mav
 /**
  * @brief Get field area_radius from open_drone_id_system message
  *
- * @return Radius of the cylindrical area of the group or formation (default 0).
+ * @return [m] Radius of the cylindrical area of the group or formation (default 0).
  */
 static inline uint16_t mavlink_msg_open_drone_id_system_get_area_radius(const mavlink_message_t* msg)
 {
@@ -322,7 +322,7 @@ static inline uint16_t mavlink_msg_open_drone_id_system_get_area_radius(const ma
 /**
  * @brief Get field area_ceiling from open_drone_id_system message
  *
- * @return Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
+ * @return [m] Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
  */
 static inline float mavlink_msg_open_drone_id_system_get_area_ceiling(const mavlink_message_t* msg)
 {
@@ -332,7 +332,7 @@ static inline float mavlink_msg_open_drone_id_system_get_area_ceiling(const mavl
 /**
  * @brief Get field area_floor from open_drone_id_system message
  *
- * @return Area Operations Floor relative to WGS84. If unknown: -1000 m.
+ * @return [m] Area Operations Floor relative to WGS84. If unknown: -1000 m.
  */
 static inline float mavlink_msg_open_drone_id_system_get_area_floor(const mavlink_message_t* msg)
 {

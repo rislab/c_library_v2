@@ -5,20 +5,20 @@
 
 MAVPACKED(
 typedef struct __mavlink_trajectory_representation_waypoints_t {
- uint64_t time_usec; /*< Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.*/
- float pos_x[5]; /*< X-coordinate of waypoint, set to NaN if not being used*/
- float pos_y[5]; /*< Y-coordinate of waypoint, set to NaN if not being used*/
- float pos_z[5]; /*< Z-coordinate of waypoint, set to NaN if not being used*/
- float vel_x[5]; /*< X-velocity of waypoint, set to NaN if not being used*/
- float vel_y[5]; /*< Y-velocity of waypoint, set to NaN if not being used*/
- float vel_z[5]; /*< Z-velocity of waypoint, set to NaN if not being used*/
- float acc_x[5]; /*< X-acceleration of waypoint, set to NaN if not being used*/
- float acc_y[5]; /*< Y-acceleration of waypoint, set to NaN if not being used*/
- float acc_z[5]; /*< Z-acceleration of waypoint, set to NaN if not being used*/
- float pos_yaw[5]; /*< Yaw angle, set to NaN if not being used*/
- float vel_yaw[5]; /*< Yaw rate, set to NaN if not being used*/
- uint16_t command[5]; /*< Scheduled action for each waypoint, UINT16_MAX if not being used.*/
- uint8_t valid_points; /*< Number of valid points (up-to 5 waypoints are possible)*/
+ uint64_t time_usec; /*< [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.*/
+ float pos_x[5]; /*< [m] X-coordinate of waypoint, set to NaN if not being used*/
+ float pos_y[5]; /*< [m] Y-coordinate of waypoint, set to NaN if not being used*/
+ float pos_z[5]; /*< [m] Z-coordinate of waypoint, set to NaN if not being used*/
+ float vel_x[5]; /*< [m/s] X-velocity of waypoint, set to NaN if not being used*/
+ float vel_y[5]; /*< [m/s] Y-velocity of waypoint, set to NaN if not being used*/
+ float vel_z[5]; /*< [m/s] Z-velocity of waypoint, set to NaN if not being used*/
+ float acc_x[5]; /*< [m/s/s] X-acceleration of waypoint, set to NaN if not being used*/
+ float acc_y[5]; /*< [m/s/s] Y-acceleration of waypoint, set to NaN if not being used*/
+ float acc_z[5]; /*< [m/s/s] Z-acceleration of waypoint, set to NaN if not being used*/
+ float pos_yaw[5]; /*< [rad] Yaw angle, set to NaN if not being used*/
+ float vel_yaw[5]; /*< [rad/s] Yaw rate, set to NaN if not being used*/
+ uint16_t command[5]; /*<  Scheduled action for each waypoint, UINT16_MAX if not being used.*/
+ uint8_t valid_points; /*<  Number of valid points (up-to 5 waypoints are possible)*/
 }) mavlink_trajectory_representation_waypoints_t;
 
 #define MAVLINK_MSG_ID_TRAJECTORY_REPRESENTATION_WAYPOINTS_LEN 239
@@ -48,6 +48,7 @@ typedef struct __mavlink_trajectory_representation_waypoints_t {
     "TRAJECTORY_REPRESENTATION_WAYPOINTS", \
     14, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_trajectory_representation_waypoints_t, time_usec) }, \
+         { "valid_points", NULL, MAVLINK_TYPE_UINT8_T, 0, 238, offsetof(mavlink_trajectory_representation_waypoints_t, valid_points) }, \
          { "pos_x", NULL, MAVLINK_TYPE_FLOAT, 5, 8, offsetof(mavlink_trajectory_representation_waypoints_t, pos_x) }, \
          { "pos_y", NULL, MAVLINK_TYPE_FLOAT, 5, 28, offsetof(mavlink_trajectory_representation_waypoints_t, pos_y) }, \
          { "pos_z", NULL, MAVLINK_TYPE_FLOAT, 5, 48, offsetof(mavlink_trajectory_representation_waypoints_t, pos_z) }, \
@@ -60,7 +61,6 @@ typedef struct __mavlink_trajectory_representation_waypoints_t {
          { "pos_yaw", NULL, MAVLINK_TYPE_FLOAT, 5, 188, offsetof(mavlink_trajectory_representation_waypoints_t, pos_yaw) }, \
          { "vel_yaw", NULL, MAVLINK_TYPE_FLOAT, 5, 208, offsetof(mavlink_trajectory_representation_waypoints_t, vel_yaw) }, \
          { "command", NULL, MAVLINK_TYPE_UINT16_T, 5, 228, offsetof(mavlink_trajectory_representation_waypoints_t, command) }, \
-         { "valid_points", NULL, MAVLINK_TYPE_UINT8_T, 0, 238, offsetof(mavlink_trajectory_representation_waypoints_t, valid_points) }, \
          } \
 }
 #else
@@ -68,6 +68,7 @@ typedef struct __mavlink_trajectory_representation_waypoints_t {
     "TRAJECTORY_REPRESENTATION_WAYPOINTS", \
     14, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_trajectory_representation_waypoints_t, time_usec) }, \
+         { "valid_points", NULL, MAVLINK_TYPE_UINT8_T, 0, 238, offsetof(mavlink_trajectory_representation_waypoints_t, valid_points) }, \
          { "pos_x", NULL, MAVLINK_TYPE_FLOAT, 5, 8, offsetof(mavlink_trajectory_representation_waypoints_t, pos_x) }, \
          { "pos_y", NULL, MAVLINK_TYPE_FLOAT, 5, 28, offsetof(mavlink_trajectory_representation_waypoints_t, pos_y) }, \
          { "pos_z", NULL, MAVLINK_TYPE_FLOAT, 5, 48, offsetof(mavlink_trajectory_representation_waypoints_t, pos_z) }, \
@@ -80,7 +81,6 @@ typedef struct __mavlink_trajectory_representation_waypoints_t {
          { "pos_yaw", NULL, MAVLINK_TYPE_FLOAT, 5, 188, offsetof(mavlink_trajectory_representation_waypoints_t, pos_yaw) }, \
          { "vel_yaw", NULL, MAVLINK_TYPE_FLOAT, 5, 208, offsetof(mavlink_trajectory_representation_waypoints_t, vel_yaw) }, \
          { "command", NULL, MAVLINK_TYPE_UINT16_T, 5, 228, offsetof(mavlink_trajectory_representation_waypoints_t, command) }, \
-         { "valid_points", NULL, MAVLINK_TYPE_UINT8_T, 0, 238, offsetof(mavlink_trajectory_representation_waypoints_t, valid_points) }, \
          } \
 }
 #endif
@@ -91,20 +91,20 @@ typedef struct __mavlink_trajectory_representation_waypoints_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param valid_points Number of valid points (up-to 5 waypoints are possible)
- * @param pos_x X-coordinate of waypoint, set to NaN if not being used
- * @param pos_y Y-coordinate of waypoint, set to NaN if not being used
- * @param pos_z Z-coordinate of waypoint, set to NaN if not being used
- * @param vel_x X-velocity of waypoint, set to NaN if not being used
- * @param vel_y Y-velocity of waypoint, set to NaN if not being used
- * @param vel_z Z-velocity of waypoint, set to NaN if not being used
- * @param acc_x X-acceleration of waypoint, set to NaN if not being used
- * @param acc_y Y-acceleration of waypoint, set to NaN if not being used
- * @param acc_z Z-acceleration of waypoint, set to NaN if not being used
- * @param pos_yaw Yaw angle, set to NaN if not being used
- * @param vel_yaw Yaw rate, set to NaN if not being used
- * @param command Scheduled action for each waypoint, UINT16_MAX if not being used.
+ * @param time_usec [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param valid_points  Number of valid points (up-to 5 waypoints are possible)
+ * @param pos_x [m] X-coordinate of waypoint, set to NaN if not being used
+ * @param pos_y [m] Y-coordinate of waypoint, set to NaN if not being used
+ * @param pos_z [m] Z-coordinate of waypoint, set to NaN if not being used
+ * @param vel_x [m/s] X-velocity of waypoint, set to NaN if not being used
+ * @param vel_y [m/s] Y-velocity of waypoint, set to NaN if not being used
+ * @param vel_z [m/s] Z-velocity of waypoint, set to NaN if not being used
+ * @param acc_x [m/s/s] X-acceleration of waypoint, set to NaN if not being used
+ * @param acc_y [m/s/s] Y-acceleration of waypoint, set to NaN if not being used
+ * @param acc_z [m/s/s] Z-acceleration of waypoint, set to NaN if not being used
+ * @param pos_yaw [rad] Yaw angle, set to NaN if not being used
+ * @param vel_yaw [rad/s] Yaw rate, set to NaN if not being used
+ * @param command  Scheduled action for each waypoint, UINT16_MAX if not being used.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -156,20 +156,20 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_pack(uint
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param valid_points Number of valid points (up-to 5 waypoints are possible)
- * @param pos_x X-coordinate of waypoint, set to NaN if not being used
- * @param pos_y Y-coordinate of waypoint, set to NaN if not being used
- * @param pos_z Z-coordinate of waypoint, set to NaN if not being used
- * @param vel_x X-velocity of waypoint, set to NaN if not being used
- * @param vel_y Y-velocity of waypoint, set to NaN if not being used
- * @param vel_z Z-velocity of waypoint, set to NaN if not being used
- * @param acc_x X-acceleration of waypoint, set to NaN if not being used
- * @param acc_y Y-acceleration of waypoint, set to NaN if not being used
- * @param acc_z Z-acceleration of waypoint, set to NaN if not being used
- * @param pos_yaw Yaw angle, set to NaN if not being used
- * @param vel_yaw Yaw rate, set to NaN if not being used
- * @param command Scheduled action for each waypoint, UINT16_MAX if not being used.
+ * @param time_usec [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param valid_points  Number of valid points (up-to 5 waypoints are possible)
+ * @param pos_x [m] X-coordinate of waypoint, set to NaN if not being used
+ * @param pos_y [m] Y-coordinate of waypoint, set to NaN if not being used
+ * @param pos_z [m] Z-coordinate of waypoint, set to NaN if not being used
+ * @param vel_x [m/s] X-velocity of waypoint, set to NaN if not being used
+ * @param vel_y [m/s] Y-velocity of waypoint, set to NaN if not being used
+ * @param vel_z [m/s] Z-velocity of waypoint, set to NaN if not being used
+ * @param acc_x [m/s/s] X-acceleration of waypoint, set to NaN if not being used
+ * @param acc_y [m/s/s] Y-acceleration of waypoint, set to NaN if not being used
+ * @param acc_z [m/s/s] Z-acceleration of waypoint, set to NaN if not being used
+ * @param pos_yaw [rad] Yaw angle, set to NaN if not being used
+ * @param vel_yaw [rad/s] Yaw rate, set to NaN if not being used
+ * @param command  Scheduled action for each waypoint, UINT16_MAX if not being used.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -247,20 +247,20 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_encode_ch
  * @brief Send a trajectory_representation_waypoints message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param valid_points Number of valid points (up-to 5 waypoints are possible)
- * @param pos_x X-coordinate of waypoint, set to NaN if not being used
- * @param pos_y Y-coordinate of waypoint, set to NaN if not being used
- * @param pos_z Z-coordinate of waypoint, set to NaN if not being used
- * @param vel_x X-velocity of waypoint, set to NaN if not being used
- * @param vel_y Y-velocity of waypoint, set to NaN if not being used
- * @param vel_z Z-velocity of waypoint, set to NaN if not being used
- * @param acc_x X-acceleration of waypoint, set to NaN if not being used
- * @param acc_y Y-acceleration of waypoint, set to NaN if not being used
- * @param acc_z Z-acceleration of waypoint, set to NaN if not being used
- * @param pos_yaw Yaw angle, set to NaN if not being used
- * @param vel_yaw Yaw rate, set to NaN if not being used
- * @param command Scheduled action for each waypoint, UINT16_MAX if not being used.
+ * @param time_usec [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param valid_points  Number of valid points (up-to 5 waypoints are possible)
+ * @param pos_x [m] X-coordinate of waypoint, set to NaN if not being used
+ * @param pos_y [m] Y-coordinate of waypoint, set to NaN if not being used
+ * @param pos_z [m] Z-coordinate of waypoint, set to NaN if not being used
+ * @param vel_x [m/s] X-velocity of waypoint, set to NaN if not being used
+ * @param vel_y [m/s] Y-velocity of waypoint, set to NaN if not being used
+ * @param vel_z [m/s] Z-velocity of waypoint, set to NaN if not being used
+ * @param acc_x [m/s/s] X-acceleration of waypoint, set to NaN if not being used
+ * @param acc_y [m/s/s] Y-acceleration of waypoint, set to NaN if not being used
+ * @param acc_z [m/s/s] Z-acceleration of waypoint, set to NaN if not being used
+ * @param pos_yaw [rad] Yaw angle, set to NaN if not being used
+ * @param vel_yaw [rad/s] Yaw rate, set to NaN if not being used
+ * @param command  Scheduled action for each waypoint, UINT16_MAX if not being used.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -373,7 +373,7 @@ static inline void mavlink_msg_trajectory_representation_waypoints_send_buf(mavl
 /**
  * @brief Get field time_usec from trajectory_representation_waypoints message
  *
- * @return Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @return [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
  */
 static inline uint64_t mavlink_msg_trajectory_representation_waypoints_get_time_usec(const mavlink_message_t* msg)
 {
@@ -383,7 +383,7 @@ static inline uint64_t mavlink_msg_trajectory_representation_waypoints_get_time_
 /**
  * @brief Get field valid_points from trajectory_representation_waypoints message
  *
- * @return Number of valid points (up-to 5 waypoints are possible)
+ * @return  Number of valid points (up-to 5 waypoints are possible)
  */
 static inline uint8_t mavlink_msg_trajectory_representation_waypoints_get_valid_points(const mavlink_message_t* msg)
 {
@@ -393,7 +393,7 @@ static inline uint8_t mavlink_msg_trajectory_representation_waypoints_get_valid_
 /**
  * @brief Get field pos_x from trajectory_representation_waypoints message
  *
- * @return X-coordinate of waypoint, set to NaN if not being used
+ * @return [m] X-coordinate of waypoint, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_pos_x(const mavlink_message_t* msg, float *pos_x)
 {
@@ -403,7 +403,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_pos_x
 /**
  * @brief Get field pos_y from trajectory_representation_waypoints message
  *
- * @return Y-coordinate of waypoint, set to NaN if not being used
+ * @return [m] Y-coordinate of waypoint, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_pos_y(const mavlink_message_t* msg, float *pos_y)
 {
@@ -413,7 +413,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_pos_y
 /**
  * @brief Get field pos_z from trajectory_representation_waypoints message
  *
- * @return Z-coordinate of waypoint, set to NaN if not being used
+ * @return [m] Z-coordinate of waypoint, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_pos_z(const mavlink_message_t* msg, float *pos_z)
 {
@@ -423,7 +423,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_pos_z
 /**
  * @brief Get field vel_x from trajectory_representation_waypoints message
  *
- * @return X-velocity of waypoint, set to NaN if not being used
+ * @return [m/s] X-velocity of waypoint, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_vel_x(const mavlink_message_t* msg, float *vel_x)
 {
@@ -433,7 +433,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_vel_x
 /**
  * @brief Get field vel_y from trajectory_representation_waypoints message
  *
- * @return Y-velocity of waypoint, set to NaN if not being used
+ * @return [m/s] Y-velocity of waypoint, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_vel_y(const mavlink_message_t* msg, float *vel_y)
 {
@@ -443,7 +443,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_vel_y
 /**
  * @brief Get field vel_z from trajectory_representation_waypoints message
  *
- * @return Z-velocity of waypoint, set to NaN if not being used
+ * @return [m/s] Z-velocity of waypoint, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_vel_z(const mavlink_message_t* msg, float *vel_z)
 {
@@ -453,7 +453,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_vel_z
 /**
  * @brief Get field acc_x from trajectory_representation_waypoints message
  *
- * @return X-acceleration of waypoint, set to NaN if not being used
+ * @return [m/s/s] X-acceleration of waypoint, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_acc_x(const mavlink_message_t* msg, float *acc_x)
 {
@@ -463,7 +463,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_acc_x
 /**
  * @brief Get field acc_y from trajectory_representation_waypoints message
  *
- * @return Y-acceleration of waypoint, set to NaN if not being used
+ * @return [m/s/s] Y-acceleration of waypoint, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_acc_y(const mavlink_message_t* msg, float *acc_y)
 {
@@ -473,7 +473,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_acc_y
 /**
  * @brief Get field acc_z from trajectory_representation_waypoints message
  *
- * @return Z-acceleration of waypoint, set to NaN if not being used
+ * @return [m/s/s] Z-acceleration of waypoint, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_acc_z(const mavlink_message_t* msg, float *acc_z)
 {
@@ -483,7 +483,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_acc_z
 /**
  * @brief Get field pos_yaw from trajectory_representation_waypoints message
  *
- * @return Yaw angle, set to NaN if not being used
+ * @return [rad] Yaw angle, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_pos_yaw(const mavlink_message_t* msg, float *pos_yaw)
 {
@@ -493,7 +493,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_pos_y
 /**
  * @brief Get field vel_yaw from trajectory_representation_waypoints message
  *
- * @return Yaw rate, set to NaN if not being used
+ * @return [rad/s] Yaw rate, set to NaN if not being used
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_vel_yaw(const mavlink_message_t* msg, float *vel_yaw)
 {
@@ -503,7 +503,7 @@ static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_vel_y
 /**
  * @brief Get field command from trajectory_representation_waypoints message
  *
- * @return Scheduled action for each waypoint, UINT16_MAX if not being used.
+ * @return  Scheduled action for each waypoint, UINT16_MAX if not being used.
  */
 static inline uint16_t mavlink_msg_trajectory_representation_waypoints_get_command(const mavlink_message_t* msg, uint16_t *command)
 {

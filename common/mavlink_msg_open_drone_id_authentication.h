@@ -5,12 +5,12 @@
 
 MAVPACKED(
 typedef struct __mavlink_open_drone_id_authentication_t {
- uint32_t timestamp; /*< This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.*/
- uint8_t authentication_type; /*< Indicates the type of authentication.*/
- uint8_t data_page; /*< Allowed range is 0 - 4.*/
- uint8_t page_count; /*< This field is only present for page 0. Allowed range is 0 - 5.*/
- uint8_t length; /*< This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).*/
- uint8_t authentication_data[23]; /*< Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.*/
+ uint32_t timestamp; /*< [s] This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.*/
+ uint8_t authentication_type; /*<  Indicates the type of authentication.*/
+ uint8_t data_page; /*<  Allowed range is 0 - 4.*/
+ uint8_t page_count; /*<  This field is only present for page 0. Allowed range is 0 - 5.*/
+ uint8_t length; /*< [bytes] This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).*/
+ uint8_t authentication_data[23]; /*<  Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.*/
 }) mavlink_open_drone_id_authentication_t;
 
 #define MAVLINK_MSG_ID_OPEN_DRONE_ID_AUTHENTICATION_LEN 31
@@ -28,11 +28,11 @@ typedef struct __mavlink_open_drone_id_authentication_t {
     12902, \
     "OPEN_DRONE_ID_AUTHENTICATION", \
     6, \
-    {  { "timestamp", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_open_drone_id_authentication_t, timestamp) }, \
-         { "authentication_type", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_open_drone_id_authentication_t, authentication_type) }, \
+    {  { "authentication_type", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_open_drone_id_authentication_t, authentication_type) }, \
          { "data_page", NULL, MAVLINK_TYPE_UINT8_T, 0, 5, offsetof(mavlink_open_drone_id_authentication_t, data_page) }, \
          { "page_count", NULL, MAVLINK_TYPE_UINT8_T, 0, 6, offsetof(mavlink_open_drone_id_authentication_t, page_count) }, \
          { "length", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_open_drone_id_authentication_t, length) }, \
+         { "timestamp", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_open_drone_id_authentication_t, timestamp) }, \
          { "authentication_data", NULL, MAVLINK_TYPE_UINT8_T, 23, 8, offsetof(mavlink_open_drone_id_authentication_t, authentication_data) }, \
          } \
 }
@@ -40,11 +40,11 @@ typedef struct __mavlink_open_drone_id_authentication_t {
 #define MAVLINK_MESSAGE_INFO_OPEN_DRONE_ID_AUTHENTICATION { \
     "OPEN_DRONE_ID_AUTHENTICATION", \
     6, \
-    {  { "timestamp", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_open_drone_id_authentication_t, timestamp) }, \
-         { "authentication_type", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_open_drone_id_authentication_t, authentication_type) }, \
+    {  { "authentication_type", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_open_drone_id_authentication_t, authentication_type) }, \
          { "data_page", NULL, MAVLINK_TYPE_UINT8_T, 0, 5, offsetof(mavlink_open_drone_id_authentication_t, data_page) }, \
          { "page_count", NULL, MAVLINK_TYPE_UINT8_T, 0, 6, offsetof(mavlink_open_drone_id_authentication_t, page_count) }, \
          { "length", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_open_drone_id_authentication_t, length) }, \
+         { "timestamp", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_open_drone_id_authentication_t, timestamp) }, \
          { "authentication_data", NULL, MAVLINK_TYPE_UINT8_T, 23, 8, offsetof(mavlink_open_drone_id_authentication_t, authentication_data) }, \
          } \
 }
@@ -56,12 +56,12 @@ typedef struct __mavlink_open_drone_id_authentication_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param authentication_type Indicates the type of authentication.
- * @param data_page Allowed range is 0 - 4.
- * @param page_count This field is only present for page 0. Allowed range is 0 - 5.
- * @param length This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).
- * @param timestamp This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
- * @param authentication_data Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.
+ * @param authentication_type  Indicates the type of authentication.
+ * @param data_page  Allowed range is 0 - 4.
+ * @param page_count  This field is only present for page 0. Allowed range is 0 - 5.
+ * @param length [bytes] This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).
+ * @param timestamp [s] This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
+ * @param authentication_data  Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_authentication_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -97,12 +97,12 @@ static inline uint16_t mavlink_msg_open_drone_id_authentication_pack(uint8_t sys
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param authentication_type Indicates the type of authentication.
- * @param data_page Allowed range is 0 - 4.
- * @param page_count This field is only present for page 0. Allowed range is 0 - 5.
- * @param length This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).
- * @param timestamp This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
- * @param authentication_data Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.
+ * @param authentication_type  Indicates the type of authentication.
+ * @param data_page  Allowed range is 0 - 4.
+ * @param page_count  This field is only present for page 0. Allowed range is 0 - 5.
+ * @param length [bytes] This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).
+ * @param timestamp [s] This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
+ * @param authentication_data  Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_open_drone_id_authentication_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -164,12 +164,12 @@ static inline uint16_t mavlink_msg_open_drone_id_authentication_encode_chan(uint
  * @brief Send a open_drone_id_authentication message
  * @param chan MAVLink channel to send the message
  *
- * @param authentication_type Indicates the type of authentication.
- * @param data_page Allowed range is 0 - 4.
- * @param page_count This field is only present for page 0. Allowed range is 0 - 5.
- * @param length This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).
- * @param timestamp This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
- * @param authentication_data Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.
+ * @param authentication_type  Indicates the type of authentication.
+ * @param data_page  Allowed range is 0 - 4.
+ * @param page_count  This field is only present for page 0. Allowed range is 0 - 5.
+ * @param length [bytes] This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).
+ * @param timestamp [s] This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
+ * @param authentication_data  Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -250,7 +250,7 @@ static inline void mavlink_msg_open_drone_id_authentication_send_buf(mavlink_mes
 /**
  * @brief Get field authentication_type from open_drone_id_authentication message
  *
- * @return Indicates the type of authentication.
+ * @return  Indicates the type of authentication.
  */
 static inline uint8_t mavlink_msg_open_drone_id_authentication_get_authentication_type(const mavlink_message_t* msg)
 {
@@ -260,7 +260,7 @@ static inline uint8_t mavlink_msg_open_drone_id_authentication_get_authenticatio
 /**
  * @brief Get field data_page from open_drone_id_authentication message
  *
- * @return Allowed range is 0 - 4.
+ * @return  Allowed range is 0 - 4.
  */
 static inline uint8_t mavlink_msg_open_drone_id_authentication_get_data_page(const mavlink_message_t* msg)
 {
@@ -270,7 +270,7 @@ static inline uint8_t mavlink_msg_open_drone_id_authentication_get_data_page(con
 /**
  * @brief Get field page_count from open_drone_id_authentication message
  *
- * @return This field is only present for page 0. Allowed range is 0 - 5.
+ * @return  This field is only present for page 0. Allowed range is 0 - 5.
  */
 static inline uint8_t mavlink_msg_open_drone_id_authentication_get_page_count(const mavlink_message_t* msg)
 {
@@ -280,7 +280,7 @@ static inline uint8_t mavlink_msg_open_drone_id_authentication_get_page_count(co
 /**
  * @brief Get field length from open_drone_id_authentication message
  *
- * @return This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).
+ * @return [bytes] This field is only present for page 0. Total bytes of authentication_data from all data pages. Allowed range is 0 - 109 (17 + 23*4).
  */
 static inline uint8_t mavlink_msg_open_drone_id_authentication_get_length(const mavlink_message_t* msg)
 {
@@ -290,7 +290,7 @@ static inline uint8_t mavlink_msg_open_drone_id_authentication_get_length(const 
 /**
  * @brief Get field timestamp from open_drone_id_authentication message
  *
- * @return This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
+ * @return [s] This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
  */
 static inline uint32_t mavlink_msg_open_drone_id_authentication_get_timestamp(const mavlink_message_t* msg)
 {
@@ -300,7 +300,7 @@ static inline uint32_t mavlink_msg_open_drone_id_authentication_get_timestamp(co
 /**
  * @brief Get field authentication_data from open_drone_id_authentication message
  *
- * @return Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.
+ * @return  Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23 bytes. Shall be filled with nulls in the unused portion of the field.
  */
 static inline uint16_t mavlink_msg_open_drone_id_authentication_get_authentication_data(const mavlink_message_t* msg, uint8_t *authentication_data)
 {

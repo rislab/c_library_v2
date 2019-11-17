@@ -145,5 +145,17 @@
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint16_t[8]" name="pwms">PWM</field>
     </message>
+    <message id="224" name="ATT_CTRL_DEBUG">
+      <description>mocap_control attitude controller debug message</description>
+      <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
+      <field type="float[4]" name="rpm">RPM</field>
+      <field type="float[3]" name="ang_vel_err">Angular velocity error</field>
+      <field type="float[3]" name="ang_vel_des">Desired angular velocity</field>
+      <field type="float[3]" name="orientation_err">Orientation error</field>
+      <field type="float[9]" name="orientation_des">Desired orientation</field>
+      <field type="float[9]" name="orientation_act">Actual orientation</field>
+      <field type="float" name="body_cmd_fbz">Thrust component of cascaded command</field>
+      <field type="float[3]" name="mb">Torque</field>
+    </message>
   </messages>
 </mavlink>

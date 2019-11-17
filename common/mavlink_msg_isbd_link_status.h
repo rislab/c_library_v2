@@ -5,14 +5,14 @@
 
 MAVPACKED(
 typedef struct __mavlink_isbd_link_status_t {
- uint64_t timestamp; /*< Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.*/
- uint64_t last_heartbeat; /*< Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.*/
- uint16_t failed_sessions; /*< Number of failed SBD sessions.*/
- uint16_t successful_sessions; /*< Number of successful SBD sessions.*/
- uint8_t signal_quality; /*< Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.*/
- uint8_t ring_pending; /*< 1: Ring call pending, 0: No call pending.*/
- uint8_t tx_session_pending; /*< 1: Transmission session pending, 0: No transmission session pending.*/
- uint8_t rx_session_pending; /*< 1: Receiving session pending, 0: No receiving session pending.*/
+ uint64_t timestamp; /*< [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.*/
+ uint64_t last_heartbeat; /*< [us] Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.*/
+ uint16_t failed_sessions; /*<  Number of failed SBD sessions.*/
+ uint16_t successful_sessions; /*<  Number of successful SBD sessions.*/
+ uint8_t signal_quality; /*<  Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.*/
+ uint8_t ring_pending; /*<  1: Ring call pending, 0: No call pending.*/
+ uint8_t tx_session_pending; /*<  1: Transmission session pending, 0: No transmission session pending.*/
+ uint8_t rx_session_pending; /*<  1: Receiving session pending, 0: No receiving session pending.*/
 }) mavlink_isbd_link_status_t;
 
 #define MAVLINK_MSG_ID_ISBD_LINK_STATUS_LEN 24
@@ -62,14 +62,14 @@ typedef struct __mavlink_isbd_link_status_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param timestamp Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param last_heartbeat Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param failed_sessions Number of failed SBD sessions.
- * @param successful_sessions Number of successful SBD sessions.
- * @param signal_quality Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.
- * @param ring_pending 1: Ring call pending, 0: No call pending.
- * @param tx_session_pending 1: Transmission session pending, 0: No transmission session pending.
- * @param rx_session_pending 1: Receiving session pending, 0: No receiving session pending.
+ * @param timestamp [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param last_heartbeat [us] Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param failed_sessions  Number of failed SBD sessions.
+ * @param successful_sessions  Number of successful SBD sessions.
+ * @param signal_quality  Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.
+ * @param ring_pending  1: Ring call pending, 0: No call pending.
+ * @param tx_session_pending  1: Transmission session pending, 0: No transmission session pending.
+ * @param rx_session_pending  1: Receiving session pending, 0: No receiving session pending.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_isbd_link_status_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -111,14 +111,14 @@ static inline uint16_t mavlink_msg_isbd_link_status_pack(uint8_t system_id, uint
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param timestamp Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param last_heartbeat Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param failed_sessions Number of failed SBD sessions.
- * @param successful_sessions Number of successful SBD sessions.
- * @param signal_quality Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.
- * @param ring_pending 1: Ring call pending, 0: No call pending.
- * @param tx_session_pending 1: Transmission session pending, 0: No transmission session pending.
- * @param rx_session_pending 1: Receiving session pending, 0: No receiving session pending.
+ * @param timestamp [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param last_heartbeat [us] Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param failed_sessions  Number of failed SBD sessions.
+ * @param successful_sessions  Number of successful SBD sessions.
+ * @param signal_quality  Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.
+ * @param ring_pending  1: Ring call pending, 0: No call pending.
+ * @param tx_session_pending  1: Transmission session pending, 0: No transmission session pending.
+ * @param rx_session_pending  1: Receiving session pending, 0: No receiving session pending.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_isbd_link_status_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -186,14 +186,14 @@ static inline uint16_t mavlink_msg_isbd_link_status_encode_chan(uint8_t system_i
  * @brief Send a isbd_link_status message
  * @param chan MAVLink channel to send the message
  *
- * @param timestamp Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param last_heartbeat Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
- * @param failed_sessions Number of failed SBD sessions.
- * @param successful_sessions Number of successful SBD sessions.
- * @param signal_quality Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.
- * @param ring_pending 1: Ring call pending, 0: No call pending.
- * @param tx_session_pending 1: Transmission session pending, 0: No transmission session pending.
- * @param rx_session_pending 1: Receiving session pending, 0: No receiving session pending.
+ * @param timestamp [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param last_heartbeat [us] Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @param failed_sessions  Number of failed SBD sessions.
+ * @param successful_sessions  Number of successful SBD sessions.
+ * @param signal_quality  Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.
+ * @param ring_pending  1: Ring call pending, 0: No call pending.
+ * @param tx_session_pending  1: Transmission session pending, 0: No transmission session pending.
+ * @param rx_session_pending  1: Receiving session pending, 0: No receiving session pending.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -286,7 +286,7 @@ static inline void mavlink_msg_isbd_link_status_send_buf(mavlink_message_t *msgb
 /**
  * @brief Get field timestamp from isbd_link_status message
  *
- * @return Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @return [us] Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
  */
 static inline uint64_t mavlink_msg_isbd_link_status_get_timestamp(const mavlink_message_t* msg)
 {
@@ -296,7 +296,7 @@ static inline uint64_t mavlink_msg_isbd_link_status_get_timestamp(const mavlink_
 /**
  * @brief Get field last_heartbeat from isbd_link_status message
  *
- * @return Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
+ * @return [us] Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.
  */
 static inline uint64_t mavlink_msg_isbd_link_status_get_last_heartbeat(const mavlink_message_t* msg)
 {
@@ -306,7 +306,7 @@ static inline uint64_t mavlink_msg_isbd_link_status_get_last_heartbeat(const mav
 /**
  * @brief Get field failed_sessions from isbd_link_status message
  *
- * @return Number of failed SBD sessions.
+ * @return  Number of failed SBD sessions.
  */
 static inline uint16_t mavlink_msg_isbd_link_status_get_failed_sessions(const mavlink_message_t* msg)
 {
@@ -316,7 +316,7 @@ static inline uint16_t mavlink_msg_isbd_link_status_get_failed_sessions(const ma
 /**
  * @brief Get field successful_sessions from isbd_link_status message
  *
- * @return Number of successful SBD sessions.
+ * @return  Number of successful SBD sessions.
  */
 static inline uint16_t mavlink_msg_isbd_link_status_get_successful_sessions(const mavlink_message_t* msg)
 {
@@ -326,7 +326,7 @@ static inline uint16_t mavlink_msg_isbd_link_status_get_successful_sessions(cons
 /**
  * @brief Get field signal_quality from isbd_link_status message
  *
- * @return Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.
+ * @return  Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength.
  */
 static inline uint8_t mavlink_msg_isbd_link_status_get_signal_quality(const mavlink_message_t* msg)
 {
@@ -336,7 +336,7 @@ static inline uint8_t mavlink_msg_isbd_link_status_get_signal_quality(const mavl
 /**
  * @brief Get field ring_pending from isbd_link_status message
  *
- * @return 1: Ring call pending, 0: No call pending.
+ * @return  1: Ring call pending, 0: No call pending.
  */
 static inline uint8_t mavlink_msg_isbd_link_status_get_ring_pending(const mavlink_message_t* msg)
 {
@@ -346,7 +346,7 @@ static inline uint8_t mavlink_msg_isbd_link_status_get_ring_pending(const mavlin
 /**
  * @brief Get field tx_session_pending from isbd_link_status message
  *
- * @return 1: Transmission session pending, 0: No transmission session pending.
+ * @return  1: Transmission session pending, 0: No transmission session pending.
  */
 static inline uint8_t mavlink_msg_isbd_link_status_get_tx_session_pending(const mavlink_message_t* msg)
 {
@@ -356,7 +356,7 @@ static inline uint8_t mavlink_msg_isbd_link_status_get_tx_session_pending(const 
 /**
  * @brief Get field rx_session_pending from isbd_link_status message
  *
- * @return 1: Receiving session pending, 0: No receiving session pending.
+ * @return  1: Receiving session pending, 0: No receiving session pending.
  */
 static inline uint8_t mavlink_msg_isbd_link_status_get_rx_session_pending(const mavlink_message_t* msg)
 {

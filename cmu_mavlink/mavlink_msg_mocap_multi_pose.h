@@ -5,10 +5,10 @@
 
 MAVPACKED(
 typedef struct __mavlink_mocap_multi_pose_t {
- uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- int16_t pose[20]; /*< Robot pose (x, y, z, heading) in m/10^3 or rad/10^4*/
- uint8_t npose; /*< Number of poses (max 5)*/
- uint8_t ids[5]; /*< Associated robot ids*/
+ uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
+ int16_t pose[20]; /*<  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4*/
+ uint8_t npose; /*<  Number of poses (max 5)*/
+ uint8_t ids[5]; /*<  Associated robot ids*/
 }) mavlink_mocap_multi_pose_t;
 
 #define MAVLINK_MSG_ID_MOCAP_MULTI_POSE_LEN 54
@@ -28,9 +28,9 @@ typedef struct __mavlink_mocap_multi_pose_t {
     "MOCAP_MULTI_POSE", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_multi_pose_t, time_usec) }, \
-         { "pose", NULL, MAVLINK_TYPE_INT16_T, 20, 8, offsetof(mavlink_mocap_multi_pose_t, pose) }, \
          { "npose", NULL, MAVLINK_TYPE_UINT8_T, 0, 48, offsetof(mavlink_mocap_multi_pose_t, npose) }, \
          { "ids", NULL, MAVLINK_TYPE_UINT8_T, 5, 49, offsetof(mavlink_mocap_multi_pose_t, ids) }, \
+         { "pose", NULL, MAVLINK_TYPE_INT16_T, 20, 8, offsetof(mavlink_mocap_multi_pose_t, pose) }, \
          } \
 }
 #else
@@ -38,9 +38,9 @@ typedef struct __mavlink_mocap_multi_pose_t {
     "MOCAP_MULTI_POSE", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_multi_pose_t, time_usec) }, \
-         { "pose", NULL, MAVLINK_TYPE_INT16_T, 20, 8, offsetof(mavlink_mocap_multi_pose_t, pose) }, \
          { "npose", NULL, MAVLINK_TYPE_UINT8_T, 0, 48, offsetof(mavlink_mocap_multi_pose_t, npose) }, \
          { "ids", NULL, MAVLINK_TYPE_UINT8_T, 5, 49, offsetof(mavlink_mocap_multi_pose_t, ids) }, \
+         { "pose", NULL, MAVLINK_TYPE_INT16_T, 20, 8, offsetof(mavlink_mocap_multi_pose_t, pose) }, \
          } \
 }
 #endif
@@ -51,10 +51,10 @@ typedef struct __mavlink_mocap_multi_pose_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param npose Number of poses (max 5)
- * @param ids Associated robot ids
- * @param pose Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param npose  Number of poses (max 5)
+ * @param ids  Associated robot ids
+ * @param pose  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_multi_pose_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -86,10 +86,10 @@ static inline uint16_t mavlink_msg_mocap_multi_pose_pack(uint8_t system_id, uint
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param npose Number of poses (max 5)
- * @param ids Associated robot ids
- * @param pose Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param npose  Number of poses (max 5)
+ * @param ids  Associated robot ids
+ * @param pose  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_multi_pose_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -147,10 +147,10 @@ static inline uint16_t mavlink_msg_mocap_multi_pose_encode_chan(uint8_t system_i
  * @brief Send a mocap_multi_pose message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param npose Number of poses (max 5)
- * @param ids Associated robot ids
- * @param pose Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param npose  Number of poses (max 5)
+ * @param ids  Associated robot ids
+ * @param pose  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -223,7 +223,7 @@ static inline void mavlink_msg_mocap_multi_pose_send_buf(mavlink_message_t *msgb
 /**
  * @brief Get field time_usec from mocap_multi_pose message
  *
- * @return Timestamp (micros since boot or Unix epoch)
+ * @return  Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_mocap_multi_pose_get_time_usec(const mavlink_message_t* msg)
 {
@@ -233,7 +233,7 @@ static inline uint64_t mavlink_msg_mocap_multi_pose_get_time_usec(const mavlink_
 /**
  * @brief Get field npose from mocap_multi_pose message
  *
- * @return Number of poses (max 5)
+ * @return  Number of poses (max 5)
  */
 static inline uint8_t mavlink_msg_mocap_multi_pose_get_npose(const mavlink_message_t* msg)
 {
@@ -243,7 +243,7 @@ static inline uint8_t mavlink_msg_mocap_multi_pose_get_npose(const mavlink_messa
 /**
  * @brief Get field ids from mocap_multi_pose message
  *
- * @return Associated robot ids
+ * @return  Associated robot ids
  */
 static inline uint16_t mavlink_msg_mocap_multi_pose_get_ids(const mavlink_message_t* msg, uint8_t *ids)
 {
@@ -253,7 +253,7 @@ static inline uint16_t mavlink_msg_mocap_multi_pose_get_ids(const mavlink_messag
 /**
  * @brief Get field pose from mocap_multi_pose message
  *
- * @return Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
+ * @return  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4
  */
 static inline uint16_t mavlink_msg_mocap_multi_pose_get_pose(const mavlink_message_t* msg, int16_t *pose)
 {

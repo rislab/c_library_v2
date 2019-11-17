@@ -5,8 +5,8 @@
 
 MAVPACKED(
 typedef struct __mavlink_mocap_pwm_debug_t {
- uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- uint16_t pwms[8]; /*< PWM*/
+ uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
+ uint16_t pwms[8]; /*<  PWM*/
 }) mavlink_mocap_pwm_debug_t;
 
 #define MAVLINK_MSG_ID_MOCAP_PWM_DEBUG_LEN 24
@@ -44,8 +44,8 @@ typedef struct __mavlink_mocap_pwm_debug_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param pwms PWM
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param pwms  PWM
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_pwm_debug_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -73,8 +73,8 @@ static inline uint16_t mavlink_msg_mocap_pwm_debug_pack(uint8_t system_id, uint8
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param pwms PWM
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param pwms  PWM
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_mocap_pwm_debug_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -128,8 +128,8 @@ static inline uint16_t mavlink_msg_mocap_pwm_debug_encode_chan(uint8_t system_id
  * @brief Send a mocap_pwm_debug message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param pwms PWM
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param pwms  PWM
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -194,7 +194,7 @@ static inline void mavlink_msg_mocap_pwm_debug_send_buf(mavlink_message_t *msgbu
 /**
  * @brief Get field time_usec from mocap_pwm_debug message
  *
- * @return Timestamp (micros since boot or Unix epoch)
+ * @return  Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_mocap_pwm_debug_get_time_usec(const mavlink_message_t* msg)
 {
@@ -204,7 +204,7 @@ static inline uint64_t mavlink_msg_mocap_pwm_debug_get_time_usec(const mavlink_m
 /**
  * @brief Get field pwms from mocap_pwm_debug message
  *
- * @return PWM
+ * @return  PWM
  */
 static inline uint16_t mavlink_msg_mocap_pwm_debug_get_pwms(const mavlink_message_t* msg, uint16_t *pwms)
 {

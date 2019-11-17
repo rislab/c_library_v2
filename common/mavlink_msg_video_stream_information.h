@@ -5,18 +5,18 @@
 
 MAVPACKED(
 typedef struct __mavlink_video_stream_information_t {
- float framerate; /*< Frame rate.*/
- uint32_t bitrate; /*< Bit rate.*/
- uint16_t flags; /*< Bitmap of stream status flags.*/
- uint16_t resolution_h; /*< Horizontal resolution.*/
- uint16_t resolution_v; /*< Vertical resolution.*/
- uint16_t rotation; /*< Video image rotation clockwise.*/
- uint16_t hfov; /*< Horizontal Field of view.*/
- uint8_t stream_id; /*< Video Stream ID (1 for first, 2 for second, etc.)*/
- uint8_t count; /*< Number of streams available.*/
- uint8_t type; /*< Type of stream.*/
- char name[32]; /*< Stream name.*/
- char uri[160]; /*< Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).*/
+ float framerate; /*< [Hz] Frame rate.*/
+ uint32_t bitrate; /*< [bits/s] Bit rate.*/
+ uint16_t flags; /*<  Bitmap of stream status flags.*/
+ uint16_t resolution_h; /*< [pix] Horizontal resolution.*/
+ uint16_t resolution_v; /*< [pix] Vertical resolution.*/
+ uint16_t rotation; /*< [deg] Video image rotation clockwise.*/
+ uint16_t hfov; /*< [deg] Horizontal Field of view.*/
+ uint8_t stream_id; /*<  Video Stream ID (1 for first, 2 for second, etc.)*/
+ uint8_t count; /*<  Number of streams available.*/
+ uint8_t type; /*<  Type of stream.*/
+ char name[32]; /*<  Stream name.*/
+ char uri[160]; /*<  Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).*/
 }) mavlink_video_stream_information_t;
 
 #define MAVLINK_MSG_ID_VIDEO_STREAM_INFORMATION_LEN 213
@@ -35,16 +35,16 @@ typedef struct __mavlink_video_stream_information_t {
     269, \
     "VIDEO_STREAM_INFORMATION", \
     12, \
-    {  { "framerate", NULL, MAVLINK_TYPE_FLOAT, 0, 0, offsetof(mavlink_video_stream_information_t, framerate) }, \
-         { "bitrate", NULL, MAVLINK_TYPE_UINT32_T, 0, 4, offsetof(mavlink_video_stream_information_t, bitrate) }, \
-         { "flags", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_video_stream_information_t, flags) }, \
-         { "resolution_h", NULL, MAVLINK_TYPE_UINT16_T, 0, 10, offsetof(mavlink_video_stream_information_t, resolution_h) }, \
-         { "resolution_v", NULL, MAVLINK_TYPE_UINT16_T, 0, 12, offsetof(mavlink_video_stream_information_t, resolution_v) }, \
-         { "rotation", NULL, MAVLINK_TYPE_UINT16_T, 0, 14, offsetof(mavlink_video_stream_information_t, rotation) }, \
-         { "hfov", NULL, MAVLINK_TYPE_UINT16_T, 0, 16, offsetof(mavlink_video_stream_information_t, hfov) }, \
-         { "stream_id", NULL, MAVLINK_TYPE_UINT8_T, 0, 18, offsetof(mavlink_video_stream_information_t, stream_id) }, \
+    {  { "stream_id", NULL, MAVLINK_TYPE_UINT8_T, 0, 18, offsetof(mavlink_video_stream_information_t, stream_id) }, \
          { "count", NULL, MAVLINK_TYPE_UINT8_T, 0, 19, offsetof(mavlink_video_stream_information_t, count) }, \
          { "type", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_video_stream_information_t, type) }, \
+         { "flags", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_video_stream_information_t, flags) }, \
+         { "framerate", NULL, MAVLINK_TYPE_FLOAT, 0, 0, offsetof(mavlink_video_stream_information_t, framerate) }, \
+         { "resolution_h", NULL, MAVLINK_TYPE_UINT16_T, 0, 10, offsetof(mavlink_video_stream_information_t, resolution_h) }, \
+         { "resolution_v", NULL, MAVLINK_TYPE_UINT16_T, 0, 12, offsetof(mavlink_video_stream_information_t, resolution_v) }, \
+         { "bitrate", NULL, MAVLINK_TYPE_UINT32_T, 0, 4, offsetof(mavlink_video_stream_information_t, bitrate) }, \
+         { "rotation", NULL, MAVLINK_TYPE_UINT16_T, 0, 14, offsetof(mavlink_video_stream_information_t, rotation) }, \
+         { "hfov", NULL, MAVLINK_TYPE_UINT16_T, 0, 16, offsetof(mavlink_video_stream_information_t, hfov) }, \
          { "name", NULL, MAVLINK_TYPE_CHAR, 32, 21, offsetof(mavlink_video_stream_information_t, name) }, \
          { "uri", NULL, MAVLINK_TYPE_CHAR, 160, 53, offsetof(mavlink_video_stream_information_t, uri) }, \
          } \
@@ -53,16 +53,16 @@ typedef struct __mavlink_video_stream_information_t {
 #define MAVLINK_MESSAGE_INFO_VIDEO_STREAM_INFORMATION { \
     "VIDEO_STREAM_INFORMATION", \
     12, \
-    {  { "framerate", NULL, MAVLINK_TYPE_FLOAT, 0, 0, offsetof(mavlink_video_stream_information_t, framerate) }, \
-         { "bitrate", NULL, MAVLINK_TYPE_UINT32_T, 0, 4, offsetof(mavlink_video_stream_information_t, bitrate) }, \
-         { "flags", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_video_stream_information_t, flags) }, \
-         { "resolution_h", NULL, MAVLINK_TYPE_UINT16_T, 0, 10, offsetof(mavlink_video_stream_information_t, resolution_h) }, \
-         { "resolution_v", NULL, MAVLINK_TYPE_UINT16_T, 0, 12, offsetof(mavlink_video_stream_information_t, resolution_v) }, \
-         { "rotation", NULL, MAVLINK_TYPE_UINT16_T, 0, 14, offsetof(mavlink_video_stream_information_t, rotation) }, \
-         { "hfov", NULL, MAVLINK_TYPE_UINT16_T, 0, 16, offsetof(mavlink_video_stream_information_t, hfov) }, \
-         { "stream_id", NULL, MAVLINK_TYPE_UINT8_T, 0, 18, offsetof(mavlink_video_stream_information_t, stream_id) }, \
+    {  { "stream_id", NULL, MAVLINK_TYPE_UINT8_T, 0, 18, offsetof(mavlink_video_stream_information_t, stream_id) }, \
          { "count", NULL, MAVLINK_TYPE_UINT8_T, 0, 19, offsetof(mavlink_video_stream_information_t, count) }, \
          { "type", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_video_stream_information_t, type) }, \
+         { "flags", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_video_stream_information_t, flags) }, \
+         { "framerate", NULL, MAVLINK_TYPE_FLOAT, 0, 0, offsetof(mavlink_video_stream_information_t, framerate) }, \
+         { "resolution_h", NULL, MAVLINK_TYPE_UINT16_T, 0, 10, offsetof(mavlink_video_stream_information_t, resolution_h) }, \
+         { "resolution_v", NULL, MAVLINK_TYPE_UINT16_T, 0, 12, offsetof(mavlink_video_stream_information_t, resolution_v) }, \
+         { "bitrate", NULL, MAVLINK_TYPE_UINT32_T, 0, 4, offsetof(mavlink_video_stream_information_t, bitrate) }, \
+         { "rotation", NULL, MAVLINK_TYPE_UINT16_T, 0, 14, offsetof(mavlink_video_stream_information_t, rotation) }, \
+         { "hfov", NULL, MAVLINK_TYPE_UINT16_T, 0, 16, offsetof(mavlink_video_stream_information_t, hfov) }, \
          { "name", NULL, MAVLINK_TYPE_CHAR, 32, 21, offsetof(mavlink_video_stream_information_t, name) }, \
          { "uri", NULL, MAVLINK_TYPE_CHAR, 160, 53, offsetof(mavlink_video_stream_information_t, uri) }, \
          } \
@@ -75,18 +75,18 @@ typedef struct __mavlink_video_stream_information_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param stream_id Video Stream ID (1 for first, 2 for second, etc.)
- * @param count Number of streams available.
- * @param type Type of stream.
- * @param flags Bitmap of stream status flags.
- * @param framerate Frame rate.
- * @param resolution_h Horizontal resolution.
- * @param resolution_v Vertical resolution.
- * @param bitrate Bit rate.
- * @param rotation Video image rotation clockwise.
- * @param hfov Horizontal Field of view.
- * @param name Stream name.
- * @param uri Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).
+ * @param stream_id  Video Stream ID (1 for first, 2 for second, etc.)
+ * @param count  Number of streams available.
+ * @param type  Type of stream.
+ * @param flags  Bitmap of stream status flags.
+ * @param framerate [Hz] Frame rate.
+ * @param resolution_h [pix] Horizontal resolution.
+ * @param resolution_v [pix] Vertical resolution.
+ * @param bitrate [bits/s] Bit rate.
+ * @param rotation [deg] Video image rotation clockwise.
+ * @param hfov [deg] Horizontal Field of view.
+ * @param name  Stream name.
+ * @param uri  Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_video_stream_information_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -134,18 +134,18 @@ static inline uint16_t mavlink_msg_video_stream_information_pack(uint8_t system_
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param stream_id Video Stream ID (1 for first, 2 for second, etc.)
- * @param count Number of streams available.
- * @param type Type of stream.
- * @param flags Bitmap of stream status flags.
- * @param framerate Frame rate.
- * @param resolution_h Horizontal resolution.
- * @param resolution_v Vertical resolution.
- * @param bitrate Bit rate.
- * @param rotation Video image rotation clockwise.
- * @param hfov Horizontal Field of view.
- * @param name Stream name.
- * @param uri Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).
+ * @param stream_id  Video Stream ID (1 for first, 2 for second, etc.)
+ * @param count  Number of streams available.
+ * @param type  Type of stream.
+ * @param flags  Bitmap of stream status flags.
+ * @param framerate [Hz] Frame rate.
+ * @param resolution_h [pix] Horizontal resolution.
+ * @param resolution_v [pix] Vertical resolution.
+ * @param bitrate [bits/s] Bit rate.
+ * @param rotation [deg] Video image rotation clockwise.
+ * @param hfov [deg] Horizontal Field of view.
+ * @param name  Stream name.
+ * @param uri  Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_video_stream_information_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -219,18 +219,18 @@ static inline uint16_t mavlink_msg_video_stream_information_encode_chan(uint8_t 
  * @brief Send a video_stream_information message
  * @param chan MAVLink channel to send the message
  *
- * @param stream_id Video Stream ID (1 for first, 2 for second, etc.)
- * @param count Number of streams available.
- * @param type Type of stream.
- * @param flags Bitmap of stream status flags.
- * @param framerate Frame rate.
- * @param resolution_h Horizontal resolution.
- * @param resolution_v Vertical resolution.
- * @param bitrate Bit rate.
- * @param rotation Video image rotation clockwise.
- * @param hfov Horizontal Field of view.
- * @param name Stream name.
- * @param uri Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).
+ * @param stream_id  Video Stream ID (1 for first, 2 for second, etc.)
+ * @param count  Number of streams available.
+ * @param type  Type of stream.
+ * @param flags  Bitmap of stream status flags.
+ * @param framerate [Hz] Frame rate.
+ * @param resolution_h [pix] Horizontal resolution.
+ * @param resolution_v [pix] Vertical resolution.
+ * @param bitrate [bits/s] Bit rate.
+ * @param rotation [deg] Video image rotation clockwise.
+ * @param hfov [deg] Horizontal Field of view.
+ * @param name  Stream name.
+ * @param uri  Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -335,7 +335,7 @@ static inline void mavlink_msg_video_stream_information_send_buf(mavlink_message
 /**
  * @brief Get field stream_id from video_stream_information message
  *
- * @return Video Stream ID (1 for first, 2 for second, etc.)
+ * @return  Video Stream ID (1 for first, 2 for second, etc.)
  */
 static inline uint8_t mavlink_msg_video_stream_information_get_stream_id(const mavlink_message_t* msg)
 {
@@ -345,7 +345,7 @@ static inline uint8_t mavlink_msg_video_stream_information_get_stream_id(const m
 /**
  * @brief Get field count from video_stream_information message
  *
- * @return Number of streams available.
+ * @return  Number of streams available.
  */
 static inline uint8_t mavlink_msg_video_stream_information_get_count(const mavlink_message_t* msg)
 {
@@ -355,7 +355,7 @@ static inline uint8_t mavlink_msg_video_stream_information_get_count(const mavli
 /**
  * @brief Get field type from video_stream_information message
  *
- * @return Type of stream.
+ * @return  Type of stream.
  */
 static inline uint8_t mavlink_msg_video_stream_information_get_type(const mavlink_message_t* msg)
 {
@@ -365,7 +365,7 @@ static inline uint8_t mavlink_msg_video_stream_information_get_type(const mavlin
 /**
  * @brief Get field flags from video_stream_information message
  *
- * @return Bitmap of stream status flags.
+ * @return  Bitmap of stream status flags.
  */
 static inline uint16_t mavlink_msg_video_stream_information_get_flags(const mavlink_message_t* msg)
 {
@@ -375,7 +375,7 @@ static inline uint16_t mavlink_msg_video_stream_information_get_flags(const mavl
 /**
  * @brief Get field framerate from video_stream_information message
  *
- * @return Frame rate.
+ * @return [Hz] Frame rate.
  */
 static inline float mavlink_msg_video_stream_information_get_framerate(const mavlink_message_t* msg)
 {
@@ -385,7 +385,7 @@ static inline float mavlink_msg_video_stream_information_get_framerate(const mav
 /**
  * @brief Get field resolution_h from video_stream_information message
  *
- * @return Horizontal resolution.
+ * @return [pix] Horizontal resolution.
  */
 static inline uint16_t mavlink_msg_video_stream_information_get_resolution_h(const mavlink_message_t* msg)
 {
@@ -395,7 +395,7 @@ static inline uint16_t mavlink_msg_video_stream_information_get_resolution_h(con
 /**
  * @brief Get field resolution_v from video_stream_information message
  *
- * @return Vertical resolution.
+ * @return [pix] Vertical resolution.
  */
 static inline uint16_t mavlink_msg_video_stream_information_get_resolution_v(const mavlink_message_t* msg)
 {
@@ -405,7 +405,7 @@ static inline uint16_t mavlink_msg_video_stream_information_get_resolution_v(con
 /**
  * @brief Get field bitrate from video_stream_information message
  *
- * @return Bit rate.
+ * @return [bits/s] Bit rate.
  */
 static inline uint32_t mavlink_msg_video_stream_information_get_bitrate(const mavlink_message_t* msg)
 {
@@ -415,7 +415,7 @@ static inline uint32_t mavlink_msg_video_stream_information_get_bitrate(const ma
 /**
  * @brief Get field rotation from video_stream_information message
  *
- * @return Video image rotation clockwise.
+ * @return [deg] Video image rotation clockwise.
  */
 static inline uint16_t mavlink_msg_video_stream_information_get_rotation(const mavlink_message_t* msg)
 {
@@ -425,7 +425,7 @@ static inline uint16_t mavlink_msg_video_stream_information_get_rotation(const m
 /**
  * @brief Get field hfov from video_stream_information message
  *
- * @return Horizontal Field of view.
+ * @return [deg] Horizontal Field of view.
  */
 static inline uint16_t mavlink_msg_video_stream_information_get_hfov(const mavlink_message_t* msg)
 {
@@ -435,7 +435,7 @@ static inline uint16_t mavlink_msg_video_stream_information_get_hfov(const mavli
 /**
  * @brief Get field name from video_stream_information message
  *
- * @return Stream name.
+ * @return  Stream name.
  */
 static inline uint16_t mavlink_msg_video_stream_information_get_name(const mavlink_message_t* msg, char *name)
 {
@@ -445,7 +445,7 @@ static inline uint16_t mavlink_msg_video_stream_information_get_name(const mavli
 /**
  * @brief Get field uri from video_stream_information message
  *
- * @return Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).
+ * @return  Video stream URI (TCP or RTSP URI ground station should connect to) or port number (UDP port ground station should listen to).
  */
 static inline uint16_t mavlink_msg_video_stream_information_get_uri(const mavlink_message_t* msg, char *uri)
 {

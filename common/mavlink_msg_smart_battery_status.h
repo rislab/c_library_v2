@@ -5,14 +5,14 @@
 
 MAVPACKED(
 typedef struct __mavlink_smart_battery_status_t {
- int32_t fault_bitmask; /*< Fault/health indications.*/
- int32_t time_remaining; /*< Estimated remaining battery time. -1: field not provided.*/
- uint16_t id; /*< Battery ID*/
- int16_t capacity_remaining; /*< Remaining battery energy. Values: [0-100], -1: field not provided.*/
- int16_t current; /*< Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.*/
- int16_t temperature; /*< Battery temperature. -1: field not provided.*/
- uint16_t cell_offset; /*< The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.*/
- uint16_t voltages[16]; /*< Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.*/
+ int32_t fault_bitmask; /*<  Fault/health indications.*/
+ int32_t time_remaining; /*< [s] Estimated remaining battery time. -1: field not provided.*/
+ uint16_t id; /*<  Battery ID*/
+ int16_t capacity_remaining; /*< [%] Remaining battery energy. Values: [0-100], -1: field not provided.*/
+ int16_t current; /*< [cA] Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.*/
+ int16_t temperature; /*< [cdegC] Battery temperature. -1: field not provided.*/
+ uint16_t cell_offset; /*<  The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.*/
+ uint16_t voltages[16]; /*< [mV] Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.*/
 }) mavlink_smart_battery_status_t;
 
 #define MAVLINK_MSG_ID_SMART_BATTERY_STATUS_LEN 50
@@ -30,12 +30,12 @@ typedef struct __mavlink_smart_battery_status_t {
     371, \
     "SMART_BATTERY_STATUS", \
     8, \
-    {  { "fault_bitmask", NULL, MAVLINK_TYPE_INT32_T, 0, 0, offsetof(mavlink_smart_battery_status_t, fault_bitmask) }, \
-         { "time_remaining", NULL, MAVLINK_TYPE_INT32_T, 0, 4, offsetof(mavlink_smart_battery_status_t, time_remaining) }, \
-         { "id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_smart_battery_status_t, id) }, \
+    {  { "id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_smart_battery_status_t, id) }, \
          { "capacity_remaining", NULL, MAVLINK_TYPE_INT16_T, 0, 10, offsetof(mavlink_smart_battery_status_t, capacity_remaining) }, \
          { "current", NULL, MAVLINK_TYPE_INT16_T, 0, 12, offsetof(mavlink_smart_battery_status_t, current) }, \
          { "temperature", NULL, MAVLINK_TYPE_INT16_T, 0, 14, offsetof(mavlink_smart_battery_status_t, temperature) }, \
+         { "fault_bitmask", NULL, MAVLINK_TYPE_INT32_T, 0, 0, offsetof(mavlink_smart_battery_status_t, fault_bitmask) }, \
+         { "time_remaining", NULL, MAVLINK_TYPE_INT32_T, 0, 4, offsetof(mavlink_smart_battery_status_t, time_remaining) }, \
          { "cell_offset", NULL, MAVLINK_TYPE_UINT16_T, 0, 16, offsetof(mavlink_smart_battery_status_t, cell_offset) }, \
          { "voltages", NULL, MAVLINK_TYPE_UINT16_T, 16, 18, offsetof(mavlink_smart_battery_status_t, voltages) }, \
          } \
@@ -44,12 +44,12 @@ typedef struct __mavlink_smart_battery_status_t {
 #define MAVLINK_MESSAGE_INFO_SMART_BATTERY_STATUS { \
     "SMART_BATTERY_STATUS", \
     8, \
-    {  { "fault_bitmask", NULL, MAVLINK_TYPE_INT32_T, 0, 0, offsetof(mavlink_smart_battery_status_t, fault_bitmask) }, \
-         { "time_remaining", NULL, MAVLINK_TYPE_INT32_T, 0, 4, offsetof(mavlink_smart_battery_status_t, time_remaining) }, \
-         { "id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_smart_battery_status_t, id) }, \
+    {  { "id", NULL, MAVLINK_TYPE_UINT16_T, 0, 8, offsetof(mavlink_smart_battery_status_t, id) }, \
          { "capacity_remaining", NULL, MAVLINK_TYPE_INT16_T, 0, 10, offsetof(mavlink_smart_battery_status_t, capacity_remaining) }, \
          { "current", NULL, MAVLINK_TYPE_INT16_T, 0, 12, offsetof(mavlink_smart_battery_status_t, current) }, \
          { "temperature", NULL, MAVLINK_TYPE_INT16_T, 0, 14, offsetof(mavlink_smart_battery_status_t, temperature) }, \
+         { "fault_bitmask", NULL, MAVLINK_TYPE_INT32_T, 0, 0, offsetof(mavlink_smart_battery_status_t, fault_bitmask) }, \
+         { "time_remaining", NULL, MAVLINK_TYPE_INT32_T, 0, 4, offsetof(mavlink_smart_battery_status_t, time_remaining) }, \
          { "cell_offset", NULL, MAVLINK_TYPE_UINT16_T, 0, 16, offsetof(mavlink_smart_battery_status_t, cell_offset) }, \
          { "voltages", NULL, MAVLINK_TYPE_UINT16_T, 16, 18, offsetof(mavlink_smart_battery_status_t, voltages) }, \
          } \
@@ -62,14 +62,14 @@ typedef struct __mavlink_smart_battery_status_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param id Battery ID
- * @param capacity_remaining Remaining battery energy. Values: [0-100], -1: field not provided.
- * @param current Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.
- * @param temperature Battery temperature. -1: field not provided.
- * @param fault_bitmask Fault/health indications.
- * @param time_remaining Estimated remaining battery time. -1: field not provided.
- * @param cell_offset The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.
- * @param voltages Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.
+ * @param id  Battery ID
+ * @param capacity_remaining [%] Remaining battery energy. Values: [0-100], -1: field not provided.
+ * @param current [cA] Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.
+ * @param temperature [cdegC] Battery temperature. -1: field not provided.
+ * @param fault_bitmask  Fault/health indications.
+ * @param time_remaining [s] Estimated remaining battery time. -1: field not provided.
+ * @param cell_offset  The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.
+ * @param voltages [mV] Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_smart_battery_status_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -109,14 +109,14 @@ static inline uint16_t mavlink_msg_smart_battery_status_pack(uint8_t system_id, 
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param id Battery ID
- * @param capacity_remaining Remaining battery energy. Values: [0-100], -1: field not provided.
- * @param current Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.
- * @param temperature Battery temperature. -1: field not provided.
- * @param fault_bitmask Fault/health indications.
- * @param time_remaining Estimated remaining battery time. -1: field not provided.
- * @param cell_offset The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.
- * @param voltages Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.
+ * @param id  Battery ID
+ * @param capacity_remaining [%] Remaining battery energy. Values: [0-100], -1: field not provided.
+ * @param current [cA] Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.
+ * @param temperature [cdegC] Battery temperature. -1: field not provided.
+ * @param fault_bitmask  Fault/health indications.
+ * @param time_remaining [s] Estimated remaining battery time. -1: field not provided.
+ * @param cell_offset  The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.
+ * @param voltages [mV] Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_smart_battery_status_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -182,14 +182,14 @@ static inline uint16_t mavlink_msg_smart_battery_status_encode_chan(uint8_t syst
  * @brief Send a smart_battery_status message
  * @param chan MAVLink channel to send the message
  *
- * @param id Battery ID
- * @param capacity_remaining Remaining battery energy. Values: [0-100], -1: field not provided.
- * @param current Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.
- * @param temperature Battery temperature. -1: field not provided.
- * @param fault_bitmask Fault/health indications.
- * @param time_remaining Estimated remaining battery time. -1: field not provided.
- * @param cell_offset The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.
- * @param voltages Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.
+ * @param id  Battery ID
+ * @param capacity_remaining [%] Remaining battery energy. Values: [0-100], -1: field not provided.
+ * @param current [cA] Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.
+ * @param temperature [cdegC] Battery temperature. -1: field not provided.
+ * @param fault_bitmask  Fault/health indications.
+ * @param time_remaining [s] Estimated remaining battery time. -1: field not provided.
+ * @param cell_offset  The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.
+ * @param voltages [mV] Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -278,7 +278,7 @@ static inline void mavlink_msg_smart_battery_status_send_buf(mavlink_message_t *
 /**
  * @brief Get field id from smart_battery_status message
  *
- * @return Battery ID
+ * @return  Battery ID
  */
 static inline uint16_t mavlink_msg_smart_battery_status_get_id(const mavlink_message_t* msg)
 {
@@ -288,7 +288,7 @@ static inline uint16_t mavlink_msg_smart_battery_status_get_id(const mavlink_mes
 /**
  * @brief Get field capacity_remaining from smart_battery_status message
  *
- * @return Remaining battery energy. Values: [0-100], -1: field not provided.
+ * @return [%] Remaining battery energy. Values: [0-100], -1: field not provided.
  */
 static inline int16_t mavlink_msg_smart_battery_status_get_capacity_remaining(const mavlink_message_t* msg)
 {
@@ -298,7 +298,7 @@ static inline int16_t mavlink_msg_smart_battery_status_get_capacity_remaining(co
 /**
  * @brief Get field current from smart_battery_status message
  *
- * @return Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.
+ * @return [cA] Battery current (through all cells/loads). Positive if discharging, negative if charging. UINT16_MAX: field not provided.
  */
 static inline int16_t mavlink_msg_smart_battery_status_get_current(const mavlink_message_t* msg)
 {
@@ -308,7 +308,7 @@ static inline int16_t mavlink_msg_smart_battery_status_get_current(const mavlink
 /**
  * @brief Get field temperature from smart_battery_status message
  *
- * @return Battery temperature. -1: field not provided.
+ * @return [cdegC] Battery temperature. -1: field not provided.
  */
 static inline int16_t mavlink_msg_smart_battery_status_get_temperature(const mavlink_message_t* msg)
 {
@@ -318,7 +318,7 @@ static inline int16_t mavlink_msg_smart_battery_status_get_temperature(const mav
 /**
  * @brief Get field fault_bitmask from smart_battery_status message
  *
- * @return Fault/health indications.
+ * @return  Fault/health indications.
  */
 static inline int32_t mavlink_msg_smart_battery_status_get_fault_bitmask(const mavlink_message_t* msg)
 {
@@ -328,7 +328,7 @@ static inline int32_t mavlink_msg_smart_battery_status_get_fault_bitmask(const m
 /**
  * @brief Get field time_remaining from smart_battery_status message
  *
- * @return Estimated remaining battery time. -1: field not provided.
+ * @return [s] Estimated remaining battery time. -1: field not provided.
  */
 static inline int32_t mavlink_msg_smart_battery_status_get_time_remaining(const mavlink_message_t* msg)
 {
@@ -338,7 +338,7 @@ static inline int32_t mavlink_msg_smart_battery_status_get_time_remaining(const 
 /**
  * @brief Get field cell_offset from smart_battery_status message
  *
- * @return The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.
+ * @return  The cell number of the first index in the 'voltages' array field. Using this field allows you to specify cell voltages for batteries with more than 16 cells.
  */
 static inline uint16_t mavlink_msg_smart_battery_status_get_cell_offset(const mavlink_message_t* msg)
 {
@@ -348,7 +348,7 @@ static inline uint16_t mavlink_msg_smart_battery_status_get_cell_offset(const ma
 /**
  * @brief Get field voltages from smart_battery_status message
  *
- * @return Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.
+ * @return [mV] Individual cell voltages. Batteries with more 16 cells can use the cell_offset field to specify the cell offset for the array specified in the current message . Index values above the valid cell count for this battery should have the UINT16_MAX value.
  */
 static inline uint16_t mavlink_msg_smart_battery_status_get_voltages(const mavlink_message_t* msg, uint16_t *voltages)
 {

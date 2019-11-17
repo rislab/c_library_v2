@@ -5,12 +5,12 @@
 
 MAVPACKED(
 typedef struct __mavlink_vision_speed_estimate_t {
- uint64_t usec; /*< Timestamp (UNIX time or time since system boot)*/
- float x; /*< Global X speed*/
- float y; /*< Global Y speed*/
- float z; /*< Global Z speed*/
- float covariance[9]; /*< Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.*/
- uint8_t reset_counter; /*< Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.*/
+ uint64_t usec; /*< [us] Timestamp (UNIX time or time since system boot)*/
+ float x; /*< [m/s] Global X speed*/
+ float y; /*< [m/s] Global Y speed*/
+ float z; /*< [m/s] Global Z speed*/
+ float covariance[9]; /*<  Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.*/
+ uint8_t reset_counter; /*<  Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.*/
 }) mavlink_vision_speed_estimate_t;
 
 #define MAVLINK_MSG_ID_VISION_SPEED_ESTIMATE_LEN 57
@@ -56,12 +56,12 @@ typedef struct __mavlink_vision_speed_estimate_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param usec Timestamp (UNIX time or time since system boot)
- * @param x Global X speed
- * @param y Global Y speed
- * @param z Global Z speed
- * @param covariance Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.
- * @param reset_counter Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
+ * @param usec [us] Timestamp (UNIX time or time since system boot)
+ * @param x [m/s] Global X speed
+ * @param y [m/s] Global Y speed
+ * @param z [m/s] Global Z speed
+ * @param covariance  Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.
+ * @param reset_counter  Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_vision_speed_estimate_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -97,12 +97,12 @@ static inline uint16_t mavlink_msg_vision_speed_estimate_pack(uint8_t system_id,
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param usec Timestamp (UNIX time or time since system boot)
- * @param x Global X speed
- * @param y Global Y speed
- * @param z Global Z speed
- * @param covariance Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.
- * @param reset_counter Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
+ * @param usec [us] Timestamp (UNIX time or time since system boot)
+ * @param x [m/s] Global X speed
+ * @param y [m/s] Global Y speed
+ * @param z [m/s] Global Z speed
+ * @param covariance  Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.
+ * @param reset_counter  Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_vision_speed_estimate_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -164,12 +164,12 @@ static inline uint16_t mavlink_msg_vision_speed_estimate_encode_chan(uint8_t sys
  * @brief Send a vision_speed_estimate message
  * @param chan MAVLink channel to send the message
  *
- * @param usec Timestamp (UNIX time or time since system boot)
- * @param x Global X speed
- * @param y Global Y speed
- * @param z Global Z speed
- * @param covariance Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.
- * @param reset_counter Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
+ * @param usec [us] Timestamp (UNIX time or time since system boot)
+ * @param x [m/s] Global X speed
+ * @param y [m/s] Global Y speed
+ * @param z [m/s] Global Z speed
+ * @param covariance  Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.
+ * @param reset_counter  Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -250,7 +250,7 @@ static inline void mavlink_msg_vision_speed_estimate_send_buf(mavlink_message_t 
 /**
  * @brief Get field usec from vision_speed_estimate message
  *
- * @return Timestamp (UNIX time or time since system boot)
+ * @return [us] Timestamp (UNIX time or time since system boot)
  */
 static inline uint64_t mavlink_msg_vision_speed_estimate_get_usec(const mavlink_message_t* msg)
 {
@@ -260,7 +260,7 @@ static inline uint64_t mavlink_msg_vision_speed_estimate_get_usec(const mavlink_
 /**
  * @brief Get field x from vision_speed_estimate message
  *
- * @return Global X speed
+ * @return [m/s] Global X speed
  */
 static inline float mavlink_msg_vision_speed_estimate_get_x(const mavlink_message_t* msg)
 {
@@ -270,7 +270,7 @@ static inline float mavlink_msg_vision_speed_estimate_get_x(const mavlink_messag
 /**
  * @brief Get field y from vision_speed_estimate message
  *
- * @return Global Y speed
+ * @return [m/s] Global Y speed
  */
 static inline float mavlink_msg_vision_speed_estimate_get_y(const mavlink_message_t* msg)
 {
@@ -280,7 +280,7 @@ static inline float mavlink_msg_vision_speed_estimate_get_y(const mavlink_messag
 /**
  * @brief Get field z from vision_speed_estimate message
  *
- * @return Global Z speed
+ * @return [m/s] Global Z speed
  */
 static inline float mavlink_msg_vision_speed_estimate_get_z(const mavlink_message_t* msg)
 {
@@ -290,7 +290,7 @@ static inline float mavlink_msg_vision_speed_estimate_get_z(const mavlink_messag
 /**
  * @brief Get field covariance from vision_speed_estimate message
  *
- * @return Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.
+ * @return  Row-major representation of 3x3 linear velocity covariance matrix (states: vx, vy, vz; 1st three entries - 1st row, etc.). If unknown, assign NaN value to first element in the array.
  */
 static inline uint16_t mavlink_msg_vision_speed_estimate_get_covariance(const mavlink_message_t* msg, float *covariance)
 {
@@ -300,7 +300,7 @@ static inline uint16_t mavlink_msg_vision_speed_estimate_get_covariance(const ma
 /**
  * @brief Get field reset_counter from vision_speed_estimate message
  *
- * @return Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
+ * @return  Estimate reset counter. This should be incremented when the estimate resets in any of the dimensions (position, velocity, attitude, angular speed). This is designed to be used when e.g an external SLAM system detects a loop-closure and the estimate jumps.
  */
 static inline uint8_t mavlink_msg_vision_speed_estimate_get_reset_counter(const mavlink_message_t* msg)
 {

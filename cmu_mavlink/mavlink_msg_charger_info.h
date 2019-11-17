@@ -5,12 +5,12 @@
 
 MAVPACKED(
 typedef struct __mavlink_charger_info_t {
- uint64_t time_usec; /*< Timestamp (micros since boot or Unix epoch)*/
- int32_t voltage; /*< Voltage from UPS sensor*/
- int32_t ups_current; /*< Current from UPS sensor*/
- int32_t hss_current; /*< Current from HSS sensor*/
- uint8_t target_system; /*< Target system*/
- uint8_t gpio_status; /*< status of GPIO on HSS*/
+ uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
+ int32_t voltage; /*<  Voltage from UPS sensor*/
+ int32_t ups_current; /*<  Current from UPS sensor*/
+ int32_t hss_current; /*<  Current from HSS sensor*/
+ uint8_t target_system; /*<  Target system*/
+ uint8_t gpio_status; /*<  status of GPIO on HSS*/
 }) mavlink_charger_info_t;
 
 #define MAVLINK_MSG_ID_CHARGER_INFO_LEN 22
@@ -29,10 +29,10 @@ typedef struct __mavlink_charger_info_t {
     "CHARGER_INFO", \
     6, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_charger_info_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_charger_info_t, target_system) }, \
          { "voltage", NULL, MAVLINK_TYPE_INT32_T, 0, 8, offsetof(mavlink_charger_info_t, voltage) }, \
          { "ups_current", NULL, MAVLINK_TYPE_INT32_T, 0, 12, offsetof(mavlink_charger_info_t, ups_current) }, \
          { "hss_current", NULL, MAVLINK_TYPE_INT32_T, 0, 16, offsetof(mavlink_charger_info_t, hss_current) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_charger_info_t, target_system) }, \
          { "gpio_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 21, offsetof(mavlink_charger_info_t, gpio_status) }, \
          } \
 }
@@ -41,10 +41,10 @@ typedef struct __mavlink_charger_info_t {
     "CHARGER_INFO", \
     6, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_charger_info_t, time_usec) }, \
+         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_charger_info_t, target_system) }, \
          { "voltage", NULL, MAVLINK_TYPE_INT32_T, 0, 8, offsetof(mavlink_charger_info_t, voltage) }, \
          { "ups_current", NULL, MAVLINK_TYPE_INT32_T, 0, 12, offsetof(mavlink_charger_info_t, ups_current) }, \
          { "hss_current", NULL, MAVLINK_TYPE_INT32_T, 0, 16, offsetof(mavlink_charger_info_t, hss_current) }, \
-         { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_charger_info_t, target_system) }, \
          { "gpio_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 21, offsetof(mavlink_charger_info_t, gpio_status) }, \
          } \
 }
@@ -56,12 +56,12 @@ typedef struct __mavlink_charger_info_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param voltage Voltage from UPS sensor
- * @param ups_current Current from UPS sensor
- * @param hss_current Current from HSS sensor
- * @param gpio_status status of GPIO on HSS
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param voltage  Voltage from UPS sensor
+ * @param ups_current  Current from UPS sensor
+ * @param hss_current  Current from HSS sensor
+ * @param gpio_status  status of GPIO on HSS
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_charger_info_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -99,12 +99,12 @@ static inline uint16_t mavlink_msg_charger_info_pack(uint8_t system_id, uint8_t 
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param voltage Voltage from UPS sensor
- * @param ups_current Current from UPS sensor
- * @param hss_current Current from HSS sensor
- * @param gpio_status status of GPIO on HSS
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param voltage  Voltage from UPS sensor
+ * @param ups_current  Current from UPS sensor
+ * @param hss_current  Current from HSS sensor
+ * @param gpio_status  status of GPIO on HSS
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_charger_info_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -168,12 +168,12 @@ static inline uint16_t mavlink_msg_charger_info_encode_chan(uint8_t system_id, u
  * @brief Send a charger_info message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (micros since boot or Unix epoch)
- * @param target_system Target system
- * @param voltage Voltage from UPS sensor
- * @param ups_current Current from UPS sensor
- * @param hss_current Current from HSS sensor
- * @param gpio_status status of GPIO on HSS
+ * @param time_usec  Timestamp (micros since boot or Unix epoch)
+ * @param target_system  Target system
+ * @param voltage  Voltage from UPS sensor
+ * @param ups_current  Current from UPS sensor
+ * @param hss_current  Current from HSS sensor
+ * @param gpio_status  status of GPIO on HSS
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -258,7 +258,7 @@ static inline void mavlink_msg_charger_info_send_buf(mavlink_message_t *msgbuf, 
 /**
  * @brief Get field time_usec from charger_info message
  *
- * @return Timestamp (micros since boot or Unix epoch)
+ * @return  Timestamp (micros since boot or Unix epoch)
  */
 static inline uint64_t mavlink_msg_charger_info_get_time_usec(const mavlink_message_t* msg)
 {
@@ -268,7 +268,7 @@ static inline uint64_t mavlink_msg_charger_info_get_time_usec(const mavlink_mess
 /**
  * @brief Get field target_system from charger_info message
  *
- * @return Target system
+ * @return  Target system
  */
 static inline uint8_t mavlink_msg_charger_info_get_target_system(const mavlink_message_t* msg)
 {
@@ -278,7 +278,7 @@ static inline uint8_t mavlink_msg_charger_info_get_target_system(const mavlink_m
 /**
  * @brief Get field voltage from charger_info message
  *
- * @return Voltage from UPS sensor
+ * @return  Voltage from UPS sensor
  */
 static inline int32_t mavlink_msg_charger_info_get_voltage(const mavlink_message_t* msg)
 {
@@ -288,7 +288,7 @@ static inline int32_t mavlink_msg_charger_info_get_voltage(const mavlink_message
 /**
  * @brief Get field ups_current from charger_info message
  *
- * @return Current from UPS sensor
+ * @return  Current from UPS sensor
  */
 static inline int32_t mavlink_msg_charger_info_get_ups_current(const mavlink_message_t* msg)
 {
@@ -298,7 +298,7 @@ static inline int32_t mavlink_msg_charger_info_get_ups_current(const mavlink_mes
 /**
  * @brief Get field hss_current from charger_info message
  *
- * @return Current from HSS sensor
+ * @return  Current from HSS sensor
  */
 static inline int32_t mavlink_msg_charger_info_get_hss_current(const mavlink_message_t* msg)
 {
@@ -308,7 +308,7 @@ static inline int32_t mavlink_msg_charger_info_get_hss_current(const mavlink_mes
 /**
  * @brief Get field gpio_status from charger_info message
  *
- * @return status of GPIO on HSS
+ * @return  status of GPIO on HSS
  */
 static inline uint8_t mavlink_msg_charger_info_get_gpio_status(const mavlink_message_t* msg)
 {

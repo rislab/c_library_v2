@@ -5,9 +5,9 @@
 
 MAVPACKED(
 typedef struct __mavlink_actuator_output_status_t {
- uint64_t time_usec; /*< Timestamp (since system boot).*/
- uint32_t active; /*< Active outputs*/
- float actuator[32]; /*< Servo / motor output array values. Zero values indicate unused channels.*/
+ uint64_t time_usec; /*< [us] Timestamp (since system boot).*/
+ uint32_t active; /*<  Active outputs*/
+ float actuator[32]; /*<  Servo / motor output array values. Zero values indicate unused channels.*/
 }) mavlink_actuator_output_status_t;
 
 #define MAVLINK_MSG_ID_ACTUATOR_OUTPUT_STATUS_LEN 140
@@ -47,9 +47,9 @@ typedef struct __mavlink_actuator_output_status_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param time_usec Timestamp (since system boot).
- * @param active Active outputs
- * @param actuator Servo / motor output array values. Zero values indicate unused channels.
+ * @param time_usec [us] Timestamp (since system boot).
+ * @param active  Active outputs
+ * @param actuator  Servo / motor output array values. Zero values indicate unused channels.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_actuator_output_status_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
@@ -79,9 +79,9 @@ static inline uint16_t mavlink_msg_actuator_output_status_pack(uint8_t system_id
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param time_usec Timestamp (since system boot).
- * @param active Active outputs
- * @param actuator Servo / motor output array values. Zero values indicate unused channels.
+ * @param time_usec [us] Timestamp (since system boot).
+ * @param active  Active outputs
+ * @param actuator  Servo / motor output array values. Zero values indicate unused channels.
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_actuator_output_status_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
@@ -137,9 +137,9 @@ static inline uint16_t mavlink_msg_actuator_output_status_encode_chan(uint8_t sy
  * @brief Send a actuator_output_status message
  * @param chan MAVLink channel to send the message
  *
- * @param time_usec Timestamp (since system boot).
- * @param active Active outputs
- * @param actuator Servo / motor output array values. Zero values indicate unused channels.
+ * @param time_usec [us] Timestamp (since system boot).
+ * @param active  Active outputs
+ * @param actuator  Servo / motor output array values. Zero values indicate unused channels.
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
@@ -208,7 +208,7 @@ static inline void mavlink_msg_actuator_output_status_send_buf(mavlink_message_t
 /**
  * @brief Get field time_usec from actuator_output_status message
  *
- * @return Timestamp (since system boot).
+ * @return [us] Timestamp (since system boot).
  */
 static inline uint64_t mavlink_msg_actuator_output_status_get_time_usec(const mavlink_message_t* msg)
 {
@@ -218,7 +218,7 @@ static inline uint64_t mavlink_msg_actuator_output_status_get_time_usec(const ma
 /**
  * @brief Get field active from actuator_output_status message
  *
- * @return Active outputs
+ * @return  Active outputs
  */
 static inline uint32_t mavlink_msg_actuator_output_status_get_active(const mavlink_message_t* msg)
 {
@@ -228,7 +228,7 @@ static inline uint32_t mavlink_msg_actuator_output_status_get_active(const mavli
 /**
  * @brief Get field actuator from actuator_output_status message
  *
- * @return Servo / motor output array values. Zero values indicate unused channels.
+ * @return  Servo / motor output array values. Zero values indicate unused channels.
  */
 static inline uint16_t mavlink_msg_actuator_output_status_get_actuator(const mavlink_message_t* msg, float *actuator)
 {
