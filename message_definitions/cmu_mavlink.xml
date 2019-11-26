@@ -157,5 +157,15 @@
       <field type="float" name="body_cmd_fbz">Thrust component of cascaded command</field>
       <field type="float[3]" name="mb">Torque</field>
     </message>
+    <message id="225" name="VEHICLE_ATTITUDE">
+      <description>vehicle attitude message for HITL</description>
+      <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
+      <field type="float[4]" name="q">Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)</field>
+    </message>
+    <message id="226" name="VEHICLE_ANGULAR_VELOCITY">
+      <description>vehicle angular velocity message for HITL</description>
+      <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
+      <field type="float[3]" name="xyz">Angular velocity about body axes (x, y, z)</field>
+    </message>
   </messages>
 </mavlink>
