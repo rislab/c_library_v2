@@ -167,5 +167,10 @@
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="float[3]" name="xyz">Angular velocity about body axes (x, y, z)</field>
     </message>
+    <message id="227" name="HITL_RPM_COMMAND">
+      <description>RPM command message for HITL</description>
+      <field type="uint64_t" name="timestamp">Timestamp (micros since boot or Unix epoch)</field>
+      <field type="uint16_t[4]" name="rpm">Commanded RPM values</field>
+    </message>
   </messages>
 </mavlink>
