@@ -1,27 +1,27 @@
 #pragma once
 // MESSAGE VEHICLE_ATTITUDE PACKING
 
-#define MAVLINK_MSG_ID_VEHICLE_ATTITUDE 225
+#define MAVLINK_MSG_ID_VEHICLE_ATTITUDE 438
 
-MAVPACKED(
+
 typedef struct __mavlink_vehicle_attitude_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  float q[4]; /*<  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)*/
-}) mavlink_vehicle_attitude_t;
+} mavlink_vehicle_attitude_t;
 
 #define MAVLINK_MSG_ID_VEHICLE_ATTITUDE_LEN 24
 #define MAVLINK_MSG_ID_VEHICLE_ATTITUDE_MIN_LEN 24
-#define MAVLINK_MSG_ID_225_LEN 24
-#define MAVLINK_MSG_ID_225_MIN_LEN 24
+#define MAVLINK_MSG_ID_438_LEN 24
+#define MAVLINK_MSG_ID_438_MIN_LEN 24
 
 #define MAVLINK_MSG_ID_VEHICLE_ATTITUDE_CRC 76
-#define MAVLINK_MSG_ID_225_CRC 76
+#define MAVLINK_MSG_ID_438_CRC 76
 
 #define MAVLINK_MSG_VEHICLE_ATTITUDE_FIELD_Q_LEN 4
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_VEHICLE_ATTITUDE { \
-    225, \
+    438, \
     "VEHICLE_ATTITUDE", \
     2, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_vehicle_attitude_t, time_usec) }, \

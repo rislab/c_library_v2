@@ -1,9 +1,9 @@
 #pragma once
 // MESSAGE CASCADED_CMD PACKING
 
-#define MAVLINK_MSG_ID_CASCADED_CMD 211
+#define MAVLINK_MSG_ID_CASCADED_CMD 424
 
-MAVPACKED(
+
 typedef struct __mavlink_cascaded_cmd_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  float thrust; /*<  Thrust (N)*/
@@ -12,15 +12,15 @@ typedef struct __mavlink_cascaded_cmd_t {
  float ang_vel[3]; /*<  Angular velocity about body axes (x, y, z)*/
  float ang_acc[3]; /*<  Angular velocity about body axes (x, y, z)*/
  uint8_t target_system; /*<  Target system*/
-}) mavlink_cascaded_cmd_t;
+} mavlink_cascaded_cmd_t;
 
 #define MAVLINK_MSG_ID_CASCADED_CMD_LEN 57
 #define MAVLINK_MSG_ID_CASCADED_CMD_MIN_LEN 57
-#define MAVLINK_MSG_ID_211_LEN 57
-#define MAVLINK_MSG_ID_211_MIN_LEN 57
+#define MAVLINK_MSG_ID_424_LEN 57
+#define MAVLINK_MSG_ID_424_MIN_LEN 57
 
 #define MAVLINK_MSG_ID_CASCADED_CMD_CRC 109
-#define MAVLINK_MSG_ID_211_CRC 109
+#define MAVLINK_MSG_ID_424_CRC 109
 
 #define MAVLINK_MSG_CASCADED_CMD_FIELD_Q_LEN 4
 #define MAVLINK_MSG_CASCADED_CMD_FIELD_ANG_VEL_LEN 3
@@ -28,7 +28,7 @@ typedef struct __mavlink_cascaded_cmd_t {
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_CASCADED_CMD { \
-    211, \
+    424, \
     "CASCADED_CMD", \
     7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_cascaded_cmd_t, time_usec) }, \

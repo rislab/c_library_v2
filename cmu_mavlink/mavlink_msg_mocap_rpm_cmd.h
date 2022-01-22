@@ -1,29 +1,29 @@
 #pragma once
 // MESSAGE MOCAP_RPM_CMD PACKING
 
-#define MAVLINK_MSG_ID_MOCAP_RPM_CMD 214
+#define MAVLINK_MSG_ID_MOCAP_RPM_CMD 427
 
-MAVPACKED(
+
 typedef struct __mavlink_mocap_rpm_cmd_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  uint16_t input[8]; /*<  RPM cmd inputs*/
  uint8_t target_system; /*<  Target system*/
  uint8_t ninputs; /*<  Number of valid inputs*/
-}) mavlink_mocap_rpm_cmd_t;
+} mavlink_mocap_rpm_cmd_t;
 
 #define MAVLINK_MSG_ID_MOCAP_RPM_CMD_LEN 26
 #define MAVLINK_MSG_ID_MOCAP_RPM_CMD_MIN_LEN 26
-#define MAVLINK_MSG_ID_214_LEN 26
-#define MAVLINK_MSG_ID_214_MIN_LEN 26
+#define MAVLINK_MSG_ID_427_LEN 26
+#define MAVLINK_MSG_ID_427_MIN_LEN 26
 
 #define MAVLINK_MSG_ID_MOCAP_RPM_CMD_CRC 157
-#define MAVLINK_MSG_ID_214_CRC 157
+#define MAVLINK_MSG_ID_427_CRC 157
 
 #define MAVLINK_MSG_MOCAP_RPM_CMD_FIELD_INPUT_LEN 8
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_MOCAP_RPM_CMD { \
-    214, \
+    427, \
     "MOCAP_RPM_CMD", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_rpm_cmd_t, time_usec) }, \

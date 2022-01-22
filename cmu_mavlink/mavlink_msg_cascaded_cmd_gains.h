@@ -1,30 +1,30 @@
 #pragma once
 // MESSAGE CASCADED_CMD_GAINS PACKING
 
-#define MAVLINK_MSG_ID_CASCADED_CMD_GAINS 212
+#define MAVLINK_MSG_ID_CASCADED_CMD_GAINS 425
 
-MAVPACKED(
+
 typedef struct __mavlink_cascaded_cmd_gains_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  float kR[3]; /*<  Rotational gains*/
  float kOm[3]; /*<  Derivative gains*/
  uint8_t target_system; /*<  Target system*/
-}) mavlink_cascaded_cmd_gains_t;
+} mavlink_cascaded_cmd_gains_t;
 
 #define MAVLINK_MSG_ID_CASCADED_CMD_GAINS_LEN 33
 #define MAVLINK_MSG_ID_CASCADED_CMD_GAINS_MIN_LEN 33
-#define MAVLINK_MSG_ID_212_LEN 33
-#define MAVLINK_MSG_ID_212_MIN_LEN 33
+#define MAVLINK_MSG_ID_425_LEN 33
+#define MAVLINK_MSG_ID_425_MIN_LEN 33
 
 #define MAVLINK_MSG_ID_CASCADED_CMD_GAINS_CRC 5
-#define MAVLINK_MSG_ID_212_CRC 5
+#define MAVLINK_MSG_ID_425_CRC 5
 
 #define MAVLINK_MSG_CASCADED_CMD_GAINS_FIELD_KR_LEN 3
 #define MAVLINK_MSG_CASCADED_CMD_GAINS_FIELD_KOM_LEN 3
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_CASCADED_CMD_GAINS { \
-    212, \
+    425, \
     "CASCADED_CMD_GAINS", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_cascaded_cmd_gains_t, time_usec) }, \

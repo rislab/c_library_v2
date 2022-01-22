@@ -1,28 +1,28 @@
 #pragma once
 // MESSAGE BLINKM_CONTROL PACKING
 
-#define MAVLINK_MSG_ID_BLINKM_CONTROL 219
+#define MAVLINK_MSG_ID_BLINKM_CONTROL 432
 
-MAVPACKED(
+
 typedef struct __mavlink_blinkm_control_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  uint8_t target_system; /*<  Target system*/
  uint8_t control; /*<  LED Control Variable*/
-}) mavlink_blinkm_control_t;
+} mavlink_blinkm_control_t;
 
 #define MAVLINK_MSG_ID_BLINKM_CONTROL_LEN 10
 #define MAVLINK_MSG_ID_BLINKM_CONTROL_MIN_LEN 10
-#define MAVLINK_MSG_ID_219_LEN 10
-#define MAVLINK_MSG_ID_219_MIN_LEN 10
+#define MAVLINK_MSG_ID_432_LEN 10
+#define MAVLINK_MSG_ID_432_MIN_LEN 10
 
 #define MAVLINK_MSG_ID_BLINKM_CONTROL_CRC 159
-#define MAVLINK_MSG_ID_219_CRC 159
+#define MAVLINK_MSG_ID_432_CRC 159
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_BLINKM_CONTROL { \
-    219, \
+    432, \
     "BLINKM_CONTROL", \
     3, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_blinkm_control_t, time_usec) }, \

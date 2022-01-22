@@ -1,28 +1,28 @@
 #pragma once
 // MESSAGE RPM_OUTPUT PACKING
 
-#define MAVLINK_MSG_ID_RPM_OUTPUT 210
+#define MAVLINK_MSG_ID_RPM_OUTPUT 423
 
-MAVPACKED(
+
 typedef struct __mavlink_rpm_output_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  uint32_t noutputs; /*<  Number of valid outputs*/
  float output[16]; /*<  RPM outputs*/
-}) mavlink_rpm_output_t;
+} mavlink_rpm_output_t;
 
 #define MAVLINK_MSG_ID_RPM_OUTPUT_LEN 76
 #define MAVLINK_MSG_ID_RPM_OUTPUT_MIN_LEN 76
-#define MAVLINK_MSG_ID_210_LEN 76
-#define MAVLINK_MSG_ID_210_MIN_LEN 76
+#define MAVLINK_MSG_ID_423_LEN 76
+#define MAVLINK_MSG_ID_423_MIN_LEN 76
 
 #define MAVLINK_MSG_ID_RPM_OUTPUT_CRC 101
-#define MAVLINK_MSG_ID_210_CRC 101
+#define MAVLINK_MSG_ID_423_CRC 101
 
 #define MAVLINK_MSG_RPM_OUTPUT_FIELD_OUTPUT_LEN 16
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_RPM_OUTPUT { \
-    210, \
+    423, \
     "RPM_OUTPUT", \
     3, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_rpm_output_t, time_usec) }, \

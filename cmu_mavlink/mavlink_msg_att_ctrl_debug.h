@@ -1,9 +1,9 @@
 #pragma once
 // MESSAGE ATT_CTRL_DEBUG PACKING
 
-#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG 224
+#define MAVLINK_MSG_ID_ATT_CTRL_DEBUG 437
 
-MAVPACKED(
+
 typedef struct __mavlink_att_ctrl_debug_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  float rpm[4]; /*<  RPM*/
@@ -14,15 +14,15 @@ typedef struct __mavlink_att_ctrl_debug_t {
  float orientation_act[9]; /*<  Actual orientation*/
  float body_cmd_fbz; /*<  Thrust component of cascaded command*/
  float mb[3]; /*<  Torque*/
-}) mavlink_att_ctrl_debug_t;
+} mavlink_att_ctrl_debug_t;
 
 #define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_LEN 148
 #define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_MIN_LEN 148
-#define MAVLINK_MSG_ID_224_LEN 148
-#define MAVLINK_MSG_ID_224_MIN_LEN 148
+#define MAVLINK_MSG_ID_437_LEN 148
+#define MAVLINK_MSG_ID_437_MIN_LEN 148
 
 #define MAVLINK_MSG_ID_ATT_CTRL_DEBUG_CRC 85
-#define MAVLINK_MSG_ID_224_CRC 85
+#define MAVLINK_MSG_ID_437_CRC 85
 
 #define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_RPM_LEN 4
 #define MAVLINK_MSG_ATT_CTRL_DEBUG_FIELD_ANG_VEL_ERR_LEN 3
@@ -34,7 +34,7 @@ typedef struct __mavlink_att_ctrl_debug_t {
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_ATT_CTRL_DEBUG { \
-    224, \
+    437, \
     "ATT_CTRL_DEBUG", \
     9, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_att_ctrl_debug_t, time_usec) }, \

@@ -1,27 +1,27 @@
 #pragma once
 // MESSAGE VEHICLE_ANGULAR_VELOCITY PACKING
 
-#define MAVLINK_MSG_ID_VEHICLE_ANGULAR_VELOCITY 226
+#define MAVLINK_MSG_ID_VEHICLE_ANGULAR_VELOCITY 439
 
-MAVPACKED(
+
 typedef struct __mavlink_vehicle_angular_velocity_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  float xyz[3]; /*<  Angular velocity about body axes (x, y, z)*/
-}) mavlink_vehicle_angular_velocity_t;
+} mavlink_vehicle_angular_velocity_t;
 
 #define MAVLINK_MSG_ID_VEHICLE_ANGULAR_VELOCITY_LEN 20
 #define MAVLINK_MSG_ID_VEHICLE_ANGULAR_VELOCITY_MIN_LEN 20
-#define MAVLINK_MSG_ID_226_LEN 20
-#define MAVLINK_MSG_ID_226_MIN_LEN 20
+#define MAVLINK_MSG_ID_439_LEN 20
+#define MAVLINK_MSG_ID_439_MIN_LEN 20
 
 #define MAVLINK_MSG_ID_VEHICLE_ANGULAR_VELOCITY_CRC 234
-#define MAVLINK_MSG_ID_226_CRC 234
+#define MAVLINK_MSG_ID_439_CRC 234
 
 #define MAVLINK_MSG_VEHICLE_ANGULAR_VELOCITY_FIELD_XYZ_LEN 3
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_VEHICLE_ANGULAR_VELOCITY { \
-    226, \
+    439, \
     "VEHICLE_ANGULAR_VELOCITY", \
     2, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_vehicle_angular_velocity_t, time_usec) }, \

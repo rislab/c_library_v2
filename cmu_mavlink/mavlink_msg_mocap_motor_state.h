@@ -1,28 +1,28 @@
 #pragma once
 // MESSAGE MOCAP_MOTOR_STATE PACKING
 
-#define MAVLINK_MSG_ID_MOCAP_MOTOR_STATE 213
+#define MAVLINK_MSG_ID_MOCAP_MOTOR_STATE 426
 
-MAVPACKED(
+
 typedef struct __mavlink_mocap_motor_state_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  uint8_t target_system; /*<  Target system*/
  uint8_t state; /*<  Motor status (1 = on, 0 = off)*/
-}) mavlink_mocap_motor_state_t;
+} mavlink_mocap_motor_state_t;
 
 #define MAVLINK_MSG_ID_MOCAP_MOTOR_STATE_LEN 10
 #define MAVLINK_MSG_ID_MOCAP_MOTOR_STATE_MIN_LEN 10
-#define MAVLINK_MSG_ID_213_LEN 10
-#define MAVLINK_MSG_ID_213_MIN_LEN 10
+#define MAVLINK_MSG_ID_426_LEN 10
+#define MAVLINK_MSG_ID_426_MIN_LEN 10
 
 #define MAVLINK_MSG_ID_MOCAP_MOTOR_STATE_CRC 163
-#define MAVLINK_MSG_ID_213_CRC 163
+#define MAVLINK_MSG_ID_426_CRC 163
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_MOCAP_MOTOR_STATE { \
-    213, \
+    426, \
     "MOCAP_MOTOR_STATE", \
     3, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_motor_state_t, time_usec) }, \

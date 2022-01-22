@@ -1,27 +1,27 @@
 #pragma once
 // MESSAGE MOCAP_PWM_DEBUG PACKING
 
-#define MAVLINK_MSG_ID_MOCAP_PWM_DEBUG 223
+#define MAVLINK_MSG_ID_MOCAP_PWM_DEBUG 436
 
-MAVPACKED(
+
 typedef struct __mavlink_mocap_pwm_debug_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  uint16_t pwms[8]; /*<  PWM*/
-}) mavlink_mocap_pwm_debug_t;
+} mavlink_mocap_pwm_debug_t;
 
 #define MAVLINK_MSG_ID_MOCAP_PWM_DEBUG_LEN 24
 #define MAVLINK_MSG_ID_MOCAP_PWM_DEBUG_MIN_LEN 24
-#define MAVLINK_MSG_ID_223_LEN 24
-#define MAVLINK_MSG_ID_223_MIN_LEN 24
+#define MAVLINK_MSG_ID_436_LEN 24
+#define MAVLINK_MSG_ID_436_MIN_LEN 24
 
 #define MAVLINK_MSG_ID_MOCAP_PWM_DEBUG_CRC 119
-#define MAVLINK_MSG_ID_223_CRC 119
+#define MAVLINK_MSG_ID_436_CRC 119
 
 #define MAVLINK_MSG_MOCAP_PWM_DEBUG_FIELD_PWMS_LEN 8
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_MOCAP_PWM_DEBUG { \
-    223, \
+    436, \
     "MOCAP_PWM_DEBUG", \
     2, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_pwm_debug_t, time_usec) }, \

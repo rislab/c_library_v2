@@ -1,9 +1,9 @@
 #pragma once
 // MESSAGE IMAGE_TRIGGERED_IMU PACKING
 
-#define MAVLINK_MSG_ID_IMAGE_TRIGGERED_IMU 207
+#define MAVLINK_MSG_ID_IMAGE_TRIGGERED_IMU 420
 
-MAVPACKED(
+
 typedef struct __mavlink_image_triggered_imu_t {
  uint64_t timestamp; /*<  Timestamp of message in usec*/
  uint64_t trigger_t; /*<   Timestamp of trigger in usec*/
@@ -18,21 +18,21 @@ typedef struct __mavlink_image_triggered_imu_t {
  float ymag; /*<   */
  float zmag; /*<   */
  uint8_t trigger_id; /*<   ID of triggered pin*/
-}) mavlink_image_triggered_imu_t;
+} mavlink_image_triggered_imu_t;
 
 #define MAVLINK_MSG_ID_IMAGE_TRIGGERED_IMU_LEN 61
 #define MAVLINK_MSG_ID_IMAGE_TRIGGERED_IMU_MIN_LEN 61
-#define MAVLINK_MSG_ID_207_LEN 61
-#define MAVLINK_MSG_ID_207_MIN_LEN 61
+#define MAVLINK_MSG_ID_420_LEN 61
+#define MAVLINK_MSG_ID_420_MIN_LEN 61
 
 #define MAVLINK_MSG_ID_IMAGE_TRIGGERED_IMU_CRC 183
-#define MAVLINK_MSG_ID_207_CRC 183
+#define MAVLINK_MSG_ID_420_CRC 183
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_IMAGE_TRIGGERED_IMU { \
-    207, \
+    420, \
     "IMAGE_TRIGGERED_IMU", \
     13, \
     {  { "timestamp", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_image_triggered_imu_t, timestamp) }, \

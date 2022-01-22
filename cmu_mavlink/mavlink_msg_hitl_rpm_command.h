@@ -1,27 +1,27 @@
 #pragma once
 // MESSAGE HITL_RPM_COMMAND PACKING
 
-#define MAVLINK_MSG_ID_HITL_RPM_COMMAND 227
+#define MAVLINK_MSG_ID_HITL_RPM_COMMAND 440
 
-MAVPACKED(
+
 typedef struct __mavlink_hitl_rpm_command_t {
  uint64_t timestamp; /*<  Timestamp (micros since boot or Unix epoch)*/
  uint16_t rpm[4]; /*<  Commanded RPM values*/
-}) mavlink_hitl_rpm_command_t;
+} mavlink_hitl_rpm_command_t;
 
 #define MAVLINK_MSG_ID_HITL_RPM_COMMAND_LEN 16
 #define MAVLINK_MSG_ID_HITL_RPM_COMMAND_MIN_LEN 16
-#define MAVLINK_MSG_ID_227_LEN 16
-#define MAVLINK_MSG_ID_227_MIN_LEN 16
+#define MAVLINK_MSG_ID_440_LEN 16
+#define MAVLINK_MSG_ID_440_MIN_LEN 16
 
 #define MAVLINK_MSG_ID_HITL_RPM_COMMAND_CRC 196
-#define MAVLINK_MSG_ID_227_CRC 196
+#define MAVLINK_MSG_ID_440_CRC 196
 
 #define MAVLINK_MSG_HITL_RPM_COMMAND_FIELD_RPM_LEN 4
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_HITL_RPM_COMMAND { \
-    227, \
+    440, \
     "HITL_RPM_COMMAND", \
     2, \
     {  { "timestamp", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_hitl_rpm_command_t, timestamp) }, \

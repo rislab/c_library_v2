@@ -1,9 +1,9 @@
 #pragma once
 // MESSAGE L1_ADAPTIVE_DEBUG PACKING
 
-#define MAVLINK_MSG_ID_L1_ADAPTIVE_DEBUG 208
+#define MAVLINK_MSG_ID_L1_ADAPTIVE_DEBUG 421
 
-MAVPACKED(
+
 typedef struct __mavlink_l1_adaptive_debug_t {
  uint64_t timestamp; /*<  Timestamp of the message in used*/
  float avl_hat[3]; /*<  Angular Velocity Estimate */
@@ -13,15 +13,15 @@ typedef struct __mavlink_l1_adaptive_debug_t {
  float rpm[4]; /*<  RPM Hat Motor Values*/
  float rates[3]; /*<  Body Rates obtained from Attitude Estimator*/
  uint16_t seq_id; /*<  Sequence id of data*/
-}) mavlink_l1_adaptive_debug_t;
+} mavlink_l1_adaptive_debug_t;
 
 #define MAVLINK_MSG_ID_L1_ADAPTIVE_DEBUG_LEN 86
 #define MAVLINK_MSG_ID_L1_ADAPTIVE_DEBUG_MIN_LEN 86
-#define MAVLINK_MSG_ID_208_LEN 86
-#define MAVLINK_MSG_ID_208_MIN_LEN 86
+#define MAVLINK_MSG_ID_421_LEN 86
+#define MAVLINK_MSG_ID_421_MIN_LEN 86
 
 #define MAVLINK_MSG_ID_L1_ADAPTIVE_DEBUG_CRC 148
-#define MAVLINK_MSG_ID_208_CRC 148
+#define MAVLINK_MSG_ID_421_CRC 148
 
 #define MAVLINK_MSG_L1_ADAPTIVE_DEBUG_FIELD_AVL_HAT_LEN 3
 #define MAVLINK_MSG_L1_ADAPTIVE_DEBUG_FIELD_DST_HAT_LEN 3
@@ -32,7 +32,7 @@ typedef struct __mavlink_l1_adaptive_debug_t {
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_L1_ADAPTIVE_DEBUG { \
-    208, \
+    421, \
     "L1_ADAPTIVE_DEBUG", \
     8, \
     {  { "timestamp", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_l1_adaptive_debug_t, timestamp) }, \

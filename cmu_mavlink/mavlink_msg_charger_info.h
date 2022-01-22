@@ -1,9 +1,9 @@
 #pragma once
 // MESSAGE CHARGER_INFO PACKING
 
-#define MAVLINK_MSG_ID_CHARGER_INFO 220
+#define MAVLINK_MSG_ID_CHARGER_INFO 433
 
-MAVPACKED(
+
 typedef struct __mavlink_charger_info_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  int32_t voltage; /*<  Voltage from UPS sensor*/
@@ -11,21 +11,21 @@ typedef struct __mavlink_charger_info_t {
  int32_t hss_current; /*<  Current from HSS sensor*/
  uint8_t target_system; /*<  Target system*/
  uint8_t gpio_status; /*<  status of GPIO on HSS*/
-}) mavlink_charger_info_t;
+} mavlink_charger_info_t;
 
 #define MAVLINK_MSG_ID_CHARGER_INFO_LEN 22
 #define MAVLINK_MSG_ID_CHARGER_INFO_MIN_LEN 22
-#define MAVLINK_MSG_ID_220_LEN 22
-#define MAVLINK_MSG_ID_220_MIN_LEN 22
+#define MAVLINK_MSG_ID_433_LEN 22
+#define MAVLINK_MSG_ID_433_MIN_LEN 22
 
 #define MAVLINK_MSG_ID_CHARGER_INFO_CRC 50
-#define MAVLINK_MSG_ID_220_CRC 50
+#define MAVLINK_MSG_ID_433_CRC 50
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_CHARGER_INFO { \
-    220, \
+    433, \
     "CHARGER_INFO", \
     6, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_charger_info_t, time_usec) }, \

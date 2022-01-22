@@ -1,28 +1,28 @@
 #pragma once
 // MESSAGE MOCAP_TIMESYNC PACKING
 
-#define MAVLINK_MSG_ID_MOCAP_TIMESYNC 215
+#define MAVLINK_MSG_ID_MOCAP_TIMESYNC 428
 
-MAVPACKED(
+
 typedef struct __mavlink_mocap_timesync_t {
  int64_t tc1; /*<  Time sync timestamp 1*/
  int64_t ts1; /*<  Time sync timestamp 2*/
  uint8_t target_system; /*<  Target system*/
-}) mavlink_mocap_timesync_t;
+} mavlink_mocap_timesync_t;
 
 #define MAVLINK_MSG_ID_MOCAP_TIMESYNC_LEN 17
 #define MAVLINK_MSG_ID_MOCAP_TIMESYNC_MIN_LEN 17
-#define MAVLINK_MSG_ID_215_LEN 17
-#define MAVLINK_MSG_ID_215_MIN_LEN 17
+#define MAVLINK_MSG_ID_428_LEN 17
+#define MAVLINK_MSG_ID_428_MIN_LEN 17
 
 #define MAVLINK_MSG_ID_MOCAP_TIMESYNC_CRC 193
-#define MAVLINK_MSG_ID_215_CRC 193
+#define MAVLINK_MSG_ID_428_CRC 193
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_MOCAP_TIMESYNC { \
-    215, \
+    428, \
     "MOCAP_TIMESYNC", \
     3, \
     {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_mocap_timesync_t, target_system) }, \

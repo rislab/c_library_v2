@@ -6,7 +6,7 @@
   <enums>
   </enums>
   <messages>
-    <message id="207" name="IMAGE_TRIGGERED_IMU">
+    <message id="420" name="IMAGE_TRIGGERED_IMU">
       <description>This message encodes the IMU data with the timestamp and sequence ID of the GPIO trigger for a camera.</description>
       <field type="uint64_t" name="timestamp">Timestamp of message in usec</field>
 
@@ -26,7 +26,7 @@
       <field type="uint64_t" name="trigger_seq"> Sequence number of trigger pin</field>
       <field type="uint8_t"  name="trigger_id"> ID of triggered pin</field>
     </message>
-    <message id="208" name="L1_ADAPTIVE_DEBUG">
+    <message id="421" name="L1_ADAPTIVE_DEBUG">
       <description>Debug message to stream diagnostic data from the L1 Adaptive Attitude Controller</description>
       <field type="uint64_t" name="timestamp">Timestamp of the message in used</field>
       <field type="uint16_t" name="seq_id">Sequence id of data</field>
@@ -37,7 +37,7 @@
       <field type="float[4]" name="rpm">RPM Hat Motor Values</field>
       <field type="float[3]" name="rates">Body Rates obtained from Attitude Estimator</field>
     </message>
-    <message id="209" name="ODOM_MOCAP">
+    <message id="422" name="ODOM_MOCAP">
       <description>Motion capture attitude, position, and velocity</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="float[4]" name="q">Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)</field>
@@ -48,13 +48,13 @@
       <field type="float" name="vy">Y velocity in m/s (NED)</field>
       <field type="float" name="vz">Z velocity in m/s (NED)</field>
     </message>
-    <message id="210" name="RPM_OUTPUT">
+    <message id="423" name="RPM_OUTPUT">
       <description>RPM corresponding to the commanded PWM after compensating for voltage</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint32_t" name="noutputs">Number of valid outputs</field>
       <field type="float[16]" name="output">RPM outputs</field>
     </message>
-    <message id="211" name="CASCADED_CMD">
+    <message id="424" name="CASCADED_CMD">
       <description>Cascaded command inputs</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="target_system">Target system</field>
@@ -64,40 +64,40 @@
       <field type="float[3]" name="ang_vel">Angular velocity about body axes (x, y, z)</field>
       <field type="float[3]" name="ang_acc">Angular velocity about body axes (x, y, z)</field>
     </message>
-    <message id="212" name="CASCADED_CMD_GAINS">
+    <message id="425" name="CASCADED_CMD_GAINS">
       <description>Cascaded command gains</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="target_system">Target system</field>
       <field type="float[3]" name="kR">Rotational gains</field>
       <field type="float[3]" name="kOm">Derivative gains</field>
     </message>
-    <message id="213" name="MOCAP_MOTOR_STATE">
+    <message id="426" name="MOCAP_MOTOR_STATE">
       <description>Motor state control when operating in mocap</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="target_system">Target system</field>
       <field type="uint8_t" name="state">Motor status (1 = on, 0 = off)</field>
     </message>
-    <message id="214" name="MOCAP_RPM_CMD">
+    <message id="427" name="MOCAP_RPM_CMD">
       <description>RPM command to corresponding motors (for mocap use/testing)</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="target_system">Target system</field>
       <field type="uint8_t" name="ninputs">Number of valid inputs</field>
       <field type="uint16_t[8]" name="input">RPM cmd inputs</field>
     </message>
-    <message id="215" name="MOCAP_TIMESYNC">
+    <message id="428" name="MOCAP_TIMESYNC">
       <description>Time synchronization message.</description>
       <field type="uint8_t" name="target_system">Target system</field>
       <field type="int64_t" name="tc1">Time sync timestamp 1</field>
       <field type="int64_t" name="ts1">Time sync timestamp 2</field>
     </message>
-    <message id="216" name="MOCAP_MULTI_POSE">
+    <message id="429" name="MOCAP_MULTI_POSE">
       <description>Mocap pose of multiple robots</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="npose">Number of poses (max 5)</field>
       <field type="uint8_t[5]" name="ids">Associated robot ids</field>
       <field type="int16_t[20]" name="pose">Robot pose (x, y, z, heading) in m/10^3 or rad/10^4</field>
     </message>
-    <message id="217" name="MOCAP_POSITION_CMD">
+    <message id="430" name="MOCAP_POSITION_CMD">
       <description>Position (outer-loop) command for use in mocap</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="target_system">Target system</field>
@@ -107,20 +107,20 @@
       <field type="int16_t[3]" name="jerk">Reference jerk (x, y, z) in mm/s^3</field>
       <field type="int16_t[3]" name="heading">Reference heading in mrad, mrad/s, mrad/s^2</field>
     </message>
-    <message id="218" name="MOCAP_POSITION_CMD_GAINS">
+    <message id="431" name="MOCAP_POSITION_CMD_GAINS">
       <description>Mocap position command gains</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="target_system">Target system</field>
       <field type="float[3]" name="kp">Proportional gains</field>
       <field type="float[3]" name="kd">Derivative gains</field>
     </message>
-    <message id="219" name="BLINKM_CONTROL">
+    <message id="432" name="BLINKM_CONTROL">
       <description>LED control</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="target_system">Target system</field>
       <field type="uint8_t" name="control">LED Control Variable</field>
     </message>
-    <message id="220" name="CHARGER_INFO">
+    <message id="433" name="CHARGER_INFO">
       <description>External charging circuit information</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="target_system">Target system</field>
@@ -129,23 +129,23 @@
       <field type="int32_t" name="hss_current">Current from HSS sensor</field>
       <field type="uint8_t" name="gpio_status">status of GPIO on HSS</field>
     </message>
-    <message id="221" name="CHARGER_GPIO">
+    <message id="434" name="CHARGER_GPIO">
       <description>HSS gpio toggle message</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint8_t" name="target_system">Target system</field>
       <field type="uint8_t" name="on">toggle GPIO on or off</field>
     </message>
-    <message id="222" name="MOCAP_POSE">
+    <message id="435" name="MOCAP_POSE">
       <description>Mocap pose of single robot</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="int16_t[4]" name="pose">Robot pose (x, y, z, heading) in m/10^3 or rad/10^4</field>
     </message>
-    <message id="223" name="MOCAP_PWM_DEBUG">
+    <message id="436" name="MOCAP_PWM_DEBUG">
       <description>PWM values sent to the ESCs</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint16_t[8]" name="pwms">PWM</field>
     </message>
-    <message id="224" name="ATT_CTRL_DEBUG">
+    <message id="437" name="ATT_CTRL_DEBUG">
       <description>mocap_control attitude controller debug message</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="float[4]" name="rpm">RPM</field>
@@ -157,17 +157,17 @@
       <field type="float" name="body_cmd_fbz">Thrust component of cascaded command</field>
       <field type="float[3]" name="mb">Torque</field>
     </message>
-    <message id="225" name="VEHICLE_ATTITUDE">
+    <message id="438" name="VEHICLE_ATTITUDE">
       <description>vehicle attitude message for HITL</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="float[4]" name="q">Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)</field>
     </message>
-    <message id="226" name="VEHICLE_ANGULAR_VELOCITY">
+    <message id="439" name="VEHICLE_ANGULAR_VELOCITY">
       <description>vehicle angular velocity message for HITL</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="float[3]" name="xyz">Angular velocity about body axes (x, y, z)</field>
     </message>
-    <message id="227" name="HITL_RPM_COMMAND">
+    <message id="440" name="HITL_RPM_COMMAND">
       <description>RPM command message for HITL</description>
       <field type="uint64_t" name="timestamp">Timestamp (micros since boot or Unix epoch)</field>
       <field type="uint16_t[4]" name="rpm">Commanded RPM values</field>

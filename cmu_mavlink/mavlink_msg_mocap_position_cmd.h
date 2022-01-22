@@ -1,9 +1,9 @@
 #pragma once
 // MESSAGE MOCAP_POSITION_CMD PACKING
 
-#define MAVLINK_MSG_ID_MOCAP_POSITION_CMD 217
+#define MAVLINK_MSG_ID_MOCAP_POSITION_CMD 430
 
-MAVPACKED(
+
 typedef struct __mavlink_mocap_position_cmd_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  int16_t pos[3]; /*<  Reference position (x, y, z) in mm*/
@@ -12,15 +12,15 @@ typedef struct __mavlink_mocap_position_cmd_t {
  int16_t jerk[3]; /*<  Reference jerk (x, y, z) in mm/s^3*/
  int16_t heading[3]; /*<  Reference heading in mrad, mrad/s, mrad/s^2*/
  uint8_t target_system; /*<  Target system*/
-}) mavlink_mocap_position_cmd_t;
+} mavlink_mocap_position_cmd_t;
 
 #define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_LEN 39
 #define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_MIN_LEN 39
-#define MAVLINK_MSG_ID_217_LEN 39
-#define MAVLINK_MSG_ID_217_MIN_LEN 39
+#define MAVLINK_MSG_ID_430_LEN 39
+#define MAVLINK_MSG_ID_430_MIN_LEN 39
 
 #define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_CRC 89
-#define MAVLINK_MSG_ID_217_CRC 89
+#define MAVLINK_MSG_ID_430_CRC 89
 
 #define MAVLINK_MSG_MOCAP_POSITION_CMD_FIELD_POS_LEN 3
 #define MAVLINK_MSG_MOCAP_POSITION_CMD_FIELD_VEL_LEN 3
@@ -30,7 +30,7 @@ typedef struct __mavlink_mocap_position_cmd_t {
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_MOCAP_POSITION_CMD { \
-    217, \
+    430, \
     "MOCAP_POSITION_CMD", \
     7, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_position_cmd_t, time_usec) }, \

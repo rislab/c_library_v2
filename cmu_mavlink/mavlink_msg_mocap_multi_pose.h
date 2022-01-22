@@ -1,30 +1,30 @@
 #pragma once
 // MESSAGE MOCAP_MULTI_POSE PACKING
 
-#define MAVLINK_MSG_ID_MOCAP_MULTI_POSE 216
+#define MAVLINK_MSG_ID_MOCAP_MULTI_POSE 429
 
-MAVPACKED(
+
 typedef struct __mavlink_mocap_multi_pose_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  int16_t pose[20]; /*<  Robot pose (x, y, z, heading) in m/10^3 or rad/10^4*/
  uint8_t npose; /*<  Number of poses (max 5)*/
  uint8_t ids[5]; /*<  Associated robot ids*/
-}) mavlink_mocap_multi_pose_t;
+} mavlink_mocap_multi_pose_t;
 
 #define MAVLINK_MSG_ID_MOCAP_MULTI_POSE_LEN 54
 #define MAVLINK_MSG_ID_MOCAP_MULTI_POSE_MIN_LEN 54
-#define MAVLINK_MSG_ID_216_LEN 54
-#define MAVLINK_MSG_ID_216_MIN_LEN 54
+#define MAVLINK_MSG_ID_429_LEN 54
+#define MAVLINK_MSG_ID_429_MIN_LEN 54
 
 #define MAVLINK_MSG_ID_MOCAP_MULTI_POSE_CRC 179
-#define MAVLINK_MSG_ID_216_CRC 179
+#define MAVLINK_MSG_ID_429_CRC 179
 
 #define MAVLINK_MSG_MOCAP_MULTI_POSE_FIELD_POSE_LEN 20
 #define MAVLINK_MSG_MOCAP_MULTI_POSE_FIELD_IDS_LEN 5
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_MOCAP_MULTI_POSE { \
-    216, \
+    429, \
     "MOCAP_MULTI_POSE", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_multi_pose_t, time_usec) }, \

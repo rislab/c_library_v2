@@ -1,30 +1,30 @@
 #pragma once
 // MESSAGE MOCAP_POSITION_CMD_GAINS PACKING
 
-#define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_GAINS 218
+#define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_GAINS 431
 
-MAVPACKED(
+
 typedef struct __mavlink_mocap_position_cmd_gains_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  float kp[3]; /*<  Proportional gains*/
  float kd[3]; /*<  Derivative gains*/
  uint8_t target_system; /*<  Target system*/
-}) mavlink_mocap_position_cmd_gains_t;
+} mavlink_mocap_position_cmd_gains_t;
 
 #define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_GAINS_LEN 33
 #define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_GAINS_MIN_LEN 33
-#define MAVLINK_MSG_ID_218_LEN 33
-#define MAVLINK_MSG_ID_218_MIN_LEN 33
+#define MAVLINK_MSG_ID_431_LEN 33
+#define MAVLINK_MSG_ID_431_MIN_LEN 33
 
 #define MAVLINK_MSG_ID_MOCAP_POSITION_CMD_GAINS_CRC 73
-#define MAVLINK_MSG_ID_218_CRC 73
+#define MAVLINK_MSG_ID_431_CRC 73
 
 #define MAVLINK_MSG_MOCAP_POSITION_CMD_GAINS_FIELD_KP_LEN 3
 #define MAVLINK_MSG_MOCAP_POSITION_CMD_GAINS_FIELD_KD_LEN 3
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_MOCAP_POSITION_CMD_GAINS { \
-    218, \
+    431, \
     "MOCAP_POSITION_CMD_GAINS", \
     4, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_mocap_position_cmd_gains_t, time_usec) }, \

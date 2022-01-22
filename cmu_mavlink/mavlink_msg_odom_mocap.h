@@ -1,9 +1,9 @@
 #pragma once
 // MESSAGE ODOM_MOCAP PACKING
 
-#define MAVLINK_MSG_ID_ODOM_MOCAP 209
+#define MAVLINK_MSG_ID_ODOM_MOCAP 422
 
-MAVPACKED(
+
 typedef struct __mavlink_odom_mocap_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  float q[4]; /*<  Attitude quaternion (w, x, y, z order, zero-rotation is 1, 0, 0, 0)*/
@@ -13,21 +13,21 @@ typedef struct __mavlink_odom_mocap_t {
  float vx; /*<  X velocity in m/s (NED)*/
  float vy; /*<  Y velocity in m/s (NED)*/
  float vz; /*<  Z velocity in m/s (NED)*/
-}) mavlink_odom_mocap_t;
+} mavlink_odom_mocap_t;
 
 #define MAVLINK_MSG_ID_ODOM_MOCAP_LEN 48
 #define MAVLINK_MSG_ID_ODOM_MOCAP_MIN_LEN 48
-#define MAVLINK_MSG_ID_209_LEN 48
-#define MAVLINK_MSG_ID_209_MIN_LEN 48
+#define MAVLINK_MSG_ID_422_LEN 48
+#define MAVLINK_MSG_ID_422_MIN_LEN 48
 
 #define MAVLINK_MSG_ID_ODOM_MOCAP_CRC 177
-#define MAVLINK_MSG_ID_209_CRC 177
+#define MAVLINK_MSG_ID_422_CRC 177
 
 #define MAVLINK_MSG_ODOM_MOCAP_FIELD_Q_LEN 4
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_ODOM_MOCAP { \
-    209, \
+    422, \
     "ODOM_MOCAP", \
     8, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_odom_mocap_t, time_usec) }, \

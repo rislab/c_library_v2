@@ -1,28 +1,28 @@
 #pragma once
 // MESSAGE CHARGER_GPIO PACKING
 
-#define MAVLINK_MSG_ID_CHARGER_GPIO 221
+#define MAVLINK_MSG_ID_CHARGER_GPIO 434
 
-MAVPACKED(
+
 typedef struct __mavlink_charger_gpio_t {
  uint64_t time_usec; /*<  Timestamp (micros since boot or Unix epoch)*/
  uint8_t target_system; /*<  Target system*/
  uint8_t on; /*<  toggle GPIO on or off*/
-}) mavlink_charger_gpio_t;
+} mavlink_charger_gpio_t;
 
 #define MAVLINK_MSG_ID_CHARGER_GPIO_LEN 10
 #define MAVLINK_MSG_ID_CHARGER_GPIO_MIN_LEN 10
-#define MAVLINK_MSG_ID_221_LEN 10
-#define MAVLINK_MSG_ID_221_MIN_LEN 10
+#define MAVLINK_MSG_ID_434_LEN 10
+#define MAVLINK_MSG_ID_434_MIN_LEN 10
 
 #define MAVLINK_MSG_ID_CHARGER_GPIO_CRC 54
-#define MAVLINK_MSG_ID_221_CRC 54
+#define MAVLINK_MSG_ID_434_CRC 54
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_CHARGER_GPIO { \
-    221, \
+    434, \
     "CHARGER_GPIO", \
     3, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_charger_gpio_t, time_usec) }, \
