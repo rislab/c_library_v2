@@ -140,10 +140,10 @@
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
       <field type="int16_t[4]" name="pose">Robot pose (x, y, z, heading) in m/10^3 or rad/10^4</field>
     </message>
-    <message id="436" name="MOCAP_PWM_DEBUG">
-      <description>PWM values sent to the ESCs</description>
+    <message id="436" name="MOCAP_ESC_COMMAND">
+      <description>Commands sent to the ESCs</description>
       <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
-      <field type="uint16_t[8]" name="pwms">PWM</field>
+      <field type="uint16_t[8]" name="cmds">CMD</field>
     </message>
     <message id="437" name="ATT_CTRL_DEBUG">
       <description>mocap_control attitude controller debug message</description>
